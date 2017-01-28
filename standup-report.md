@@ -31,3 +31,21 @@ People matching service bringing people together using an activity to help peopl
 * Build boilerplate MEAN stack
 * Build boilerplate ANGULAR front-end
 * Draft user journey and pseudocode
+
+####Afternoon conclusion:
+
+* Draft data model - completed
+* Build boilerplate MEAN stack - completed
+* Build boilerplate ANGULAR front-end - completed (as much as possible
+* Draft user journey and pseudocode - completed (as much as possible)
+
+####Aims by Monday:
+
+* Back-end authentication (Tom)
+* Front-end authentication (Luca)
+* User journey and wireframing (all team)
+
+- - - - - - - - 
+- - - - - - - - 
+- - - - - - - - 
+
