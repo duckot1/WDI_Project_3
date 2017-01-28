@@ -1,2 +1,4 @@
 angular
-  .module('clubMate', []);
+  .module('clubMate', [
+    'ui.router'
+  ]);

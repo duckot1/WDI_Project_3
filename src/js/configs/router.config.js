@@ -9,8 +9,9 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      template: <h1>Home</h1>;
-    })
+      template: '<h1>Home</h1>'
+    }
+  );
 
 
 }
