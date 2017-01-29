@@ -10,7 +10,7 @@ const eventSchema = new mongoose.Schema({
   event_emoji: { type: String, trim: true},
   event_comments: { type: String, trim: true},
   event_host: { type: String, trim: true},
-  event_attendee: { type: String, trim: true},
+  event_attendees: { type: String, trim: true},
   event_start_time: { type: String, trim: true},
   event_finish_time: { type: String, trim: true}
 },{
