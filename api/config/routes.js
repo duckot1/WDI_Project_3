@@ -17,16 +17,13 @@ router.route('events/:id')
   .delete(events.delete);
 
 router.route('users/:id')
-  .get(users.show);
+  .get(users.show)
+  .get(events.index);
 
 router.route('/register')
 .post(authentications.register);
 router.route('/login')
 .post(authentications.login);
-
-
-
-
 
 
 module.exports = router;
