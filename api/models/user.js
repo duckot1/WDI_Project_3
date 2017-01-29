@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
   passwordHash: { type: String, required: true },
   first_name: { type: String, trim: true, required: true },
   last_name: { type: String, trim: true, required: true },
-  passwordHash: { type: String, trim: true },
   profile_picture: { type: String, trim: true },
   age: { type: Number, required: true },
   latlng: { type: String, trim: true },
