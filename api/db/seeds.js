@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const databaseUrl = 'mongodb://localhost:27017/clubmate';
-mongoose.connect(databaseUrl);
+const config   = require('../config/config');
+mongoose.connect(config.db);
 
 const User = require('../models/user');
 
@@ -44,11 +44,4 @@ const users = [
     events_flaked: '',
     events_hosted: ''}];
 
-
-
-for (let i=0;i<users.length; i++){
-  users[i].create(function(err, user) {
-    if (err) return console.log(err);
-    console.log('user saved', user);
-  });
-}
+users.forEach(user => User.create(user, (err, user) => console.log(`${ user.first_name } was saved.`)));
