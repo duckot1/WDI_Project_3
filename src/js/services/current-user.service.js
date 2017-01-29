@@ -2,8 +2,8 @@ angular
   .module('clubMate')
   .service('CurrentUserService', CurrentUserService);
 
-CurrentUserService.$inject = ['TokenService', 'User'];
-function CurrentUserService(TokenService, User) {
+CurrentUserService.$inject = ['TokenService', 'User', '$rootScope'];
+function CurrentUserService(TokenService, User, $rootScope) {
   const self = this;
 
   self.getUser = () => {
@@ -14,7 +14,8 @@ function CurrentUserService(TokenService, User) {
         .get({ id: decoded.id })
         .$promise
         .then(data => {
-          console.log(data);
+          self.currentUser = data;
+          $rootScope.$broadcast('loggedIn');
         });
     }
   };

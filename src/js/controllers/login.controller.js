@@ -2,18 +2,18 @@ angular
   .module('clubMate')
   .controller('UserLoginCtrl', UserLoginCtrl);
 
-UserLoginCtrl.$inject = ['User'];
-function UserLoginCtrl(User) {
+UserLoginCtrl.$inject = ['User', 'CurrentUserService'];
+function UserLoginCtrl(User, CurrentUserService) {
   const vm =this;
 
   vm.login = () => {
     User
     .login(vm.user)
     .$promise
-    .then(data => {
-      console.log(data);
-    }), err => {
+    .then(() => {
+      CurrentUserService.getUser();
+    }, err => {
       console.log(err);
-    };
+    });
   };
 }
