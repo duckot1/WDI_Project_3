@@ -1,11 +1,13 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose  = require('mongoose');
+const bcrypt    = require('bcrypt');
+const validator = require('validator');
+
 
 const userSchema = new mongoose.Schema({
+  email: { type: String, unique: true, required: true },
+  passwordHash: { type: String, required: true },
   first_name: { type: String, trim: true, required: true },
   last_name: { type: String, trim: true, required: true },
-  email: { type: String, trim: true, required: true, unique: true },
-  passwordHash: { type: String, required: true },
   profile_picture: { type: String, trim: true },
   DoB: { type: String, trim: true },
   latlng: { type: String, trim: true },
@@ -19,16 +21,20 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema
-  .virtual('password')
-  .set(setPassword);
+.virtual('password')
+.set(setPassword);
 
 userSchema
-  .virtual('passwordConfirmation')
-  .set(setPasswordConfirmation);
+.virtual('passwordConfirmation')
+.set(setPasswordConfirmation);
 
 userSchema
-  .path('passwordHash')
-  .validate(validatePasswordHash);
+.path('passwordHash')
+.validate(validatePasswordHash);
+
+userSchema
+.path('email')
+.validate(validateEmail);
 
 userSchema.methods.validatePassword = validatePassword;
 
@@ -52,6 +58,12 @@ function validatePasswordHash() {
     if (this._password !== this._passwordConfirmation) {
       return this.invalidate('passwordConfirmation', 'Passwords do not match');
     }
+  }
+}
+
+function validateEmail(email) {
+  if (!validator.isEmail(email)) {
+    return this.invalidate('email', 'must be a valid email address');
   }
 }
 

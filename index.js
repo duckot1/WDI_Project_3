@@ -1,13 +1,13 @@
-const express  = require('express');
-const mongoose = require('mongoose');
+const express    = require('express');
+const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
 const expressJWT = require('express-jwt');
 const morgan     = require('morgan');
 
-const routes   = require('./api/config/routes');
-const app     = express();
-const dest    = `${__dirname}/public`;
-const config  = require('./api/config/config');
+const routes     = require('./api/config/routes');
+const app        = express();
+const dest       = `${__dirname}/public`;
+const config     = require('./api/config/config');
 
 mongoose.connect(config.db);
 
