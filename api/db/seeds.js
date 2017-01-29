@@ -1,19 +1,49 @@
 const mongoose = require('mongoose');
-const databaseUrl = 'mongodb://localhost:27017/clubmate';
-mongoose.connect(databaseUrl);
+const config   = require('../config/config');
+mongoose.connect(config.db);
 
 const User = require('../models/user');
 
 User.collection.drop();
 
-const user = new User({
-  first_name: 'Tom',
-  last_name: 'Duckworth',
-  email: 'tom@tom.com',
-  age: '99'
-});
+const users = [
+  {first_name: 'Tom',
+    last_name: 'Duckworth',
+    email: 'tom@tom.com',
+    password: '',
+    profile_picture: '',
+    DoB: '',
+    latlng: '',
+    bio: '',
+    events_attended: '',
+    events_requested: '',
+    events_flaked: '',
+    events_hosted: ''},
+  {first_name: 'Charlie',
+    last_name: 'Gavins',
+    email: 'charlie@gavins.com',
+    password: 'password',
+    profile_picture: '',
+    DoB: '',
+    latlng: '',
+    bio: '',
+    events_attended: '',
+    events_requested: '',
+    events_flaked: '',
+    events_hosted: ''},
+  {first_name: 'Thom',
+    last_name: 'Yorke',
+    email: 'thom@yorke.com',
+    password: '',
+    profile_picture: '',
+    DoB: '',
+    latlng: '',
+    bio: '',
+    events_attended: '',
+    events_requested: '',
+    events_flaked: '',
+    events_hosted: ''}];
 
-user.save(function (err, user){
-  if (err) return console.log(err);
-  console.log('user saved', user);
-});
+
+
+users.forEach(user => User.create(user, (err, user) => console.log(`${ user.first_name } was saved.`)));
