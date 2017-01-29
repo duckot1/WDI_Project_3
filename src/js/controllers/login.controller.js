@@ -2,8 +2,8 @@ angular
   .module('clubMate')
   .controller('UserLoginCtrl', UserLoginCtrl);
 
-UserLoginCtrl.$inject = ['User'];
-function UserLoginCtrl(User) {
+UserLoginCtrl.$inject = ['User', 'TokenService'];
+function UserLoginCtrl(User, TokenService) {
   const vm =this;
 
   vm.login = () => {
@@ -12,6 +12,7 @@ function UserLoginCtrl(User) {
     .$promise
     .then(data => {
       console.log(data);
+      TokenService.setToken(data.token);
     }, err => {
       console.log(err);
     });
