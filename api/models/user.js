@@ -42,10 +42,10 @@ const validator = require('validator');
 
 
 const userSchema = new mongoose.Schema({
-  email: { type: String, unique: true, required: true },
-  passwordHash: { type: String, required: true },
   first_name: { type: String, trim: true, required: true },
   last_name: { type: String, trim: true, required: true },
+  email: { type: String, unique: true, required: true },
+  passwordHash: { type: String},
   profile_picture: { type: String, trim: true },
   DoB: { type: String, trim: true },
   latlng: { type: String, trim: true },
@@ -54,8 +54,6 @@ const userSchema = new mongoose.Schema({
   events_requested: { type: String, trim: true },
   events_flaked: { type: String, trim: true },
   events_hosted: { type: String, trim: true }
-},{
-  timestamps: true
 });
 
 userSchema
