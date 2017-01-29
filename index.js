@@ -2,7 +2,7 @@ const express  = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressJWT = require('express-jwt');
-
+const morgan     = require('morgan');
 
 const routes   = require('./api/config/routes');
 const app     = express();
@@ -13,6 +13,7 @@ mongoose.connect(config.db);
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
+app.use(morgan('dev'));
 
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({

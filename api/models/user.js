@@ -2,27 +2,22 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, unique: true, required: true },
-  email: { type: String, unique: true, required: true }, 
-  passwordHash: { type: String, required: true }
-});
 
-// const userSchema = new mongoose.Schema({
-//   first_name: { type: String, trim: true, required: true },
-//   last_name: { type: String, trim: true, required: true },
-//   email: { type: String, trim: true, required: true },
-//   password: { type: String, trim: true },
-//   profile_picture: { type: String, trim: true },
-//   age: { type: Number, required: true },
-//   latlng: { type: String, trim: true },
-//   bio: { type: String, trim: true },
-//   events_attended: { type: String, trim: true },
-//   events_requested: { type: String, trim: true },
-//   events_flaked: { type: String, trim: true },
-//   events_hosted: { type: String, trim: true }
-// },{
-//   timestamps: true
-// });
+  email: { type: String, unique: true, required: true },
+  passwordHash: { type: String, required: true },
+  first_name: { type: String, trim: true, required: true },
+  last_name: { type: String, trim: true, required: true },
+  profile_picture: { type: String, trim: true },
+  age: { type: Number, required: true },
+  latlng: { type: String, trim: true },
+  bio: { type: String, trim: true },
+  events_attended: { type: String, trim: true },
+  events_requested: { type: String, trim: true },
+  events_flaked: { type: String, trim: true },
+  events_hosted: { type: String, trim: true }
+},{
+  timestamps: true
+});
 
 userSchema
   .virtual('password')
