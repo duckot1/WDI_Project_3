@@ -55,7 +55,13 @@
     "express": "^4.14.0",
     "express-jwt": "^5.1.0",
     "jsonwebtoken": "^7.2.1",
+<<<<<<< HEAD
     "mongoose": "^4.7.9"
+=======
+    "mongoose": "^4.7.9",
+    "morgan": "^1.7.0",
+    "validator": "^6.2.1"
+>>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
