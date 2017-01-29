@@ -8,4 +8,8 @@ function MainCtrl($rootScope, CurrentUserService) {
   $rootScope.$on('loggedIn', () => {
     vm.user = CurrentUserService.currentUser;
   });
+  vm.logout = () => {
+    $rootScope.$on('loggedOut');
+    vm.user = null;
+  };
 }
