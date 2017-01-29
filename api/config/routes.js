@@ -5,7 +5,6 @@ const authentications = require('../controllers/authentications');
 const events          = require('../controllers/events');
 const users           = require('../controllers/users');
 
-
 router.route('/events')
   .get(events.index)
   .post(events.create);
