@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express  = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -14,7 +13,7 @@ mongoose.connect(config.db);
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
-=======
+
 const express    = require('express');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
@@ -31,7 +30,6 @@ mongoose.connect(config.db);
 app.use(bodyParser.json());
 app.use(express.static(dest));
 app.use(morgan('dev'));
->>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
 
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({

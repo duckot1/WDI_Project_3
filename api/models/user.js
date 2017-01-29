@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
@@ -36,7 +35,7 @@ userSchema
 userSchema
   .path('passwordHash')
   .validate(validatePasswordHash);
-=======
+
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 const validator = require('validator');
@@ -74,7 +73,6 @@ userSchema
 userSchema
 .path('email')
 .validate(validateEmail);
->>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
 
 userSchema.methods.validatePassword = validatePassword;
 
@@ -101,15 +99,13 @@ function validatePasswordHash() {
   }
 }
 
-<<<<<<< HEAD
-=======
+
 function validateEmail(email) {
   if (!validator.isEmail(email)) {
     return this.invalidate('email', 'must be a valid email address');
   }
 }
 
->>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
 function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
