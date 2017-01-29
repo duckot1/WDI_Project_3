@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-
-const userSchema = new mongoose.Schema({
-  username: { type: String, unique: true, required: true },
-  email: { type: String, unique: true, required: true },
-  passwordHash: { type: String, required: true }
-});
-
-// const userSchema = new mongoose.Schema({
-//   first_name: { type: String, trim: true, required: true },
-//   last_name: { type: String, trim: true, required: true },
-//   email: { type: String, trim: true, required: true },
-//   password: { type: String, trim: true },
-//   profile_picture: { type: String, trim: true },
-//   age: { type: Number, required: true },
-//   latlng: { type: String, trim: true },
-//   bio: { type: String, trim: true },
-//   events_attended: { type: String, trim: true },
-//   events_requested: { type: String, trim: true },
-//   events_flaked: { type: String, trim: true },
-//   events_hosted: { type: String, trim: true }
-// },{
-//   timestamps: true
-// });
-
-userSchema
-  .virtual('password')
-  .set(setPassword);
-
-userSchema
-  .virtual('passwordConfirmation')
-  .set(setPasswordConfirmation);
-
-userSchema
-  .path('passwordHash')
-  .validate(validatePasswordHash);
-=======
 const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 const validator = require('validator');
@@ -74,7 +35,6 @@ userSchema
 userSchema
 .path('email')
 .validate(validateEmail);
->>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
 
 userSchema.methods.validatePassword = validatePassword;
 
@@ -101,15 +61,13 @@ function validatePasswordHash() {
   }
 }
 
-<<<<<<< HEAD
-=======
+
 function validateEmail(email) {
   if (!validator.isEmail(email)) {
     return this.invalidate('email', 'must be a valid email address');
   }
 }
 
->>>>>>> 6ddf7d30a73a76231d6939a1d6947365e4b9c26d
 function validatePassword(password){
   return bcrypt.compareSync(password, this.passwordHash);
 }
