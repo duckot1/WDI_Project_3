@@ -1,19 +1,3 @@
-const express  = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const expressJWT = require('express-jwt');
-
-
-const routes   = require('./api/config/routes');
-const app     = express();
-const dest    = `${__dirname}/public`;
-const config  = require('./api/config/config');
-
-mongoose.connect(config.db);
-
-app.use(bodyParser.json());
-app.use(express.static(dest));
-
 const express    = require('express');
 const mongoose   = require('mongoose');
 const bodyParser = require('body-parser');
@@ -29,7 +13,7 @@ mongoose.connect(config.db);
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
-app.use(morgan('dev'));
+app.use(morgan('dev')); 
 
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({
