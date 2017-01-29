@@ -15,14 +15,20 @@ router.route('events/:id')
   .patch(events.update)
   .delete(events.delete);
 
-router.route('users/:id')
-  .get(users.show)
-  .get(events.index);
+// router.route('users/:id')
+//   .get(users.show)
+//   .get(events.index);
+
+router.route('/events/:id/users')
+  .post(events.create);
+router.route('/events/:event_id/users/:id')
+  .get(events.show)
+  .put(events.update)
+  .delete(events.delete);
 
 router.route('/register')
 .post(authentications.register);
 router.route('/login')
 .post(authentications.login);
-
 
 module.exports = router;
