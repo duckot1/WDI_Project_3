@@ -13,11 +13,10 @@ mongoose.connect(config.db);
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
-<<<<<<< HEAD
-app.use(morgan('dev')); 
-=======
+
 app.use(morgan('dev'));
->>>>>>> backend
+
+app.use(morgan('dev'));
 
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({
