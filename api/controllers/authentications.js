@@ -8,7 +8,7 @@ const jwt      = require('jsonwebtoken');
 const config = require('../config/config');
 
 function authenticationsRegister(req, res){
-  User.create(req.body.user, (err, user) => {
+  User.create(req.body, (err, user) => {
     if (err) {
       console.log(err);
       return res.status(500).json({ message: 'Something went wrong1!' });
