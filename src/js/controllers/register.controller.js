@@ -1,9 +1,9 @@
 angular
   .module('clubMate')
-  .controller('userRegisterCtrl', userRegisterCtrl);
+  .controller('UserRegisterCtrl', UserRegisterCtrl);
 
-userRegisterCtrl.$inject = ['User'];
-function userRegisterCtrl(User) {
+UserRegisterCtrl.$inject = ['User'];
+function UserRegisterCtrl(User) {
   const vm = this;
   vm.register = () => {
     User
