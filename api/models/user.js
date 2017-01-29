@@ -6,7 +6,7 @@ const validator = require('validator');
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true, required: true },
   passwordHash: { type: String, required: true },
-  name: { type: String, trim: true, required: true },
+  first_name: { type: String, trim: true, required: true },
   last_name: { type: String, trim: true, required: true },
   profile_picture: { type: String, trim: true },
   DoB: { type: String, trim: true },
