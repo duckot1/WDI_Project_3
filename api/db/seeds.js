@@ -7,9 +7,10 @@ const User = require('../models/user');
 User.collection.drop();
 
 const users = [
-  {first_name: 'Tom',
+  {
+    first_name: 'Tom',
     last_name: 'Duckworth',
-    email: 'tom@tom.com',
+    email: 'tom@tom12.com',
     passwordHash: '',
     profile_picture: '',
     DoB: '',
@@ -18,10 +19,11 @@ const users = [
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''},
-  {first_name: 'Charlie',
+    events_hosted: ''
+  },{
+    first_name: 'Charlie',
     last_name: 'Gavins',
-    email: 'charlie@gavins.com',
+    email: 'charlie@gavins12.com',
     passwordHash: '',
     profile_picture: '',
     DoB: '',
@@ -30,10 +32,11 @@ const users = [
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''},
-  {first_name: 'Thom',
+    events_hosted: ''
+  },{
+    first_name: 'Thom',
     last_name: 'Yorke',
-    email: 'thom@yorke.com',
+    email: 'thom@yorke12.com',
     passwordHash: '',
     profile_picture: '',
     DoB: '',
@@ -42,6 +45,8 @@ const users = [
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''}];
+    events_hosted: ''}
+];
 
-users.forEach(user => User.create(user, (err, user) => console.log(`${ user.first_name } was saved.`)));
+users.forEach(user => User.create(user, (err, user) => console.log(`${user.first_name}`)
+));
