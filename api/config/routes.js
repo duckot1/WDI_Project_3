@@ -4,6 +4,7 @@ const router          = express.Router();
 const authentications = require('../controllers/authentications');
 const events          = require('../controllers/events');
 const users           = require('../controllers/users');
+const requests         = require('../controllers/requests');
 
 router.route('/users')
   .get(users.index);
@@ -48,5 +49,10 @@ router.route('/register')
 .post(authentications.register);
 router.route('/login')
 .post(authentications.login);
+
+router.route('/requests')
+.post(requests.send);
+router.route('/requests/:id')
+.get(requests.inbox);
 
 module.exports = router;
