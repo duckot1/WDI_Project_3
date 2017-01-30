@@ -11,7 +11,7 @@ function UsersShowCtrl(API, $stateParams, User, $state){
   console.log(vm.user, 'show vm.user');
 
   function usersDelete(user){
-    console.log(user, 'userDelete')
+    console.log(user, 'userDelete');
     User
       .delete({ id: user._id })
       .$promise

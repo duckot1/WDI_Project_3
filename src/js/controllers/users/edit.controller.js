@@ -14,8 +14,8 @@ function UsersEditCtrl(API, $stateParams, User, $state){
       .update({ id: $stateParams.id }, vm.user)
       .$promise
       .then(() => {
-        console.log('I have updated')
-        console.log(vm.user, 'update vm.user')
+        console.log('I have updated');
+        console.log(vm.user, 'update vm.user');
         $state.go('usersShow', { id: `${$stateParams.id}` });
       });
   }
