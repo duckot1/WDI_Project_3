@@ -35,7 +35,7 @@ function eventsShow(req, res){
 
   Event
   .findById({ _id: id })
-  .populate(['event_host'])
+  .populate(['event_host', 'event_attendee', 'event_users_interested'])
   .exec((err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });

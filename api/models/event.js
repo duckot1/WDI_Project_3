@@ -11,10 +11,13 @@ const eventSchema = new mongoose.Schema({
   event_img: { type: String, trim: true},
   event_emoji: { type: String, trim: true},
   event_host: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  // event_host: { type: String, trim: true},
   event_start_time: { type: Number, trim: true},
   event_finish_time: { type: Number, trim: true},
   event_attendee: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  // event_attendee: { type: String, trim: true},
   event_users_interested: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  // event_users_interested: { type: String, trim: true},
   event_state: { type: Boolean }
 },{
   timestamps: true
