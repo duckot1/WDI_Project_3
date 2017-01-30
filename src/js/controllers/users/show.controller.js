@@ -2,11 +2,21 @@ angular
   .module('clubMate')
   .controller('UsersShowCtrl', UsersShowCtrl);
 
-UsersShowCtrl.$inject = ['API', '$stateParams', 'User'];
-function UsersShowCtrl(API, $stateParams, User){
-  console.log('this is working');
+UsersShowCtrl.$inject = ['API', '$stateParams', 'User', '$state'];
+function UsersShowCtrl(API, $stateParams, User, $state){
   const vm = this;
   vm.user = User.get($stateParams);
+  vm.delete = usersDelete;
 
-  console.log(vm.user);
+  console.log(vm.user, 'show vm.user');
+
+  function usersDelete(user){
+    console.log(user, 'userDelete')
+    User
+      .delete({ id: user._id })
+      .$promise
+      .then(() => {
+        $state.go('home');
+      });
+  }
 }
