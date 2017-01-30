@@ -60,3 +60,9 @@ Remyce and Sarah working on back end controllers.
 Charlie working on seed data and the models, how they work with each other.
 
 Luca and Tom on front-end.
+
+##### **2pm Stand-up**
+
+Sarah working on user show pages on front end while Luca works on event show front end.
+
+Tom and Charlie to work through seeds and starting matching engine.
