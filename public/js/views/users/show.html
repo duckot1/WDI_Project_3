@@ -1,6 +1,18 @@
-<h1>{{usersShow.user.first_name}}</h1>
-<h1>{{usersShow.user.last_name}}</h1>
-<h1>{{usersShow.user.DoB}}</h1>
+<h1>User Profile</h1>
+
+<img src="{{usersShow.user.profile_picture}}" alt="Profile Picture">
+<h5>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h5>
+<p>location &bull; {{usersShow.user.DoB}}</p>
+
+<h5>Bio</h5>
+<p>{{usersShow.user.bio}}</p>
+
+<ul>
+  <li ng-repeat="events in usersShow">{{usersShow.user.events_attended}}</li>
+</ul>
+
+<h5>Events attended</h5>
+<p>{{parseInt(usersShow.user.events_attended)}}</p>
 
 <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
 
