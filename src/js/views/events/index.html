@@ -1,3 +1,5 @@
-<h1>Events</h1>
-
-<h2>{{eventsIndex.name}}</h2>
+<h1>Events List</h1>
+<div class="container" ng-repeat ="event in events.events">
+    <a ui-sref="eventsShow({ id: event._id})"><h3 class="button">{{ event.name }}</h3></a>
+    <img ng-src="{{ events.image }}" alt="{{ events.name }}">
+</div>

@@ -75,8 +75,7 @@ users.forEach(user => User.create(user, (err, user) => console.log(user)
 
 const events = [
   {
-    event_address: '
-2, Oliver’s Yard, 55 City Rd, London EC1Y 1HQ',
+    event_address: '2, Oliver’s Yard, 55 City Rd, London EC1Y 1HQ',
     event_latlng: '51.523928, -0.086171',
     event_name: 'Coffee with Thom',
     event_description: 'Enjoy this place I\'ve never been to',
@@ -93,4 +92,4 @@ const events = [
   },{
     timestamps: true
   }
-]
+];
