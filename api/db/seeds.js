@@ -3,8 +3,10 @@ const config   = require('../config/config');
 mongoose.connect(config.db);
 
 const User = require('../models/user');
+const Event = require('../models/event');
 
 User.collection.drop();
+Event.collection.drop();
 
 const users = [
   {
@@ -16,10 +18,6 @@ const users = [
     lat: '51.522245',
     lng: '-0.083897',
     bio: 'Radiohead man',
-    events_attended: '',
-    events_requested: 'filler',
-    events_flaked: 'filler',
-    events_hosted: 'filler',
     password: 'password',
     passwordConfirmation: 'password'
   },{
@@ -31,10 +29,6 @@ const users = [
     lat: '51.522245',
     lng: '-0.083897',
     bio: 'Piano man',
-    events_attended: 'filler',
-    events_requested: 'filler',
-    events_flaked: 'fillerfiller',
-    events_hosted: 'filler',
     password: 'password',
     passwordConfirmation: 'password'
   },{
@@ -46,10 +40,6 @@ const users = [
     lat: '51.522245',
     lng: '-0.083897',
     bio: 'Ambient man',
-    events_attended: 'filler',
-    events_requested: 'filler',
-    events_flaked: 'filler',
-    events_hosted: 'filler',
     password: 'password',
     passwordConfirmation: 'password'
   },{
@@ -60,23 +50,20 @@ const users = [
     DoB: '23/07/1968',
     latlng: '51.522245, -0.083897',
     bio: 'Ambient man',
-    events_attended: 'filler',
-    events_requested: 'filler',
-    events_flaked: 'filler',
-    events_hosted: 'filler',
     password: 'password',
     passwordConfirmation: 'password'
   }
 ];
 
-users.forEach(user => User.create(user, (err, user) => console.log(user)
-));
-
-
 const events = [
   {
     event_address: '2, Oliver’s Yard, 55 City Rd, London EC1Y 1HQ',
+<<<<<<< HEAD
     event_latlng: '51.523928, -0.086171',
+=======
+    event_lat: '51.523928',
+    event_lng: '-0.086171',
+>>>>>>> f42fd2c59f83c9dbed85d0dfe3361257ef87e788
     event_name: 'Coffee with Thom',
     event_description: 'Enjoy this place I\'ve never been to',
     event_cost: '£100',
@@ -86,10 +73,59 @@ const events = [
     event_host: users[0]._id,
     event_start_time: 1000,
     event_finish_time: 1100,
-    event_attendee: users[1].id,
-    event_users_interested: users[2].id,
+    event_attendee: users[1]._id,
+    event_users_interested: users[2]._id,
     event_state: false
   },{
-    timestamps: true
-  }
+    event_address: '32-37 Cowper St, London EC2A 4AP',
+    event_lat: '51.525397',
+    event_lng: '-0.086171',
+    event_name: 'Rave with Nils',
+    event_description: 'lets go to a club night',
+    event_cost: 'free',
+    event_url: 'http://xoyo.co.uk//',
+    event_img: 'https://lh3.googleusercontent.com/-schD0n5b6xc/UeB4EKnjIHI/AAAAAAAEArA/A2LVs-7MtR4GlptzMcuk9MvXd7S1oYIogCJkC/s408-k-no/',
+    event_emoji: '💃',
+    event_host: users[1]._id,
+    event_start_time: 2100,
+    event_finish_time: 0300,
+    event_attendee: '',
+    event_users_interested: [users[2]._id, users[0]._id],
+    event_state: true
+  },{
+    event_address: '100-106 Leonard St, London EC2A 4RH',
+    event_lat: '51.524534',
+    event_lng: '-0.081499',
+    event_name: 'Read some books',
+    event_description: 'lets go for ham eggs and chips!',
+    event_cost: '£30',
+    event_url: 'http://wearetbc.com//',
+    event_img: 'http://www.wearetbc.com/wp-content/themes/thebookclub/images/logo.svg',
+    event_emoji: '📚',
+    event_host: users[2]._id,
+    event_start_time: 2100,
+    event_finish_time: 0300,
+    event_attendee: '',
+    event_users_interested: [users[1]._id, users[0]._id],
+    event_state: true
+  },
 ];
+
+// events.forEach(event => Event.create(event, (err, event) => console.log(event)));
+//
+var count = 0;
+
+users.forEach(user => User.create(user, (err, user) =>
+{
+  console.log(user);
+  count ++;
+  if (count === users.length){
+    events.forEach(event => Event.create(event, (err, event) => {
+      console.log(event);
+    }));
+  }
+<<<<<<< HEAD
+];
+=======
+}));
+>>>>>>> f42fd2c59f83c9dbed85d0dfe3361257ef87e788
