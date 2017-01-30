@@ -2,10 +2,11 @@ angular
   .module('clubMate')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['API','$http', '$stateParams', 'User', 'CurrentUserService'];
-function EventsShowCtrl(API, $http, $stateParams, User, CurrentUserService) {
+EventsShowCtrl.$inject = ['API','$http', '$stateParams', 'User', 'TokenService'];
+function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
   const vm = this;
   vm.request = {};
+  const decoded = TokenService.decodeToken();
 
   EventsShow();
 
@@ -21,9 +22,9 @@ function EventsShowCtrl(API, $http, $stateParams, User, CurrentUserService) {
       .delete(`${API}/events/${$stateParams.id}`);
   };
   vm.interest = function(host) {
-    console.log(host.event_host);
+    console.log(decoded);
     vm.request.receiver_id = host.event_host;
-    vm.request.sender_id = CurrentUserService.getUser()._id;
+    vm.request.sender_id = decoded.id;
     vm.request.event_id = host._id;
     User
       .request(vm.request)

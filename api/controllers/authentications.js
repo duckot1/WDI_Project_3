@@ -13,7 +13,7 @@ function authenticationsRegister(req, res){
       console.log(err);
       return res.status(500).json({ message: 'Something went wrong1!' });
     }
-    const token = jwt.sign(user._id, config.secret, { expiresIn: 60*60*24 });
+    const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 60*60*24 });
     return res.status(201).json({
       message: `Welcome ${user.first_name}!`,
       user,
@@ -28,7 +28,7 @@ function authenticationsLogin(req, res) {
     if (!user || !user.validatePassword(req.body.password)) {
       return res.status(401).json({ message: ' Unauthorised' });
     }
-    const token = jwt.sign(user._id, config.secret, { expiresIn: 60*60*24 });
+    const token = jwt.sign({ id: user._id }, config.secret, { expiresIn: 60*60*24 });
     return res.status(200).json({
       message: 'Welcome back.',
       user,
