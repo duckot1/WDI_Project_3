@@ -15,6 +15,7 @@ function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
       .get(`${API}/events/${$stateParams.id}`)
       .then(response => {
         vm.event = response.data;
+        console.log(vm.event);
       });
   }
   vm.delete = function eventsDelete() {
@@ -22,7 +23,7 @@ function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
       .delete(`${API}/events/${$stateParams.id}`);
   };
   vm.interest = function(host) {
-    console.log(decoded);
+    // console.log(decoded);
     vm.request.receiver_id = host.event_host;
     vm.request.sender_id = decoded.id;
     vm.request.event_id = host._id;
@@ -30,7 +31,7 @@ function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
       .request(vm.request)
       .$promise
       .then(data => {
-        console.log(data);
+        // console.log(data);
       });
   };
 }

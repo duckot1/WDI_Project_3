@@ -1,5 +1,6 @@
 <h2>{{ events.event.event_name }}</h2>
 <img ng-src="{{ events.event.event_img }}" alt="{{ events.event.event_name }}">
+<a ui-sref="usersShow({id : events.event.event_host._id})"><h3>{{events.event.event_host.first_name}} {{events.event.event_host.last_name}}</h3></a>
 <br>
 <br>
 <button class="btn btn-primary" ui-sref="eventsEdit({ id: events.event._id })">Edit</button>

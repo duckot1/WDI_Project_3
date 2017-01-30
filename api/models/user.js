@@ -12,11 +12,7 @@ const userSchema = new mongoose.Schema({
   DoB: { type: String, trim: true },
   lat: { type: String, trim: true },
   lng: { type: String, trim: true },
-  bio: { type: String, trim: true },
-  events_attended: { type: mongoose.Schema.ObjectId, ref: 'Event' },
-  events_interested: { type: mongoose.Schema.ObjectId, ref: 'Event' },
-  events_flaked: { type: mongoose.Schema.ObjectId, ref: 'Event' },
-  events_hosted: { type: mongoose.Schema.ObjectId, ref: 'Event' }
+  bio: { type: String, trim: true }
 });
 
 userSchema
