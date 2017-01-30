@@ -26,6 +26,7 @@ function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
     vm.request.receiver_id = host.event_host;
     vm.request.sender_id = decoded.id;
     vm.request.event_id = host._id;
+    vm.request.text = 'I\'d like to go!';
     User
       .request(vm.request)
       .$promise
