@@ -31,8 +31,8 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
       controllerAs: 'events'
     })
     .state('eventsShow', {
-      url: '/events',
-      templateUrl: '/js/views/events/index.html',
+      url: '/events/:id',
+      templateUrl: '/js/views/events/show.html',
       controller: 'EventsShowCtrl',
       controllerAs: 'events'
     })
