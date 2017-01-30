@@ -3,3 +3,5 @@
 <h1>{{usersShow.user.DoB}}</h1>
 
 <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
+
+<button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
