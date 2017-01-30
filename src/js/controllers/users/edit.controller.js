@@ -5,7 +5,7 @@ angular
 UsersEditCtrl.$inject = ['API', '$stateParams', 'User', '$state'];
 function UsersEditCtrl(API, $stateParams, User, $state){
   const vm = this;
-
+  console.log($stateParams);
   vm.user = User.get($stateParams);
   vm.update = usersUpdate;
 

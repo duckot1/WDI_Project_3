@@ -1,19 +1,24 @@
-<h1>User Profile</h1>
+<div ng-if="usersShow.user.email">
+<h1>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h1>
 
 <img src="{{usersShow.user.profile_picture}}" alt="Profile Picture">
-<h5>{{usersShow.user.first_name}} {{usersShow.user.last_name}}</h5>
 <p>location &bull; {{usersShow.user.DoB}}</p>
 
-<h5>Bio</h5>
+<h4>Bio</h4>
 <p>{{usersShow.user.bio}}</p>
 
-<ul>
-  <li ng-repeat="events in usersShow">{{usersShow.user.events_attended}}</li>
-</ul>
+<!-- <ul>
+  <li ng-repeat="users in usersShow">{{usersShow.user.events_attended}}</li>
+</ul> -->
 
-<h5>Events attended</h5>
+<h4>Events attended</h4>
 <p>{{parseInt(usersShow.user.events_attended)}}</p>
 
 <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
 
 <button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
+</div>
+
+<div ng-if="!usersShow.user.email">
+  <h1>No User Exists</h1>
+</div>
