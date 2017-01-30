@@ -5,6 +5,7 @@ angular
 EventsShowCtrl.$inject = ['API','$http', '$stateParams', 'User', 'TokenService'];
 function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
   const vm = this;
+
   vm.request = {};
   const decoded = TokenService.decodeToken();
 
@@ -23,7 +24,10 @@ function EventsShowCtrl(API, $http, $stateParams, User, TokenService) {
       .delete(`${API}/events/${$stateParams.id}`);
   };
   vm.interest = function(host) {
+<<<<<<< HEAD
     // console.log(decoded);
+=======
+>>>>>>> a28ccd8480fdfc8c2da9fb7977b1c213c7201835
     vm.request.receiver_id = host.event_host;
     vm.request.sender_id = decoded.id;
     vm.request.event_id = host._id;
