@@ -10,12 +10,13 @@ const userSchema = new mongoose.Schema({
   passwordHash: { type: String},
   profile_picture: { type: String, trim: true },
   DoB: { type: String, trim: true },
-  latlng: { type: String, trim: true },
+  lat: { type: String, trim: true },
+  lng: { type: String, trim: true },
   bio: { type: String, trim: true },
-  events_attended: { type: String, trim: true },
-  events_requested: { type: String, trim: true },
-  events_flaked: { type: String, trim: true },
-  events_hosted: { type: String, trim: true }
+  events_attended: { type: mongoose.Schema.ObjectId, ref: 'Event' },
+  events_interested: { type: mongoose.Schema.ObjectId, ref: 'Event' },
+  events_flaked: { type: mongoose.Schema.ObjectId, ref: 'Event' },
+  events_hosted: { type: mongoose.Schema.ObjectId, ref: 'Event' }
 });
 
 userSchema
