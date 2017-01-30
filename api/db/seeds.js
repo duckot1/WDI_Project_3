@@ -134,8 +134,8 @@ function createEvents(done){
     if (err) return done(err);
     events.forEach(event => Event.create(event, (err, event) => {
       console.log(event);
-      if (err) return done(err);
-      done(null);
+      // if (err) return done(err);
+      // done(null);
     }));
   });
 }
