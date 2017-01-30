@@ -1,1 +1,5 @@
-<h1>{{usersShow.name}}</h1>
+<h1>{{usersShow.user.first_name}}</h1>
+<h1>{{usersShow.user.last_name}}</h1>
+<h1>{{usersShow.user.DoB}}</h1>
+
+<button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
