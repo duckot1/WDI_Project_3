@@ -1,8 +1,21 @@
 <h2>Edit User</h2>
+
 <form ng-submit="usersEdit.update()">
+
   <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="name" ng-model="usersEdit.user.first_name">
+
+    <label for="first_name">Fist Name</label>
+    <input type="text" class="form-control" id="first_name" name="first_name" ng-model="usersEdit.user.first_name">
+
+    <label for="first_name">Last Name</label>
+    <input type="text" class="form-control" id="last_name" name="last_name" ng-model="usersEdit.user.last_name">
+
+    <label for="first_name">Date of Birth</label>
+    <input type="text" class="form-control" id="DoB" name="DoB" ng-model="usersEdit.user.DoB">
+
+    <label for="first_name">Bio</label>
+    <input type="text" class="form-control" id="bio" name="bio" ng-model="usersEdit.user.bio">
+
   </div>
 
   <input type="submit" class="btn btn-default btn-block" value="Add">
