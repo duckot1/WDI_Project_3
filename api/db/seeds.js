@@ -7,41 +7,55 @@ const User = require('../models/user');
 User.collection.drop();
 
 const users = [
-  {first_name: 'Tom',
+  {
+    first_name: 'Tom',
     last_name: 'Duckworth',
     email: 'tom@tom.com',
-    passwordHash: '',
+    password: 'password',
+    passwordConfirmation: 'password',
     profile_picture: '',
-    DoB: '',
+    age: '26',
     latlng: '',
     bio: '',
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''},
-  {first_name: 'Charlie',
+    events_hosted: ''
+  }, {
+    first_name: 'Charlie',
     last_name: 'Gavins',
     email: 'charlie@gavins.com',
-    passwordHash: '',
+    password: 'password',
+    passwordConfirmation: 'password',
     profile_picture: '',
-    DoB: '',
+    age: '62',
     latlng: '',
     bio: '',
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''},
-  {first_name: 'Thom',
+    events_hosted: ''
+  }, {
+    first_name: 'Thom',
     last_name: 'Yorke',
     email: 'thom@yorke.com',
-    passwordHash: '',
+    password: 'password',
+    passwordConfirmation: 'password',
     profile_picture: '',
-    DoB: '',
+    age: '48',
     latlng: '',
     bio: '',
     events_attended: '',
     events_requested: '',
     events_flaked: '',
-    events_hosted: ''}];
+    events_hosted: ''
+  }];
 
-users.forEach(user => User.create(user, (err, user) => console.log(`${ user.first_name } was saved.`)));
+// users.forEach(user => User.create(user, (err, user) => console.log(`${ user.first_name } was saved.`)));
+
+for (var i = 0; i < users.length; i++) {
+  User.create(users[i], (err, user) => {
+    console.log(err);
+    console.log(`${ user.first_name } was saved.`);
+  });
+}

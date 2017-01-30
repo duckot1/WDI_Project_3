@@ -5,7 +5,9 @@ angular
 UserRegisterCtrl.$inject = ['User'];
 function UserRegisterCtrl(User) {
   const vm = this;
+  vm.hello = 'hello';
   vm.register = () => {
+    console.log(vm.user);
     User
     .register(vm.user)
     .$promise

@@ -1,5 +1,6 @@
 angular
   .module('clubMate', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'ui.bootstrap'
   ]);
