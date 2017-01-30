@@ -1,3 +1,4 @@
+// const User  = require('../models/user');
 const Event = require('../models/event');
 
 module.exports = {
@@ -10,6 +11,7 @@ module.exports = {
 
 function eventsIndex(req, res){
   Event
+  // .populate('users')
   .find({}, (err, events) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json(events);
@@ -33,7 +35,7 @@ function eventsShow(req, res){
 
   Event
   .findById({ _id: id })
-  .populate('events')
+  .populate(['event_host', 'event_attendee', 'event_users_interested'])
   .exec((err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
