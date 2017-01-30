@@ -10,9 +10,9 @@ module.exports = {
 
 function eventsIndex(req, res){
   Event
-  .find({}, (err, event) => {
+  .find({}, (err, events) => {
     if (err) return res.status(500).json(err);
-    return res.status(200).json(event);
+    return res.status(200).json(events);
   });
 }
 
