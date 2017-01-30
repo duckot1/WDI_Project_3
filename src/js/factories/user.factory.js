@@ -7,6 +7,7 @@ function userFactory(API, $resource) {
   return $resource(`${API}/users/:id`, { id: '@_id' }, {
     register: { method: 'POST', url: `${API}/register`},
     login: { method: 'POST', url: `${API}/login`},
-    update: { method: 'PATCH', url: `${API}/users/:id`}
+    update: { method: 'PATCH', url: `${API}/users/:id`},
+    request: { method: 'POST', url: `${API}/requests`}
   });
 }

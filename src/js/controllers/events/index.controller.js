@@ -2,9 +2,17 @@ angular
   .module('clubMate')
   .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = [];
-function EventsIndexCtrl(){
+EventsIndexCtrl.$inject = ['$http', 'API'];
+function EventsIndexCtrl($http, API){
   const vm = this;
 
-  vm.name = 'Sarah';
+  eventsIndex();
+
+  function eventsIndex() {
+    return $http
+    .get(`${API}/events`)
+    .then(response => {
+      vm.events = response.data;
+    });
+  }
 }
