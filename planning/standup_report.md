@@ -1,4 +1,4 @@
-### Sunday, 28th January 2017
+### Saturday, 28th January 2017
 
 ##### **12pm Stand-up**
 
@@ -11,10 +11,10 @@ People matching service bringing people together using an activity to help peopl
 ##### Key points of refinement and exploration for MVP
 
 
-* Matching a host to an attendee based on a common shared experience or event. 
+* Matching a host to an attendee based on a common shared experience or event.
 * One on one (more post-MVP)
-* Enable host/attendee two way communication. 
-* One event per page, swipe through to see selection. 
+* Enable host/attendee two way communication.
+* One event per page, swipe through to see selection.
 * Events ordered by proximity
 * Matching process
 
@@ -45,7 +45,18 @@ People matching service bringing people together using an activity to help peopl
 * Front-end authentication (Luca)
 * User journey and wireframing (all team)
 
-- - - - - - - - 
-- - - - - - - - 
-- - - - - - - - 
+- - - - - - - -
+- - - - - - - -
+- - - - - - - -
 
+
+### Monday, 30th January 2017
+
+##### **10am Stand-up**
+
+Further discussion about the core functionality of the app. Various options there, to be explored when the MVP aspects of events and users have been developed.
+
+Remyce and Sarah working on back end controllers.
+Charlie working on seed data and the models, how they work with each other.
+
+Luca and Tom on front-end.

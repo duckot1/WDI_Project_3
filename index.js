@@ -13,15 +13,16 @@ mongoose.connect(config.db);
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
+
 app.use(morgan('dev'));
 
-app.use('/api', expressJWT({ secret: config.secret })
-  .unless({
-    path: [
-      { url: '/api/login', methods: ['POST'] },
-      { url: '/api/register', methods: ['POST'] }
-    ]
-  }));
+// app.use('/api', expressJWT({ secret: config.secret })
+//   .unless({
+//     path: [
+//       { url: '/api/login', methods: ['POST'] },
+//       { url: '/api/register', methods: ['POST'] }
+//     ]
+//   }));
 
 app.use(jwtErrorHandler);
 

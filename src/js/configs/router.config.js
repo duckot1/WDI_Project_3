@@ -7,22 +7,29 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-  .state('home', {
-    url: '/',
-    templateUrl: '/js/views/home.html'
-  })
-  // .state('register', {
-  //   url: '/register',
-  //   templateUrl: '/js/views/register.html',
-  //   controller: 'UserRegisterCtrl',
-  //   controllerAs: 'register'
-  // })
-  .state('eventsIndex', {
-    url: '/events',
-    templateUrl: '/js/views/events/index.html',
-    controller: 'EventsIndexCtrl',
-    controllerAs: 'eventsIndex'
-  });
+    .state('home', {
+      url: '/',
+      template: '<h1>Home</h1>',
+      templateUrl: '/js/views/home.html'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: '/js/views/register.html',
+      controller: 'UserRegisterCtrl',
+      controllerAs: 'register'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '/js/views/login.html',
+      controller: 'UserLoginCtrl',
+      controllerAs: 'login'
+    })
+    .state('eventsIndex', {
+      url: '/events',
+      templateUrl: '/js/views/events/index.html',
+      controller: 'EventsIndexCtrl',
+      controllerAs: 'eventsIndex'
+    });
 
   $urlRouterProvider.otherwise('/');
 

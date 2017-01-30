@@ -1,18 +1,21 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
-  event_location: { type: String, trim: true, required: true },
+  event_address: { type: String, trim: true, required: true },
+  event_lat: { type: String, trim: true },
+  event_lng: { type: String, trim: true },
   event_name: { type: String, trim: true, required: true },
   event_description: { type: String, trim: true, required: true },
-  event_cost: { type: Number },
+  event_cost: { type: String },
   event_url: { type: String, trim: true},
   event_img: { type: String, trim: true},
   event_emoji: { type: String, trim: true},
-  event_comments: { type: String, trim: true},
-  event_host: { type: String, trim: true},
-  event_attendees: { type: String, trim: true},
-  event_start_time: { type: String, trim: true},
-  event_finish_time: { type: String, trim: true}
+  event_host: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  event_start_time: { type: Number, trim: true},
+  event_finish_time: { type: Number, trim: true},
+  event_attendee: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  event_users_interested: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  event_state: { type: Boolean }
 },{
   timestamps: true
 });
