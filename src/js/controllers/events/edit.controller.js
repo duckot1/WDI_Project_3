@@ -2,7 +2,7 @@ angular
 .module('clubMate')
 .controller('EventsEditCtrl', EventsEditCtrl);
 
-EventsEditCtrl.$inject = this ['API', '$http', '$state', '$stateParams'];
+EventsEditCtrl.$inject = ['API', '$http', '$state', '$stateParams'];
 function EventsEditCtrl(API, $http, $state, $stateParams) {
   const vm = this;
 
