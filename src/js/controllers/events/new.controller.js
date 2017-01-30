@@ -8,7 +8,7 @@ function EventsNewCtrl(API, $http, $state) {
 
   vm.create = function create() {
     return $http
-      .post(`${API}/events`, vm.events)
+      .post(`${API}/events`, vm.event)
       .then(() => {
         $state.go('eventsIndex');
       });
