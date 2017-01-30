@@ -1,4 +1,4 @@
-const User  = require('../models/user');
+// const User  = require('../models/user');
 const Event = require('../models/event');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
 
 function eventsIndex(req, res){
   Event
-  .populate('users')
+  // .populate('users')
   .find({}, (err, events) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json(events);
