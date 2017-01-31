@@ -2,12 +2,13 @@ angular
   .module('clubMate')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state'];
-function EventsShowCtrl(API, $stateParams, User, Event, $state) {
+EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state', 'CurrentUserService', 'TokenService'];
+function EventsShowCtrl(API, $stateParams, User, Event, $state, CurrentUserService, TokenService) {
   const vm = this;
   vm.event = Event.get($stateParams);
   vm.delete = eventsDelete;
-  vm.request = sendRequest;
+  vm.interested = sendInterested;
+  vm.notInterested = sendNotInterested;
   vm.requestBody = {};
 
   function eventsDelete(event){
@@ -20,10 +21,33 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
       });
   }
 
-  function sendRequest(event) {
+
+  function sendInterested(event) {
     vm.requestBody.receiver = event.host._id;
     vm.requestBody.event = event._id;
     vm.requestBody.interested = true;
+    vm.requestBody.text = 'Hi there I would like to join you';
+    console.log(vm.requestBody);
+    User
+      .request(vm.requestBody)
+      .$promise
+      .then(response => {
+        console.log(response);
+        // event.requests.push(response._id);
+        // console.log(event);
+        // Event
+        //   .update({ id: $stateParams.id }, event)
+        //   .$promise
+        //   .then((data) => {
+        //     console.log(data, 'update vm.event');
+        //   });
+      });
+  }
+
+  function sendNotInterested(event) {
+    vm.requestBody.receiver = event.host._id;
+    vm.requestBody.event = event._id;
+    vm.requestBody.interested = false;
     vm.requestBody.text = 'Hi there I would like to join you';
     console.log(vm.requestBody);
     User
