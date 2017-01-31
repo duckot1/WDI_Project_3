@@ -31,7 +31,7 @@
             <li><a href="#">Home</a></li>
             <li><a ui-sref="eventsIndex">Events</a></li>
             <!-- <li><a ui-sref="usersShow({ userId: currentUser.id })">Profile</a></li> -->
-            <li><a ui-sref="usersEdit.user">Profile</a></li>
+            <li><a ui-sref="usersShow({ id: main.user._id })">Profile</a></li>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -51,5 +51,4 @@
   </header>
   <main ui-view></main>
 </body>
-
 </html>
