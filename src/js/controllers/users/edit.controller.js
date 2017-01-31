@@ -6,10 +6,11 @@ UsersEditCtrl.$inject = ['API', '$stateParams', 'User', '$state'];
 function UsersEditCtrl(API, $stateParams, User, $state){
   const vm = this;
   console.log($stateParams);
+  vm.user = {};
   vm.user = User.get($stateParams);
-  vm.update = usersUpdate;
+  vm.update = userUpdate;
 
-  function usersUpdate(){
+  function userUpdate(){
     User
       .update({ id: $stateParams.id }, vm.user)
       .$promise
