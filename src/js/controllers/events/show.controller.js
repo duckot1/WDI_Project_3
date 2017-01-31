@@ -7,6 +7,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
   const vm = this;
   vm.event = Event.get($stateParams);
   vm.delete = eventsDelete;
+  vm.request = sendRequest;
 
   function eventsDelete(event){
     console.log(event, 'eventDelete');
@@ -17,6 +18,10 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
         $state.go('eventsIndex');
       });
   }
+}
+
+function sendRequest() {
+  console.log('request sent');
 }
 
 //   function EventsShow() {
