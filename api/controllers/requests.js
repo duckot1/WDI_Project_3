@@ -47,6 +47,7 @@ function myRequests(req, res) {
 }
 
 function requestsIndex(req, res){
+  console.log('running');
   Request.find({}, (err, requests) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(200).json(requests);

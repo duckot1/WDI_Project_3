@@ -20,17 +20,17 @@ async.waterfall([
   createFirstRequest,
   createSecondRequest,
   createThirdRequest,
-  // pickAttendee,
+  pickAttendee,
   createSecondEvent,
   createFourthRequest,
   createFifthRequest,
   createSixthRequest,
-  // pickSecondAttendee,
+  pickSecondAttendee,
   createThirdEvent,
   createSeventhRequest,
   createEightRequest,
-  createNinthRequest
-  // pickThirdAttendee
+  createNinthRequest,
+  pickThirdAttendee
 ], function(err) {
   if (err) return console.log(err);
   console.log('Seeding complete');

@@ -10,9 +10,10 @@ module.exports = {
 };
 
 function eventsIndex(req, res){
+  console.log('index events');
   Event
   .find({
-    active: true,
+    // active: true,
     host: { $ne: req.user._id },
     requests: { $ne: req.user.requests }
   })
