@@ -35,6 +35,7 @@ router.route('/events/:id')
 router.route('/requests')
   .post(authentications.assign, requests.create);
 router.route('/requests/:id')
-  .get(requests.show);
+  .get(requests.show)
+  .put(requests.update);
 
 module.exports = router;

@@ -4,9 +4,9 @@ module.exports = {
   assign: assign
 };
 
-const User = require('../models/user');
-const jwt      = require('jsonwebtoken');
-const config = require('../config/config');
+const User      = require('../models/user');
+const jwt       = require('jsonwebtoken');
+const config    = require('../config/config');
 
 function authenticationsRegister(req, res){
   User.create(req.body.user, (err, user) => {
