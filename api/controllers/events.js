@@ -11,17 +11,21 @@ module.exports = {
 
 function eventsIndex(req, res){
   Event
-  // .populate('users')
-  .find({}, (err, events) => {
+  .find({
+    active: true,
+    host: { $ne: req.user._id },
+    requests: { $ne: req.user.requests }
+  })
+  .populate(['host'])
+  .exec((err, events) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json(events);
   });
 }
 
 function eventsCreate(req, res){
-
   const event = new Event(req.body.event);
-
+  event.host  = req.user._id;
   event
   .save((err, event) => {
     if (err) return res.status(500).json(err);
@@ -30,12 +34,9 @@ function eventsCreate(req, res){
 }
 
 function eventsShow(req, res){
-
-  const id = req.params.id;
-
   Event
-  .findById({ _id: id })
-  .populate(['event_host', 'event_attendee', 'event_users_interested'])
+  .findById(req.params.id)
+  .populate(['host'])
   .exec((err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
@@ -44,9 +45,7 @@ function eventsShow(req, res){
 }
 
 function eventsUpdate(req, res){
-  const id = req.params.id;
-
-  Event.findByIdAndUpdate({ _id: id }, req.body.event, {new: true}, (err, event) => {
+  Event.findByIdAndUpdate(req.params.id, req.body.event, { new: true }, (err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
     return res.status(200).json(event);
@@ -54,9 +53,7 @@ function eventsUpdate(req, res){
 }
 
 function eventsDelete(req, res){
-  const id = req.params.id;
-
-  Event.findByIdAndRemove({ _id: id }, err => {
+  Event.findByIdAndRemove(req.params.id, err => {
     if (err) return res.status(500).json(err);
     return res.sendStatus(200);
   });

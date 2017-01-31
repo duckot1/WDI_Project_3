@@ -1,5 +1,5 @@
 module.exports = {
-  send: requestsCreate,
+  create: requestsCreate,
   show: requestsShow,
   inbox: myRequests
 };
@@ -7,7 +7,8 @@ module.exports = {
 const Request = require('../models/request');
 
 function requestsCreate(req, res) {
-  const request = new Request(req.body);
+  const request  = new Request(req.body.request);
+  request.sender = req.user._id;
   request.save((err, request) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(201).json(request);
