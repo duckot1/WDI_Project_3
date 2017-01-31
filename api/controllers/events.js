@@ -36,7 +36,7 @@ function eventsCreate(req, res){
 function eventsShow(req, res){
   Event
   .findById(req.params.id)
-  .populate(['host'])
+  .populate(['host', 'requests'])
   .exec((err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
