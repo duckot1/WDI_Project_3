@@ -13,6 +13,12 @@
 <button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
 </div>
 
+<ul>
+  <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
+  <!-- <button ng-click="users.accept(users.user)">Accept</button>
+  <button ng-click="users.decline(users.user)">Decline</button> -->
+</ul>
+
 <div ng-if="!usersShow.user.email">
   <h1>No User Exists</h1>
 </div>

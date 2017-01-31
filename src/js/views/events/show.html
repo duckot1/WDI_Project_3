@@ -1,8 +1,6 @@
-<h1>Hello</h1>
-<h2>{{ eventsShow.event.event_name }}</h2>
-<img ng-src="{{ eventsShow.event.event_img }}" alt="{{ eventsShow.event.event_name }}">
-<br>
-<br>
+<h2>{{ events.event.name }}</h2>
+<img ng-src="{{ events.event.img }}" alt="{{ events.event.name }}">
+<a ui-sref="usersShow({id : events.event.host._id})"><h3>{{events.event.host.firstName}} {{events.event.host.lastName}}</h3></a>
 <button class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
 <button class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.events)">Delete</button>
 <button class="btn btn-warning" ng-click="events.interest(events.event)">I'm Interested</button>
