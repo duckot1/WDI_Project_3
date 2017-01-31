@@ -33,6 +33,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     .state('eventsCreate', {
       url: '/events/new',
       templateUrl: '/js/views/events/create.html',
+      controller: 'EventsCreateCtrl',
       controllerAs: 'eventsCreate'
     })
     .state('eventsShow', {
