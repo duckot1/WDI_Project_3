@@ -44,7 +44,7 @@ function authenticationsLogin(req, res) {
  */
 function assign(req, res, next) {
   const token = req.headers.authorization.split(' ')[1];
-  jwt.verify(token, config.token, (err, decoded) => {
+  jwt.verify(token, config.secret, (err, decoded) => {
     if (err) return res.status(402).json({ message: 'Incorrect JWT token provided.' });
     User.findById(decoded.id, (err, user) => {
       if (err) return res.status(402).json({ message: 'Incorrect JWT token provided.' });

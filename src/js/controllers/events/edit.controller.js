@@ -13,9 +13,9 @@ function EventsEditCtrl(API, $stateParams, Event, $state){
     Event
       .update({ id: $stateParams.id }, vm.event)
       .$promise
-      .then(() => {
-        console.log('I have updated');
-        console.log(vm.event, 'update vm.event');
+      .then((data) => {
+
+        console.log(data, 'update vm.event');
         $state.go('eventsShow', { id: `${$stateParams.id}` });
       });
   }
