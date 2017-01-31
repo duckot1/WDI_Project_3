@@ -15,7 +15,6 @@ function CurrentUserService(TokenService, User, $rootScope) {
       .$promise
       .then(data => {
         self.currentUser = data;
-        console.log(self.currentUser);
         $rootScope.$broadcast('loggedIn');
       }, err => {
         console.log(err);
