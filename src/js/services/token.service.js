@@ -18,5 +18,6 @@ function TokenService($window, jwtHelper) {
   };
   self.removeToken = () => {
     $window.localStorage.clear();
+    console.log('remove token');
   };
 }

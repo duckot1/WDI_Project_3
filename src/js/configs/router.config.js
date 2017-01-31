@@ -35,12 +35,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'UserLoginCtrl',
     controllerAs: 'login'
   })
-  .state('logout', {
-    url: '/',
-    templateUrl: '<h1>Home</h1>',
-    controller: 'MainCtrl',
-    controllerAs: 'logout'
-  })
+  // .state('logout', {
+  //   url: '/logout',
+  //   templateUrl: '<h1>Home</h1>',
+  //   controller: 'MainCtrl',
+  //   controllerAs: 'logout'
+  // })
   .state('eventsIndex', {
     url: '/events',
     templateUrl: '/js/views/events/index.html',
