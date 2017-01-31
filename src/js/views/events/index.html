@@ -4,25 +4,16 @@
 <img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
 </div> -->
 
-<!-- <div class="container">
-<ul class="list-inline">
-<li class="eventItem" ng-repeat ="event in events.events">
-<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
-</li>
-</ul>
-</div> -->
+<div class="container">
+  <ul class="list-inline">
+    <li class="eventItem" ng-swipe-left="events.swipeLeft($event)" ng-swipe-right="events.swipeRight($event)" ng-repeat ="event in events.events">
+      <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.name }}</h3></a>
+      <img src="{{ event.img }}" alt="{{ event.name }}" />
+      <ul class="yes-no-list">
+        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeLeft($event)">Yes</button></li>
+        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeRight($event)">No</button></li>
+      </ul>
+    </li>
 
-<div ng-controller="CarouselDemoCtrl">
-  <div class="container">
-    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <div uib-slide ng-repeat="event in events.events">
-        <div class="carousel-caption">
-          <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-        </div>
-        <img ng-src="{{ event.event_img }}" />
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-default" ng-click="eventsCreate()">New Event</button>
+  </ul>
 </div>

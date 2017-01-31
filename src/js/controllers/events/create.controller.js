@@ -7,7 +7,6 @@ function EventsCreateCtrl(Event) {
   const vm = this;
   vm.new = () => {
     Event
-    console.log(vm.event, 'vm.event')
     .new(vm.event)
     .$promise
     .then(() => {

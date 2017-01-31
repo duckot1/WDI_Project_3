@@ -1,18 +1,23 @@
 angular
-  .module('clubMate')
-  .controller('EventsIndexCtrl', EventsIndexCtrl);
+.module('clubMate')
+.controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['$http', 'API'];
-function EventsIndexCtrl($http, API){
+EventsIndexCtrl.$inject = ['$http', 'API', 'Event'];
+function EventsIndexCtrl($http, API, Event){
   const vm = this;
+  vm.swipeRight = function($event) {
+    console.log('Right', $event);
+  };
+  vm.swipeLeft = function($event) {
+    console.log('Left', $event);
+  };
 
-  eventsIndex();
 
-  function eventsIndex() {
-    return $http
-    .get(`${API}/events`)
-    .then(response => {
-      vm.events = response.data;
-    });
-  }
+  Event
+  .query()
+  .$promise
+  .then(response => {
+    vm.events = response;
+    console.log(vm.events);
+  });
 }
