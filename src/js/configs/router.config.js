@@ -30,11 +30,22 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
       controller: 'EventsIndexCtrl',
       controllerAs: 'events'
     })
+    .state('eventsCreate', {
+      url: '/events/new',
+      templateUrl: '/js/views/events/create.html',
+      controllerAs: 'eventsCreate'
+    })
     .state('eventsShow', {
       url: '/events/:id',
       templateUrl: '/js/views/events/show.html',
       controller: 'EventsShowCtrl',
-      controllerAs: 'events'
+      controllerAs: 'eventsShow'
+    })
+    .state('eventsEdit', {
+      url: '/events/:id/edit',
+      templateUrl: '/js/views/events/edit.html',
+      controller: 'EventsEditCtrl',
+      controllerAs: 'eventsEdit'
     })
     .state('usersShow', {
       url: '/users/:id',
