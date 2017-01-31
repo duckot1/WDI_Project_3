@@ -1,5 +1,29 @@
-<h2>{{ eventsShow.event.name }}</h2>
+<!-- {{ eventsShow.event }} PLEASE LEAVE THIS FOR NOW-->
 
+<div class="eventCard">
+
+
+<div class="eventImage">
+  <img src="{{ eventsShow.event.img }}" alt="{{ event.name }}"/>
+</div>
+
+<div class="eventInfo">
+<h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
+<img src="{{ usersShow.user.profile_picture }}" alt="Host Profile">
+<p>{{ eventsShow.event.startTime | date }} - {{ eventsShow.event.finishTime | date }}</p>
+
+<p>{{ eventsShow.event.address }}</p>
+<p>{{ eventsShow.event.url }}</p>
+
+
+<p>{{ eventsShow.event.description }}</p>
+<p>{{ eventsShow.event.cost }}</p>
+
+
+</div>
+
+
+</div>
 <button class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
-<button class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
-<button class="btn btn-warning" ng-click="events.interest(eventsShow.event)">I'm Interested</button>
+<button class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.events)">Delete</button>
+<button class="btn btn-warning" ng-click="events.interest(events.event)">I'm Interested</button>
