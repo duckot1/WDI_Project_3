@@ -8,6 +8,21 @@
   padding: 0 15px;
 }
 
+.yes-no-list{
+  padding: 0;
+  text-align: center;
+  @media only screen
+  and (max-device-width: 640px),
+  only screen and (max-device-width: 667px),
+  only screen and (max-width: 480px) {
+    display: none;
+  }
+  .yes-no-buttons {
+    display: inline-block;
+  }
+}
+
+
 .eventItem {
   width: 100%;
   height: 100%;
