@@ -3,6 +3,7 @@ module.exports = {
   show: requestsShow,
   inbox: myRequests,
   update: requestsUpdate,
+  index: requestsIndex
 };
 
 const Request = require('../models/request');
@@ -39,6 +40,13 @@ function myRequests(req, res) {
   .populate('receiver_id')
   .populate('event_id')
   .exec(function (err, requests) {
+    if (err) return res.status(500).json({ message: 'Something went wrong.' });
+    return res.status(200).json(requests);
+  });
+}
+
+function requestsIndex(req, res){
+  Request.find({}, (err, requests) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(200).json(requests);
   });

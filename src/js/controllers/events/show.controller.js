@@ -8,6 +8,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
   vm.event = Event.get($stateParams);
   vm.delete = eventsDelete;
   vm.request = sendRequest;
+  vm.requestBody = {};
 
   function eventsDelete(event){
     console.log(event, 'eventDelete');
@@ -18,11 +19,23 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
         $state.go('eventsIndex');
       });
   }
+
+  function sendRequest(event) {
+    vm.requestBody.receiver = event.host._id;
+    vm.requestBody.event = event._id;
+    vm.requestBody.interested = true;
+    vm.requestBody.text = 'Hi there I would like to join you';
+    console.log(vm.requestBody);
+    User
+      .request(vm.requestBody)
+      .$promise
+      .then(response => {
+        console.log(response);
+      });
+  }
 }
 
-function sendRequest() {
-  console.log('request sent');
-}
+
 
 //   function EventsShow() {
 //     return $http
