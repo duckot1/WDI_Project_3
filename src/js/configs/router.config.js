@@ -7,10 +7,21 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+
   .state('home', {
     url: '/',
-    template: '<h1>Home</h1>',
-    templateUrl: '/js/views/home.html'
+    views: {
+      view1: {
+        templateUrl: '/js/views/login.html',
+        controller: 'UserLoginCtrl',
+        controllerAs: 'login'
+      },
+      view2: {
+        templateUrl: '/js/views/register.html',
+        controller: 'UserRegisterCtrl',
+        controllerAs: 'register'
+      }
+    }
   })
   .state('register', {
     url: '/register',
@@ -24,6 +35,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'UserLoginCtrl',
     controllerAs: 'login'
   })
+  // .state('logout', {
+  //   url: '/logout',
+  //   templateUrl: '<h1>Home</h1>',
+  //   controller: 'MainCtrl',
+  //   controllerAs: 'logout'
+  // })
   .state('eventsIndex', {
     url: '/events',
     templateUrl: '/js/views/events/index.html',
@@ -42,6 +59,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'EventsShowCtrl',
     controllerAs: 'eventsShow'
   })
+  .state('eventsEdit', {
+    url: '/events/:id/edit',
+    templateUrl: '/js/views/events/edit.html',
+    controller: 'EventsEditCtrl',
+    controllerAs: 'eventsEdit'
+  })
   .state('usersShow', {
     url: '/users/:id',
     templateUrl: '/js/views/users/show.html',
@@ -54,6 +77,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'UsersEditCtrl',
     controllerAs: 'usersEdit'
   });
+
 
   $urlRouterProvider.otherwise('/');
 
