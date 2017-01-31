@@ -1,19 +1,19 @@
 <h2>Edit User</h2>
 
 <form ng-submit="usersEdit.update()">
-
+{{ vm.user }}
   <div class="form-group">
 
-    <label for="first_name">Fist Name</label>
-    <input type="text" class="form-control" id="first_name" name="first_name" ng-model="usersEdit.user.first_name">
+    <label for="firstName">Fist Name</label>
+    <input type="text" class="form-control" id="firstName" name="firstName" ng-model="usersEdit.user.firstName">
 
-    <label for="first_name">Last Name</label>
-    <input type="text" class="form-control" id="last_name" name="last_name" ng-model="usersEdit.user.last_name">
+    <label for="firstName">Last Name</label>
+    <input type="text" class="form-control" id="lastName" name="lastName" ng-model="usersEdit.user.lastName">
 
-    <label for="first_name">Date of Birth</label>
-    <input type="text" class="form-control" id="DoB" name="DoB" ng-model="usersEdit.user.DoB">
+    <label for="firstName">Date of Birth</label>
+    <input type="text" class="form-control" id="dob" name="dob" ng-model="usersEdit.user.dob">
 
-    <label for="first_name">Bio</label>
+    <label for="firstName">Bio</label>
     <input type="text" class="form-control" id="bio" name="bio" ng-model="usersEdit.user.bio">
 
   </div>
