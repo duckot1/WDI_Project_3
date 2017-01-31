@@ -1,17 +1,18 @@
 <h1>Events List</h1>
 <!-- <div class="container" ng-repeat ="event in events.events">
-    <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-    <img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
+<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
+<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
 </div> -->
-<!-- <div class="container">
-  <ul class="list-inline">
-    <li class="eventItem" ng-repeat ="event in events.events">
-      <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-      <img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
-    </li>
-  </ul>
 
+<!-- <div class="container">
+<ul class="list-inline">
+<li class="eventItem" ng-repeat ="event in events.events">
+<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
+<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
+</li>
+</ul>
 </div> -->
+
 <div ng-controller="CarouselDemoCtrl">
   <div class="container">
     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
@@ -23,4 +24,5 @@
       </div>
     </div>
   </div>
+  <button class="btn btn-default" ng-click="eventsCreate()">New Event</button>
 </div>

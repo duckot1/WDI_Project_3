@@ -8,7 +8,7 @@ function CurrentUserService(TokenService, User, $rootScope) {
 
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
-    console.log('decoded id', decoded.id);
+    // console.log('decoded id', decoded.id);
     if (decoded) {
       User
       .get({ id: decoded.id })
@@ -19,7 +19,7 @@ function CurrentUserService(TokenService, User, $rootScope) {
         $rootScope.$broadcast('loggedIn');
       }, err => {
         console.log(err);
-        console.log('decoded', decoded.id);
+        // console.log('decoded', decoded.id);
       });
       self.removeUser = () => {
         self.currentUser = null;

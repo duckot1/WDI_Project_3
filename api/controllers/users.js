@@ -1,13 +1,11 @@
 module.exports = {
   index: usersIndex,
-  create: usersCreate,
   update: usersUpdate,
   show: usersShow,
   delete: usersDelete
 };
 
 const User    = require('../models/user');
-const Event = require('../models/event');
 
 function usersIndex(req, res){
   User.find({}, (err, users) => {
@@ -16,29 +14,11 @@ function usersIndex(req, res){
   });
 }
 
-
-function usersCreate(req, res){
-  User.findById(req.params.id, (err, event) => {
-    if (err) return res.status(500).json(err);
-    if (!event) return res.status(404).json({ error: 'no event was found' });
-
-    const user = new User(req.body.event);
-
-    event.user.push(user);
-
-    event.save(err => {
-      if (err) return res.status(500).json(err);
-      return res.status(201).json(event);
-
-    });
-  });
-}
-
 function usersShow(req, res){
-
-  const id = req.params.id;
-
-  User.findById({ _id: id }, (err, user) => {
+  User
+  .findById(req.params.id)
+  .populate(['events', 'interestedIn', 'notInterestedIn'])
+  .exec((err, user) => {
     if (err) return res.status(500).json(err);
     if (!user) return res.status(404).json({ error: 'No user was found.' });
     return res.status(200).json(user);
@@ -46,9 +26,7 @@ function usersShow(req, res){
 }
 
 function usersUpdate(req, res){
-  const id = req.params.id;
-
-  User.findByIdAndUpdate({ _id: id }, req.body, { new: true }, (err, user) => {
+  User.findByIdAndUpdate(req.params.id, req.body.user, { new: true }, (err, user) => {
     if (err) return res.status(500).json(err);
     if (!user) return res.status(404).json({ error: 'No user was found.'});
     return res.status(200).json(user);
@@ -56,9 +34,7 @@ function usersUpdate(req, res){
 }
 
 function usersDelete(req, res){
-  const id = req.params.id;
-
-  User.findByIdAndRemove({ _id: id }, err => {
+  User.findByIdAndRemove(req.params.id, err => {
     if (err) return res.status(500).json(err);
     return res.sendStatus(200);
   });
