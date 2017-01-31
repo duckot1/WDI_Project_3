@@ -5,9 +5,10 @@ angular
 userFactory.$inject = ['API', '$resource'];
 function userFactory(API, $resource) {
   return $resource(`${API}/users/:id`, { id: '@_id' }, {
+    update: { method: 'PATCH', url: `${API}/users/:id`},
     register: { method: 'POST', url: `${API}/register`},
     login: { method: 'POST', url: `${API}/login`},
-    update: { method: 'PATCH', url: `${API}/users/:id`},
-    request: { method: 'POST', url: `${API}/requests`}
+    request: { method: 'POST', url: `${API}/requests` },
+    inbox: { method: 'GET', url: `${API}/requests/:id`, isArray: true }
   });
 }

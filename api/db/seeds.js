@@ -89,7 +89,7 @@ function createEvents(done){
         event_description: 'Enjoy this place I\'ve never been to',
         event_cost: '£100',
         event_url: 'http://lantanacafe.co.uk/',
-        event_img: 'http://lantanacafe.co.uk/wp-content/uploads/2015/06/lantana-logox1.png',
+        event_img: 'http://combiboilersleeds.com/images/coffee/coffee-2.jpg',
         event_emoji: '☕',
         event_host: users[0]._id,
         event_start_time: 1000,
@@ -110,8 +110,8 @@ function createEvents(done){
         event_host: users[1]._id,
         event_start_time: 2100,
         event_finish_time: 0300,
-        event_attendee: '',
-        event_users_interested: [users[2]._id, users[0]._id],
+        event_attendee: null,
+        event_users_interested:  [`${users[2]._id}`,`${users[0]._id}`],
         event_state: true
       },{
         event_address: '100-106 Leonard St, London EC2A 4RH',
@@ -127,7 +127,7 @@ function createEvents(done){
         event_start_time: 2100,
         event_finish_time: 0300,
         event_attendee: '',
-        event_users_interested: [users[1]._id, users[0]._id],
+        event_users_interested: [`${users[1]._id}`,`${users[0]._id}`],
         event_state: true
       },
     ];
