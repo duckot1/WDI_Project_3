@@ -1,1 +1,30 @@
 // Import all of your scss files here
+
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow-x:scroll;
+  overflow-y:hidden;
+  // height:200px;
+  // width:100%;
+  padding: 0 15px;
+}
+
+.eventItem {
+  width: 100%;
+  height: 100%;
+  // border:1px solid black;
+  padding:0;
+  // height:200px;
+  text-align: center;
+}
+
+.list-inline {
+  white-space:nowrap;
+}
+
+img {
+  width: 600px;
+  height: 400px;
+}

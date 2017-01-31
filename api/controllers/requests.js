@@ -15,7 +15,7 @@ function sendRequest(req, res) {
 
 function myRequests(req, res) {
   Request
-  .find({receiver_id: { $eq: req.params.id }})
+  .find({receiver_id: { $req: req.params.id }})
   .populate('sender_id')
   .populate('receiver_id')
   .populate('event_id')
