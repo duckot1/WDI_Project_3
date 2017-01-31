@@ -2,17 +2,18 @@ const mongoose  = require('mongoose');
 const bcrypt    = require('bcrypt');
 const validator = require('validator');
 
-
 const userSchema = new mongoose.Schema({
-  first_name: { type: String, trim: true, required: true },
-  last_name: { type: String, trim: true, required: true },
+  firstName: { type: String, trim: true, required: true },
+  lastName: { type: String, trim: true, required: true },
   email: { type: String, unique: true, required: true },
   passwordHash: { type: String},
   profile_picture: { type: String, trim: true },
-  DoB: { type: String, trim: true },
+  dob: { type: String, trim: true },
   lat: { type: String, trim: true },
   lng: { type: String, trim: true },
-  bio: { type: String, trim: true }
+  bio: { type: String, trim: true },
+  interestedIn: { type: mongoose.Schema.ObjectId, ref: 'Event' },
+  notInterestedIn: { type: mongoose.Schema.ObjectId, ref: 'Event' }
 });
 
 userSchema

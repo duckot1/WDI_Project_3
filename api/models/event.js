@@ -1,42 +1,47 @@
 const mongoose = require('mongoose');
 
+/*
+ * KEY
+ *
+ * host:          The user who created the event.
+ * attendee:      The confirmed user who has been chosen to attend the event.
+ * interested:    An array of users who are interested in attending the event
+                  but have not been confirmed by the host .
+ * notInterested: An array of users who are not interested in attending.
+ */
+
 const eventSchema = new mongoose.Schema({
-  event_address: { type: String, trim: true, required: true },
-  event_lat: { type: String, trim: true },
-  event_lng: { type: String, trim: true },
-  event_name: { type: String, trim: true, required: true },
-  event_description: { type: String, trim: true, required: true },
-  event_cost: { type: String },
-  event_url: { type: String, trim: true},
-  event_img: { type: String, trim: true},
-  event_emoji: { type: String, trim: true},
-  event_host: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  // event_host: { type: String, trim: true},
-  event_start_time: { type: Number, trim: true},
-  event_finish_time: { type: Number, trim: true},
-  event_attendee: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  // event_attendee: { type: String, trim: true},
-  event_users_interested: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  // event_users_interested: { type: String, trim: true},
-  event_state: { type: Boolean }
+  address: { type: String, trim: true, required: true },
+  name: { type: String, trim: true, required: true },
+  description: { type: String, trim: true, required: true },
+  lat: { type: String, trim: true },
+  lng: { type: String, trim: true },
+  cost: { type: String },
+  url: { type: String, trim: true },
+  img: { type: String, trim: true },
+  emoji: { type: String, trim: true} ,
+  startTime: { type: Date },
+  finishTime: { type: Date },
+  host: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  requests: { type: mongoose.Schema.ObjectId, ref: 'Request' },
+  active: { type: Boolean, default: false }
 },{
   timestamps: true
 });
 
-module.exports = mongoose.model('Event', eventSchema);
+/*
+ * You shouldn't be able to create an event if you already have one that is
+ * active.
+ */
+eventSchema.pre('validate', function(done) {
+  const self = this;
+  return self.model('Event').findOne({
+    host: self.host,
+    active: true
+  }).then(event => {
+    if (event) return self.invalidate('active', 'You aren\'t allowed to create two active events.');
+    return done();
+  }).catch(done);
+});
 
-// event_address: { type: String, trim: true, required: true },
-// event_lat: { type: String, trim: true },
-// event_lng: { type: String, trim: true },
-// event_name: { type: String, trim: true, required: true },
-// event_description: { type: String, trim: true, required: true },
-// event_cost: { type: String },
-// event_url: { type: String, trim: true},
-// event_img: { type: String, trim: true},
-// event_emoji: { type: String, trim: true},
-// event_host: { type: mongoose.Schema.ObjectId, ref: 'User' },
-// event_start_time: { type: Number, trim: true},
-// event_finish_time: { type: Number, trim: true},
-// event_attendee: { type: mongoose.Schema.ObjectId, ref: 'User' },
-// event_users_interested: { type: mongoose.Schema.ObjectId, ref: 'User' },
-// event_state: { type: Boolean }
+module.exports = mongoose.model('Event', eventSchema);
