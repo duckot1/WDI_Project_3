@@ -1,19 +1,20 @@
 angular
-  .module('clubMate')
-  .controller('EventsCreateCtrl', EventsCreateCtrl);
+.module('clubMate')
+.controller('EventsCreateCtrl', EventsCreateCtrl);
 
-EventsCreateCtrl.$inject = ['Event'];
-function EventsCreateCtrl(Event) {
+EventsCreateCtrl.$inject = ['API', '$state', 'Event'];
+function EventsCreateCtrl(API, $state, Event) {
   const vm = this;
-  vm.new = () => {
-    Event
-    console.log(vm.event, 'vm.event')
-    .new(vm.event)
+
+  vm.create = eventsCreate;
+
+  function eventsCreate(){
+    return Event
+    .save({ event: vm.event })
     .$promise
-    .then(() => {
-      console.log('event added');
-    }, err => {
-      console.log(err);
+    .then(event => {
+      console.log(vm.event);
+      $state.go('eventsShow', { id: event._id });
     });
-  };
+  }
 }

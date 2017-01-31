@@ -45,7 +45,7 @@ function eventsShow(req, res){
 }
 
 function eventsUpdate(req, res){
-  Event.findByIdAndUpdate(req.params.id, req.body.event, { new: true }, (err, event) => {
+  Event.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
     return res.status(200).json(event);

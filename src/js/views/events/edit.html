@@ -1,14 +1,9 @@
 <h2>Edit Events</h2>
-<form ng-submit="events.update()">
+<form ng-submit="eventsEdit.update()">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name" ng-model="events.event.event_name">
+    <input type="text" class="form-control" id="name" ng-model="eventsEdit.event.name">
   </div>
 
-  <div class="form-group">
-    <label for="image">Image</label>
-    <input type="text" class="form-control" id="image" placeholder="Image" ng-model="events.event.event_img">
-  </div>
-  <br>
   <input type="submit" class="btn btn-primary" value="Update">
 </form>
