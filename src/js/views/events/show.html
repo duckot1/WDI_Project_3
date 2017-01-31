@@ -10,10 +10,16 @@
 <div class="eventInfo">
 <h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
 <a ui-sref="usersShow({ id: main.user._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
-<p>{{ eventsShow.event.startTime | date }}git  - {{ eventsShow.event.finishTime | date }}</p>
+
+
+<p>{{ eventsShow.event.startTime | date }} - {{ eventsShow.event.finishTime | date }}</p>
 
 <p>{{ eventsShow.event.address }}</p>
 <p><a ng-href="{{ eventsShow.event.url }}">{{ eventsShow.event.url }}</a></p>
+
+<p>{{ eventsShow.event.address }}</p>
+<p>{{ eventsShow.event.url }}</p>
+
 
 
 <p>{{ eventsShow.event.description }}</p>
