@@ -4,7 +4,20 @@ const router          = express.Router();
 const authentications = require('../controllers/authentications');
 const events          = require('../controllers/events');
 const users           = require('../controllers/users');
-const requests         = require('../controllers/requests');
+const requests        = require('../controllers/requests');
+
+/*
+ * UNPROTECTED
+ */
+
+router.route('/register')
+  .post(authentications.register);
+router.route('/login')
+  .post(authentications.login);
+
+/*
+ * PROTECTED
+ */
 
 router.route('/users')
   .get(users.index);
@@ -45,14 +58,9 @@ router.route('/events/:id')
 //   .put(events.update)
 //   .delete(events.delete);
 
-router.route('/register')
-.post(authentications.register);
-router.route('/login')
-.post(authentications.login);
-
 router.route('/requests')
-.post(requests.send);
+  .post(requests.send);
 router.route('/requests/:id')
-.get(requests.inbox);
+  .get(requests.show);
 
 module.exports = router;

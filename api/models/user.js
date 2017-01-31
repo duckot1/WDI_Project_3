@@ -12,8 +12,9 @@ const userSchema = new mongoose.Schema({
   lat: { type: String, trim: true },
   lng: { type: String, trim: true },
   bio: { type: String, trim: true },
-  interestedIn: { type: mongoose.Schema.ObjectId, ref: 'Event' },
-  notInterestedIn: { type: mongoose.Schema.ObjectId, ref: 'Event' }
+  events: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
+  interestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
+  notInterestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }]
 });
 
 userSchema

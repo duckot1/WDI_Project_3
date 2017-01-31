@@ -13,14 +13,20 @@ const requestSchema = new mongoose.Schema({
 });
 
 /*
- * Set the receiver to be the host of the event
+ * Set the receiver of this request to be the host of the event
+ * AND add the request to the event's array of requests & save it
  */
 requestSchema.pre('validate', function(done) {
   const self = this;
   return self.model('Event').findById(self.event).then(event => {
     self.receiver = event.host;
-    return done()
-  }).catch(done);
+    // .addToSet works like .push but it won't create duplicates
+    event.requests.addToSet(self._id);
+    return event.save();
+  }).then(() => {
+    return done(null);
+  })
+  .catch(done);
 });
 
 /*

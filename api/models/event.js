@@ -23,7 +23,7 @@ const eventSchema = new mongoose.Schema({
   startTime: { type: Date },
   finishTime: { type: Date },
   host: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  requests: { type: mongoose.Schema.ObjectId, ref: 'Request' },
+  requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }],
   active: { type: Boolean, default: false }
 },{
   timestamps: true
@@ -43,5 +43,14 @@ eventSchema.pre('validate', function(done) {
     return done();
   }).catch(done);
 });
+
+/*
+ * Add the event to the user who created the event
+ */
+eventSchema.pre('save', function(done) {
+  const self = this;
+  return self.model('User').findByIdAndUpdate(self.host, { $addToSet: { events: self._id }}, done);
+});
+
 
 module.exports = mongoose.model('Event', eventSchema);
