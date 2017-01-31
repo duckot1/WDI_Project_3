@@ -47,12 +47,6 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
       controller: 'EventsEditCtrl',
       controllerAs: 'eventsEdit'
     })
-    .state('eventsEdit', {
-      url: '/events/:id/edit',
-      templateUrl: '/js/views/events/edit.html',
-      controller: 'EventsEditCtrl',
-      controllerAs: 'events'
-    })
     .state('usersShow', {
       url: '/users/:id',
       templateUrl: '/js/views/users/show.html',
