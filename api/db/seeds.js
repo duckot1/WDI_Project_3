@@ -139,7 +139,6 @@ function createFirstRequest(event, done) {
       event: event._id,
       interested: true
     });
-    console.log(request)
     return request.save();
   })
   .then(request => {
@@ -419,7 +418,7 @@ function pickThirdAttendee(event, done) {
   .catch(done);
 }
 
-function createFourthEvent(){
+function createFourthEvent(done){
   User.findOne({
     email: 'brian@eno.com'
   }).then(user => {
@@ -442,5 +441,6 @@ function createFourthEvent(){
   })
   .then(event => {
     console.log(`${event.description} was created`);
+    return done();
   });
 }

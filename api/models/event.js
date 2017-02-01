@@ -36,9 +36,6 @@ const eventSchema = new mongoose.Schema({
  * active.
  */
 
-
-
-
 // eventSchema.pre('validate', function(done) {
 //   const self = this;
 //   return self.model('Event').findOne({

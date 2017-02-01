@@ -1,21 +1,17 @@
-<h1>Events List</h1>
-<!-- <div class="container" ng-repeat ="event in events.events">
-<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
-</div> -->
-
-<div class="container">
-  <ul class="list-inline">
-    <li class="eventItem" ng-swipe-left="events.swipeLeft($event)" ng-swipe-right="events.swipeRight($event)" ng-repeat ="event in events.events">
-      <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.name }}</h3></a>
-      <img src="{{ event.img }}" alt="{{ event.name }}" />
-      <ul class="yes-no-list">
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeLeft($event)">Yes</button></li>
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeRight($event)">No</button></li>
-      </ul>
-    </li>
-
-  </ul>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    {{ events.events.length }} Events
+    <ul class="list-unstyled">
+      <li ng-repeat="event in events.events track by $index" >
+        <ul class="list-unstyled">
+          <li class="single-event" style="background-image: url('{{ event.img }}');" ui-sref="eventsShow({ id: event._id })">
+            <div class="single-event-name">
+              <h4>{{ event.name }}</h4>
+              <p>by {{ event.host.email }}</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </div>
-
-<!-- usersEdit({ id: usersShow.user._id }) -->

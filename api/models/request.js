@@ -18,8 +18,17 @@ const requestSchema = new mongoose.Schema({
 */
 requestSchema.pre('validate', function(done) {
   const self = this;
-  return self.model('Event').findById(self.event).exec((err, event) => {
+  if (!self.isNew) return done();
+  return self.model('Event').findOne({
+    _id: self.event,
+    usersInterested: { $ne: self.sender }
+  }).then(event => {
+    if (!event) {
+      return done(new Error('You have already said you are interested in this event.'));
+    }
+
     self.receiver = event.host;
+    event.usersInterested.addToSet(self.sender);
     event.requests.addToSet(self._id);
     return event.save();
   }).then(() => {
@@ -28,6 +37,25 @@ requestSchema.pre('validate', function(done) {
   .catch(done);
 });
 
+requestSchema.pre('validate', function(done) {
+  const self = this;
+  if (!self.isNew) return done();
+  return self.model('User').findById({
+    _id: self.sender,
+    interestedIn: { $ne: self.event }
+  }).then(user => {
+    if (!user) {
+      return done(new Error('You have already said you are interested in this event'));
+    }
+
+    user.interestedIn.addToSet(self.event);
+    user.requests.addToSet(self._id);
+    return user.save();
+  }).then(() => {
+    return done(null);
+  })
+  .catch(done);
+});
 
 /*
 * Update the user's interestedIn or notInterestedIn arrays depending on the
@@ -35,11 +63,7 @@ requestSchema.pre('validate', function(done) {
 */
 requestSchema.pre('save', function(done) {
   const self = this;
-  if (!self.interested) {
-    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
-  } else {
-    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { interestedIn: self.event }}, done);
-  }
+  return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
 });
 
 /*
