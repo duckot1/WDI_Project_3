@@ -1,68 +1,59 @@
-<h1>Events List</h1>
-<!-- <div class="container" ng-repeat ="event in events.events">
-<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
-</div> -->
+<!-- <div class="container slider">
+  <img ng-repeat="event in events.events track by $index" class="slide" ng-hide="!isCurrentEventIndex($index)" ng-src="{{ event.img }}">
+</div>
 
-{{ events.events }}
-
-<!-- <div class="container">
-  <ul class="list-inline">
-    <li class="eventItem" ng-swipe-left="events.swipeLeft($event)" ng-swipe-right="events.swipeRight($event)" ng-repeat ="event in events.events">
-      <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.name }}</h3></a>
-      <img src="{{ event.img }}" alt="{{ event.name }}" />
-      <ul class="yes-no-list">
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeLeft($event)">Yes</button></li>
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeRight($event)">No</button></li>
+<nav class="nav">
+  <div class="wrapper">
+    <ul class="dots">
+      <li class="dot" ng-repeat="slide in slides">
+        <a href="#" ng-class="{'active':isCurrentEventIndex($index)}"
+        ng-click="setCurrentEventIndex($index);">{{event.description}}</a></li>
       </ul>
-    </li>
+  </div>
+</nav>
 
-  </ul>
-</div> -->
-
-<!-- usersEdit({ id: usersShow.user._id }) -->
-{{ events.events }}
-
-<!-- <section>
-  <ul class="box">
-    <li ng-repeat="event in events.events track by $index">
-      <div class="tile animated" ng-class="event.animation" ng-swipe-left="events.swipedLeft(event)" ng-swipe-right="events.swipedRight(event)">
-        <div>
-          <img class="placeholder" ng-src="{{ event.img }}" />
-          <div class="info">
-            <ul>
-              <li ui-sref="usersShow({ id: event.user._id })"><img ng-src="{{ event.user.profile_picture }}"/></li>
-              <li class="title"><div id="title"><h4>{{event.event }}</h4></div></li>
-              <li class="right" ng-click="events.swipedRight(event)">
-                <i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
-                <li class="right" ng-click="events.swipedLeft(event)"><i class="no" aria-hidden="true"></i></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div class="modal fade" id="eventModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="myModalLabel">Add a message</h4>
-          </div>
-          <form>
-            <div class="modal-body">
-              <div class="form-group">
-                <textarea type="text" class="form-control"
-                id="inputText" placeholder="Message" ng-model="events.message.body"></textarea>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button id="button" type="button" class="btn btn-primary" ng-click="events.submitMessage()">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+ -->
 
 
 
-  </section> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="events-index">
+  <ul>
+  <li ng-repeat="event in events.events track by $index" >
+  <div class="tile animated" ng-swipe-left="events.swipedLeft(event)" ng-swipe-right="events.swipedRight(event)" ng-class="event.animation">
+  <div>
+  <img class="placeholder" src="{{ event.img }}">
+  <div class="info">
+  <ul>
+  <li ui-sref="eventsShow({ id: event._id })"><img ng-src="{{ event.img }}"/></li>
+  <li class="title animated"><div id="eventsIndex"><h4>{{deed.deed }}</h4></div></li>
+  <li class="right" ng-click="events.swipedRight(event)">
+  <i class="yes" aria-hidden="true"></i></li>
+  <li class="right" ng-click="events.swipedLeft(event)"><i class="no" aria-hidden="true"></i></li>
+</ul>
+</div>
+<a ui-sref="eventsShow({ id: event._id })"><h4>{{ event.name }}</h4></a>
+</div>
+</div>
+</li>
+</ul>
+</section>

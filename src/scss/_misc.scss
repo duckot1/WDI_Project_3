@@ -51,3 +51,38 @@ img {
 [ng-click]{
   cursor: pointer;
 }
+
+.events-index {
+  ul {
+    width: 250px;
+    height: 250px;
+    list-style: none;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+
+      .tile.animated {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background: #fff;
+
+        img {
+          width: 250px;
+          height: 200px;
+
+          -moz-user-select: none;
+          -webkit-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          -webkit-user-drag: none;
+          user-drag: none;
+          -webkit-touch-callout: none;
+        }
+      }
+    }
+  }
+}
