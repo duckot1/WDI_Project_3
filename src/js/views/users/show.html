@@ -7,6 +7,27 @@
 <h4>Bio</h4>
 <p>{{usersShow.user.bio}}</p>
 
+<h2>Current Events</h2>
+
+<ul>
+  <li ng-repeat="events in usersShow.user.events">
+    <img src="{{events.img}}">
+    <a ui-sref="eventsShow({ id: events._id})">{{events.name}}</a>
+    <p>{{events.address}}</p>
+  </li>
+</ul>
+
+<h2>Interested in Events</h2>
+<ul>
+<li ng-repeat="interestedIn in usersShow.user.interestedIn">{{interestedIn.name}}</li>
+</ul>
+
+<h2>Not Interested in Events</h2>
+<ul>
+<li ng-repeat="interestedIn in usersShow.user.notInterestedIn">
+
+</li>
+</ul>
 
 <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
 
