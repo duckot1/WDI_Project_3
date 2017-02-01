@@ -1,17 +1,14 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    {{ events.events.length }} Events
-    <ul class="list-unstyled">
-      <li ng-repeat="event in events.events track by $index" >
-        <ul class="list-unstyled">
-          <li class="single-event" style="background-image: url('{{ event.img }}');" ui-sref="eventsShow({ id: event._id })">
-            <div class="single-event-name">
-              <h4>{{ event.name }}</h4>
-              <p>by {{ event.host.email }}</p>
-            </div>
-          </li>
-        </ul>
-      </li>
-    </ul>
+<div>
+  <div id="slides_control">
+    <div>
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{event.img}}">
+          <div class="carousel-caption">
+            <h4>{{event.name}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
   </div>
 </div>

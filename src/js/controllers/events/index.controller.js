@@ -2,8 +2,8 @@ angular
 .module('clubMate')
 .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['Event', 'CurrentUserService'];
-function EventsIndexCtrl(Event, CurrentUserService) {
+EventsIndexCtrl.$inject = ['Event'];
+function EventsIndexCtrl(Event) {
   const vm  = this;
-  vm.events = Event.query();
+  vm.slides = vm.events = Event.query();
 }
