@@ -63,7 +63,9 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('usersInbox', {
     url: '/users/:id/inbox',
-    templateUrl: '/js/views/users/inbox.html'
+    templateUrl: '/js/views/users/inbox.html',
+    controller: 'UsersInboxCtrl',
+    controllerAs: 'usersInbox'
   });
 
   $urlRouterProvider.otherwise('/');
