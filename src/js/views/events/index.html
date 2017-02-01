@@ -4,7 +4,9 @@
 <img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
 </div> -->
 
-<div class="container">
+{{ events.events }}
+
+<!-- <div class="container">
   <ul class="list-inline">
     <li class="eventItem" ng-swipe-left="events.swipeLeft($event)" ng-swipe-right="events.swipeRight($event)" ng-repeat ="event in events.events">
       <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.name }}</h3></a>
@@ -16,6 +18,6 @@
     </li>
 
   </ul>
-</div>
+</div> -->
 
 <!-- usersEdit({ id: usersShow.user._id }) -->

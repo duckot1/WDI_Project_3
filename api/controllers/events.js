@@ -12,12 +12,13 @@ module.exports = {
 function eventsIndex(req, res){
   console.log('index events');
   Event
-  .find({
-    active: true,
-    host: { $ne: req.user.id },
-    usersInterested: { $ne: req.user.id },
-    _id: { $ne: req.user.notInterestedIn }
-  })
+    .find({})
+  // .find({
+  //   active: true,
+  //   host: { $ne: req.user.id },
+  //   usersInterested: { $ne: req.user.id },
+  //   _id: { $ne: req.user.notInterestedIn }
+  // })
   .populate(['host'])
   .exec((err, events) => {
     if (err) return res.status(500).json(err);

@@ -5,12 +5,12 @@ angular
 EventsIndexCtrl.$inject = ['$http', 'API', 'Event'];
 function EventsIndexCtrl($http, API, Event){
   const vm = this;
-  vm.swipeRight = function($event) {
-    console.log('Right', $event);
-  };
-  vm.swipeLeft = function($event) {
-    console.log('Left', $event);
-  };
+  // vm.swipeRight = function($event) {
+  //   console.log('Right', $event);
+  // };
+  // vm.swipeLeft = function($event) {
+  //   console.log('Left', $event);
+  // };
 
 
   Event
