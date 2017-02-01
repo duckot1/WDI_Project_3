@@ -22,6 +22,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
   }
 
   function sendInterested(event) {
+    console.log('sent');
     User
       .request({
         receiver: event.host._id,
