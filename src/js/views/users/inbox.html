@@ -3,8 +3,9 @@
 
 <ul>
   <li ng-repeat="user in usersInbox.user">
-    <h4>{{user.sender.firstName}}</h4>
-    <p>{{usersInbox.user[0].sender.email}}</p>
-    <p>{{usersInbox.user[0].text}}</p>
+    <h4><b>From:</b> {{user.sender.firstName}}</h4>
+    <h4><b>To:</b> Me</h4>
+    <p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
+    <p><b>Message:</b> {{usersInbox.user[0].text}}</p>
   </li>
 </ul>
