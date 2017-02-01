@@ -10,7 +10,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, Cu
   vm.delete = eventsDelete;
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
-console.log('eventShow', vm.event)
+console.log('eventShow', vm.event);
 
 
   vm.interestedToggle      = true;
