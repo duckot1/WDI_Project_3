@@ -1,45 +1,24 @@
-<div ng-if="usersShow.user.email">
-<h1>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h1>
+<section class="usersShow">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h1>
 
-<img src="{{usersShow.user.profile_picture}}" alt="Profile Picture">
-<p>location &bull; {{usersShow.user.dob}}</p>
+      <img src="{{usersShow.user.profile_picture}}" alt="Profile Picture">
+      <p>location &bull; {{usersShow.user.dob}}</p>
 
-<h4>Bio</h4>
-<p>{{usersShow.user.bio}}</p>
+      <h4>Bio</h4>
+      <p>{{usersShow.user.bio}}</p>
 
-<h2>Current Events</h2>
+      <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
 
-<ul>
-  <li ng-repeat="events in usersShow.user.events">
-    <img src="{{events.img}}">
-    <a ui-sref="eventsShow({ id: events._id})">{{events.name}}</a>
-    <p>{{events.address}}</p>
-  </li>
-</ul>
+      <button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
 
-<h2>Interested in Events</h2>
-<ul>
-<li ng-repeat="interestedIn in usersShow.user.interestedIn">{{interestedIn.name}}</li>
-</ul>
+      <ul>
+        <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
+        <!-- <button ng-click="users.accept(users.user)">Accept</button>
+        <button ng-click="users.decline(users.user)">Decline</button> -->
+      </ul>
 
-<h2>Not Interested in Events</h2>
-<ul>
-<li ng-repeat="interestedIn in usersShow.user.notInterestedIn">
-
-</li>
-</ul>
-
-<button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
-
-<button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
-</div>
-
-<ul>
-  <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
-  <!-- <button ng-click="users.accept(users.user)">Accept</button>
-  <button ng-click="users.decline(users.user)">Decline</button> -->
-</ul>
-
-<div ng-if="!usersShow.user.email">
-  <h1>No User Exists</h1>
-</div>
+    </div>
+  </div>
+</section>

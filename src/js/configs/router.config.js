@@ -7,40 +7,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-
   .state('home', {
     url: '/',
-    views: {
-      view1: {
-        templateUrl: '/js/views/login.html',
-        controller: 'UserLoginCtrl',
-        controllerAs: 'login'
-      },
-      view2: {
-        templateUrl: '/js/views/register.html',
-        controller: 'UserRegisterCtrl',
-        controllerAs: 'register'
-      }
-    }
+    templateUrl: '/js/views/home.html',
+    controller: 'HomeCtrl',
+    controllerAs: 'home'
   })
-  .state('register', {
-    url: '/register',
-    templateUrl: '/js/views/register.html',
-    controller: 'UserRegisterCtrl',
-    controllerAs: 'register'
-  })
-  .state('login', {
-    url: '/login',
-    templateUrl: '/js/views/login.html',
-    controller: 'UserLoginCtrl',
-    controllerAs: 'login'
-  })
-  // .state('logout', {
-  //   url: '/logout',
-  //   templateUrl: '<h1>Home</h1>',
-  //   controller: 'MainCtrl',
-  //   controllerAs: 'logout'
-  // })
   .state('eventsIndex', {
     url: '/events',
     templateUrl: '/js/views/events/index.html',
@@ -49,7 +21,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('eventsCreate', {
     url: '/events/new',
-    templateUrl: '/js/views/events/create.html',
+    templateUrl: '/js/views/events/new.html',
     controller: 'EventsCreateCtrl',
     controllerAs: 'eventsCreate'
   })
@@ -71,6 +43,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'UsersShowCtrl',
     controllerAs: 'usersShow'
   })
+  .state('usersEvents', {
+    url: '/users/:id/events',
+    templateUrl: '/js/views/events/index.html',
+    controller: 'UsersEventsCtrl',
+    controllerAs: 'events'
+  })
+  .state('usersInterested', {
+    url: '/users/:id/interested',
+    templateUrl: '/js/views/events/index.html',
+    controller: 'UsersInterestedCtrl',
+    controllerAs: 'events'
+  })
   .state('usersEdit', {
     url: '/users/:id/edit',
     templateUrl: '/js/views/users/edit.html',
@@ -78,7 +62,5 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controllerAs: 'usersEdit'
   });
 
-
   $urlRouterProvider.otherwise('/');
-
 }

@@ -25,7 +25,7 @@ const eventSchema = new mongoose.Schema({
   host: { type: mongoose.Schema.ObjectId, ref: 'User' },
   usersInterested: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }],
-  active: { type: Boolean, default: false }
+  active: { type: Boolean, default: true }
 },{
   timestamps: true
 });
@@ -35,9 +35,6 @@ const eventSchema = new mongoose.Schema({
  * You shouldn't be able to create an event if you already have one that is
  * active.
  */
-
-
-
 
 // eventSchema.pre('validate', function(done) {
 //   const self = this;

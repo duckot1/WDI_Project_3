@@ -5,14 +5,13 @@ angular
 EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state', 'TokenService'];
 function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
   const vm = this;
+
   vm.event = Event.get($stateParams);
   vm.delete = eventsDelete;
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
-  vm.requestBody = {};
 
   function eventsDelete(event){
-    console.log(event, 'eventDelete');
     Event
       .delete({ id: event._id })
       .$promise
@@ -21,25 +20,21 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
       });
   }
 
-
   function sendInterested(event) {
-    vm.requestBody.receiver = event.host._id;
-    vm.requestBody.event = event._id;
-    vm.requestBody.interested = true;
-    vm.requestBody.text = 'Hi there I would like to join you';
-    console.log(vm.requestBody);
     User
-      .request(vm.requestBody)
+      .request({
+        receiver: event.host._id,
+        event: event._id,
+        interested: true,
+        text: 'Hi there I would like to join you'
+      })
       .$promise
       .then(response => {
-        console.log(response);
-        // event.requests.push(response._id);
-        // console.log(event);
+        $state.go('eventsIndex');
       });
   }
 
   const decoded = TokenService.decodeToken();
-  console.log(decoded);
 
   function sendNotInterested(event) {
     User
@@ -50,8 +45,8 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
         User
           .update({ id: decoded.id }, user)
           .$promise
-          .then((data) => {
-            console.log(data, 'added to not interested');
+          .then(data => {
+            $state.go('eventsIndex');
           });
       });
   }
@@ -62,8 +57,6 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
     .then(data => {
       console.log(data);
     });
-
-
 }
 
 

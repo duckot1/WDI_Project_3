@@ -17,7 +17,7 @@ function usersIndex(req, res){
 function usersShow(req, res){
   User
   .findById(req.params.id)
-  .populate(['events', 'interestedIn', 'notInterestedIn'])
+  .populate(['events', 'interestedIn', 'notInterestedIn', 'events.host'])
   .exec((err, user) => {
     if (err) return res.status(500).json(err);
     if (!user) return res.status(404).json({ error: 'No user was found.' });
