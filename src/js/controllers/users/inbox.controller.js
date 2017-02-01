@@ -12,8 +12,18 @@ function UsersInboxCtrl(API, User, $stateParams){
 
   vm.accept = eventAccept;
 
-  function eventAccept(){
-    console.log(vm.user);
+  function eventAccept(x){
+    x.status = 'accepted';
+    console.log(x);
+    User
+      .requestUpdate({ id: x._id }, x)
+      .$promise
+      .then((response) => {
+        console.log(response);
+        // $state.go('home');
+      });
+
+
   }
 
 }
