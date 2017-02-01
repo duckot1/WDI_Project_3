@@ -9,26 +9,47 @@
 <input type="text" class="form-control" id="address" name="address" ng-model="eventsCreate.event.address">
 </div>
 <div class="form-group">
-<label for="description">Event info</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.description">
+<label for="event">Event info</label>
+<input type="text" class="form-control" id="event" name="description" ng-model="eventsCreate.event.description">
 </div>
-<label for="description">Cost</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.cost">
+<div class="form-group">
+<label for="cost">Cost</label>
+<input type="text" class="form-control" id="cost" name="description" ng-model="eventsCreate.event.cost">
 </div>
-<label for="description">Website</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.url">
+<div class="form-group">
+<label for="website">Website</label>
+<input type="text" class="form-control" id="website" name="website" ng-model="eventsCreate.event.url">
 </div>
-<label for="description">Image</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.img">
+<div class="form-group">
+<label for="image">Image</label>
+<input type="text" class="form-control" id="image" name="image" ng-model="eventsCreate.event.img">
 </div>
-<label for="description">Emoji</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.emoji">
+
+<div class="form-group">
+
+  <form action="api/events/edit" method="post" enctype="multipart/form-data">
+    <input name="myFile" type="file" class="form-control"/>
+    <input name="width" value="{{ model.widget.width }}" style="display: none"/>
+    <input name="widgetId" value="{{ model.widget._id }}" style="display: none"/>
+    <!-- <input type="submit" class="btn btn-block btn-primary"/>upload image -->
+
+  </form>
+
+
 </div>
-<label for="description">Start time</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.startTime">
+
+
+<div class="form-group">
+<label for="emoji">Emoji</label>
+<input type="text" class="form-control" id="emoji" name="emoji" ng-model="eventsCreate.event.emoji">
 </div>
+<div class="form-group">
+<label for="startTime">Start time</label>
+<input type="text" class="form-control" id="startTime" name="startTime" ng-model="eventsCreate.event.startTime">
+</div>
+<div class="form-group">
 <label for="description">Finish time</label>
-<input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.finishTime">
+<input type="text" class="form-control" id="description" name="finishTime" ng-model="eventsCreate.event.finishTime">
 </div>
 <input type="submit" class="btn btn-default btn-block" value="Add">
 </form>
