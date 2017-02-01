@@ -1,7 +1,8 @@
 module.exports = {
   create: requestsCreate,
   show: requestsShow,
-  inbox: myRequests,
+  inbox: receivedRequests,
+  outbox: sentRequests,
   update: requestsUpdate,
   index: requestsIndex
 };
@@ -34,11 +35,26 @@ function requestsUpdate(req, res){
   });
 }
 
-function myRequests(req, res) {
+function receivedRequests(req, res) {
   Request
   .find({
-    event: { $eq: req.params.id },
-    interested: true
+    receiver: { $eq: req.params.id },
+    interested: true,
+    status: { $ne: 'rejected' }
+  })
+  .populate('sender')
+  .populate('receiver')
+  .populate('event')
+  .exec(function (err, requests) {
+    if (err) return res.status(500).json({ message: 'Something went wrong.' });
+    return res.status(200).json(requests);
+  });
+}
+
+function sentRequests(req, res){
+  Request
+  .find({
+    sender: { $eq: req.user.id }
   })
   .populate('sender')
   .populate('receiver')
