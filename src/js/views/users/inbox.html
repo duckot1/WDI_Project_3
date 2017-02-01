@@ -3,9 +3,12 @@
 
 <ul>
   <li ng-repeat="user in inbox.user">
+<h3><b>Active Event:</b> {{usersInbox.user[0].event.name}}</h3>
+    <h4><b></b> {{usersInbox.user[0].event.address}}</h4>
     <h4><b>From:</b> {{user.sender.firstName}}</h4>
     <h4><b>To:</b> Me</h4>
     <p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
     <p><b>Message:</b> {{usersInbox.user[0].text}}</p>
+    <a s-ref="">Accept</a>
   </li>
 </ul>
