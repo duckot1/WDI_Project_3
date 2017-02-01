@@ -10,22 +10,28 @@ module.exports = {
 };
 
 function eventsIndex(req, res){
+  console.log('index events');
   Event
   .find({
     active: true,
-    host: { $ne: req.user._id },
-    requests: { $ne: req.user.requests }
+    host: { $ne: req.user.id },
+    usersInterested: { $ne: req.user.id },
+    _id: { $ne: req.user.notInterestedIn }
   })
   .populate(['host'])
   .exec((err, events) => {
     if (err) return res.status(500).json(err);
+    console.log(req.user);
     return res.status(200).json(events);
   });
 }
 
 function eventsCreate(req, res){
+  console.log('we got back here');
   const event = new Event(req.body.event);
+  console.log(event);
   event.host  = req.user._id;
+  console.log(event);
   event
   .save((err, event) => {
     if (err) return res.status(500).json(err);

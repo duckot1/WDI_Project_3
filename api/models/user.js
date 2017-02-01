@@ -14,7 +14,8 @@ const userSchema = new mongoose.Schema({
   bio: { type: String, trim: true },
   events: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
   interestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
-  notInterestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }]
+  notInterestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
+  requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }]
 });
 
 userSchema

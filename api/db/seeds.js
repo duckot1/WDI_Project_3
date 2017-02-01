@@ -30,7 +30,8 @@ async.waterfall([
   createSeventhRequest,
   createEightRequest,
   createNinthRequest,
-  pickThirdAttendee
+  pickThirdAttendee,
+  createFourthEvent
 ], function(err) {
   if (err) return console.log(err);
   console.log('Seeding complete');
@@ -415,4 +416,30 @@ function pickThirdAttendee(event, done) {
     return done(null);
   })
   .catch(done);
+}
+
+function createFourthEvent(){
+  User.findOne({
+    email: 'brian@eno.com'
+  }).then(user => {
+    const today = new Date();
+    const event = new Event({
+      address: '4 Friary Estate, London SE15 6SE',
+      lat: '51.481288',
+      lng: '-0.065465',
+      name: 'Random Destination Day',
+      description: 'I found this random point on google maps and want to check it out',
+      cost: 'free',
+      url: 'http://lantanacafe.co.uk/',
+      img: 'https://www.moooi.com/sites/default/files/styles/large/public/product-images/random_detail.jpg?itok=ErJveZTY',
+      emoji: '☕',
+      host: user._id,
+      startTime: today.setDate(today.getDate() + 15),
+      finishTime: today.setDate(today.getDate() + 16)
+    });
+    return event.save();
+  })
+  .then(event => {
+    console.log(`${event.description} was created`);
+  });
 }

@@ -9,11 +9,6 @@ function UsersShowCtrl(API, $stateParams, User, $state){
   vm.user = User.get($stateParams);
   vm.delete = usersDelete;
 
-  User.inbox({ id: $stateParams.id }).$promise.then(data => {
-    console.log(data, 'hiiiiiii');
-    vm.requests = data;
-  });
-
   console.log(vm.user, 'show vm.user');
 
   function usersDelete(user){
