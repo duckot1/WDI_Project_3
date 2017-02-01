@@ -2,8 +2,8 @@ angular
   .module('clubMate')
   .controller('UsersInboxCtrl', UsersInboxCtrl);
 
-UsersInboxCtrl.$inject = ['API', 'User', '$stateParams'];
-function UsersInboxCtrl(API, User, $stateParams){
+UsersInboxCtrl.$inject = ['API', 'User', '$stateParams', '$state'];
+function UsersInboxCtrl(API, User, $stateParams, $state){
   const vm = this;
 
   vm.user = User.inbox($stateParams);
@@ -11,6 +11,13 @@ function UsersInboxCtrl(API, User, $stateParams){
   console.log(vm.user);
 
   vm.accept = eventAccept;
+  vm.hideOnAccept = true;
+  hideOnAccept();
+  function hideOnAccept(){
+    if(vm.user.status !== 'accepted'){
+      vm.hideOnAccept = false;
+    }
+  }
 
   function eventAccept(x){
     x.status = 'accepted';
@@ -20,10 +27,8 @@ function UsersInboxCtrl(API, User, $stateParams){
       .$promise
       .then((response) => {
         console.log(response);
-        // $state.go('home');
+        $state.go('events');
       });
-
-
   }
 
 }
