@@ -23,26 +23,32 @@ const eventSchema = new mongoose.Schema({
   startTime: { type: Date },
   finishTime: { type: Date },
   host: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  usersInterested: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }],
   active: { type: Boolean, default: false }
 },{
   timestamps: true
 });
 
+
 /*
  * You shouldn't be able to create an event if you already have one that is
  * active.
  */
-eventSchema.pre('validate', function(done) {
-  const self = this;
-  return self.model('Event').findOne({
-    host: self.host,
-    active: true
-  }).then(event => {
-    if (event) return self.invalidate('active', 'You aren\'t allowed to create two active events.');
-    return done();
-  }).catch(done);
-});
+
+
+
+
+// eventSchema.pre('validate', function(done) {
+//   const self = this;
+//   return self.model('Event').findOne({
+//     host: self.host,
+//     active: true
+//   }).then(event => {
+//     if (event) return self.invalidate('active', 'You aren\'t allowed to create two active events.');
+//     return done();
+//   }).catch(done);
+// });
 
 /*
  * Add the event to the user who created the event
