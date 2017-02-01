@@ -46,12 +46,20 @@ function eventsShow(req, res){
   });
 }
 
+//the below commented out code is to reject unauthorised requests from the back end but it's too secure at the moment because it doesn't even allow authorized requests unfortunately.
+
 function eventsUpdate(req, res){
+  // console.log(req.body.host._id);
+  // console.log(req.user._id);
+  // if (req.body.host._id===req.user._id){
   Event.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, event) => {
     if (err) return res.status(500).json(err);
     if (!event) return res.status(404).json({ error: 'No event was found.' });
     return res.status(200).json(event);
   });
+  // } else {
+  //   return res.status(401).json({ error: 'the logged in user is not the event owner' });
+  // }
 }
 
 function eventsDelete(req, res){
