@@ -10,5 +10,4 @@ function UsersInboxCtrl(API, User, $stateParams){
 
   console.log(vm.user);
 
-
 }
