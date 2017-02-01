@@ -13,7 +13,8 @@ function UsersInboxCtrl(API, User, $stateParams){
   vm.accept = eventAccept;
 
   function eventAccept(){
-    console.log(vm.user);
+  //we need to change event to false
+  //we need to set host's 
   }
 
 }
