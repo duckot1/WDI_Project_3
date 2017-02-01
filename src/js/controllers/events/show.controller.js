@@ -10,6 +10,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
   vm.delete = eventsDelete;
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
+console.log('eventShow', vm.event)
 
   function eventsDelete(event){
     Event
