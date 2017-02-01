@@ -2,8 +2,12 @@ module.exports = {
   create: requestsCreate,
   show: requestsShow,
   inbox: myRequests,
+<<<<<<< HEAD
   update: requestsUpdate,
   index: requestsIndex
+=======
+  update: requestsUpdate
+>>>>>>> eventsIndex
 };
 
 const Request = require('../models/request');

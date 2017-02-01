@@ -21,3 +21,48 @@
 </div> -->
 
 <!-- usersEdit({ id: usersShow.user._id }) -->
+{{ events.events }}
+
+<!-- <section>
+  <ul class="box">
+    <li ng-repeat="event in events.events track by $index">
+      <div class="tile animated" ng-class="event.animation" ng-swipe-left="events.swipedLeft(event)" ng-swipe-right="events.swipedRight(event)">
+        <div>
+          <img class="placeholder" ng-src="{{ event.img }}" />
+          <div class="info">
+            <ul>
+              <li ui-sref="usersShow({ id: event.user._id })"><img ng-src="{{ event.user.profile_picture }}"/></li>
+              <li class="title"><div id="title"><h4>{{event.event }}</h4></div></li>
+              <li class="right" ng-click="events.swipedRight(event)">
+                <i class="yes fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+                <li class="right" ng-click="events.swipedLeft(event)"><i class="no" aria-hidden="true"></i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="modal fade" id="eventModal" tabindex="-1" data-backdrop="static" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Add a message</h4>
+          </div>
+          <form>
+            <div class="modal-body">
+              <div class="form-group">
+                <textarea type="text" class="form-control"
+                id="inputText" placeholder="Message" ng-model="events.message.body"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="button" type="button" class="btn btn-primary" ng-click="events.submitMessage()">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+  </section> -->
