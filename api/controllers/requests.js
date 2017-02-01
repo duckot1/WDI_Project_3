@@ -14,7 +14,10 @@ function requestsCreate(req, res) {
   request.sender = req.user._id;
 
   request.save((err, request) => {
-    if (err) return res.status(500).json({ message: 'Something went wrong.' });
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ message: 'Something went wrong.' });
+    }
     return res.status(201).json(request);
   });
 }
