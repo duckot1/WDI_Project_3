@@ -25,7 +25,7 @@ const eventSchema = new mongoose.Schema({
   host: { type: mongoose.Schema.ObjectId, ref: 'User' },
   usersInterested: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }],
-  active: { type: Boolean, default: true }
+  active: { type: Boolean, default: false }
 },{
   timestamps: true
 });
