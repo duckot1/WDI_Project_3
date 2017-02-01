@@ -55,6 +55,15 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
           });
       });
   }
+
+  Event
+    .inbox({ id: $stateParams.id })
+    .$promise
+    .then(data => {
+      console.log(data);
+    });
+
+
 }
 
 
