@@ -19,12 +19,9 @@ const requestSchema = new mongoose.Schema({
 requestSchema.pre('validate', function(done) {
   const self = this;
   return self.model('Event').findById(self.event).exec((err, event) => {
-    if (event.usersInterested.indexOf(self.sender) === -1) {
-      self.receiver = event.host;
-      event.usersInterested.addToSet(self.sender);
-      event.requests.addToSet(self._id);
-      return event.save();
-    }
+    self.receiver = event.host;
+    event.requests.addToSet(self._id);
+    return event.save();
   }).then(() => {
     return done(null);
   })
@@ -53,6 +50,8 @@ requestSchema.pre('save', function(done) {
   const self = this;
   if (!self.interested) {
     return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
+  } else {
+    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { interestedIn: self.event }}, done);
   }
 });
 
