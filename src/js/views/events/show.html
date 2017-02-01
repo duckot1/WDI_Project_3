@@ -1,9 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="eventCard">
-      <div class="eventImage">
-        <img src="{{ eventsShow.event.img }}" alt="{{ event.name }}"/>
-      </div>
+        <img class="eventImage" src="{{ eventsShow.event.img }}" alt="{{ event.name }}"/>
       <div class="eventInfo">
         <h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
         <a ui-sref="usersShow({ id: main.user._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
@@ -27,5 +25,4 @@
       <li ng-repeat="request in eventsShow.requests">{{ request.text }}</li>
     </ul>
   </div>
->>>>>>> ea4929f66518c199146768594bf450976ea1a552
 </div>
