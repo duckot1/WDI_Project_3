@@ -28,19 +28,6 @@ requestSchema.pre('validate', function(done) {
   .catch(done);
 });
 
-requestSchema.pre('validate', function(done) {
-  const self = this;
-  return self.model('User').findById(self.sender).exec((err, user) => {
-    if (user.interestedIn.indexOf(self.event) === -1) {
-      user.interestedIn.addToSet(self.event);
-      user.requests.addToSet(self._id);
-      return user.save();
-    }
-  }).then(() => {
-    return done(null);
-  })
-  .catch(done);
-});
 
 /*
 * Update the user's interestedIn or notInterestedIn arrays depending on the
