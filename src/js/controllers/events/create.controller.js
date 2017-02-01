@@ -10,11 +10,11 @@ function EventsCreateCtrl(API, $state, Event) {
 
   function eventsCreate(){
     return Event
-    .save({ event: vm.event })
+    .save({event: vm.event})
     .$promise
-    .then(event => {
-      console.log(vm.event);
-      $state.go('eventsShow', { id: event._id });
+    .then((response) => {
+      console.log(response._id);
+      $state.go('eventsShow', {id: response._id});
     });
   }
 }
