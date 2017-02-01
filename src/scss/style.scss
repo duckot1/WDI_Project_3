@@ -3,9 +3,16 @@
 @import "navbar";
 @import "buttons";
 @import "typography";
+@import "swipes";
 
 @import "misc";
 @import "usersShow";
 
 @import "pages/usersShow";
 @import "pages/events";
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
