@@ -12,9 +12,10 @@ function EventsCreateCtrl(API, $state, Event) {
     return Event
       .save({ event: vm.event })
       .$promise
-      .then(event => {
+      .then(() => {
         console.log(vm.event);
-        $state.go('eventsShow', { id: event._id });
+        $state.go('eventsIndex');
+        // { id: event._id });
       });
   }
 }

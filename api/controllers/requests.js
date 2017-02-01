@@ -2,7 +2,7 @@ module.exports = {
   create: requestsCreate,
   show: requestsShow,
   inbox: myRequests,
-  update: requestsUpdate,
+  update: requestsUpdate
 };
 
 const Request = require('../models/request');

@@ -2,22 +2,43 @@ angular
 .module('clubMate')
 .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['$http', 'API', 'Event'];
-function EventsIndexCtrl($http, API, Event){
-  const vm = this;
-  vm.swipeRight = function($event) {
-    console.log('Right', $event);
-  };
-  vm.swipeLeft = function($event) {
-    console.log('Left', $event);
-  };
-
+EventsIndexCtrl.$inject = ['Event', '$stateParams', 'CurrentUserService'];
+function EventsIndexCtrl(Event, $stateParams, CurrentUserService){
+  const vm            = this;
+  vm.user             = CurrentUserService.getUser();
+  vm.swipedLeft       = swipedLeft;
+  vm.swipedRight      = swipedRight;
+  vm.submitMessage    = submitMessage;
 
   Event
-  .query()
+  .query($stateParams)
   .$promise
   .then(response => {
-    vm.events = response;
-    console.log(vm.events);
+    // vm.events = data.events;
   });
+
+  function swipedLeft(event) {
+    event.animation  = 'slideOutLeft';
+  }
+
+  function swipedRight(event) {
+    event.animation  = 'slideOutRight';
+    vm.event = event;
+    $('#eventModal').modal('show');
+  }
+
+  function submitMessage(){
+    Request.save({
+      event: vm.event._id,
+      messages: [{
+        body: vm.message.body
+      }]
+    })
+    .$promise
+    .then(data => {
+      $('#eventModal').modal('hide');
+    })
+    .catch(console.log);
+  }
+
 }

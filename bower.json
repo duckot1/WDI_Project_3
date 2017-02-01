@@ -22,7 +22,8 @@
     "angular-resource": "^1.5.9",
     "angular-animate": "^1.6.1",
     "angular-bootstrap": "^2.5.0",
-    "angular-swipe": "^0.2.0"
+    "angular-swipe": "^0.2.0",
+    "angular-touch": "^1.6.1"
   },
   "overrides": {
     "bootstrap": {
