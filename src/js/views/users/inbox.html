@@ -1,0 +1,10 @@
+<h1>Inbox</h1>
+
+
+<ul>
+  <li ng-repeat="user in usersInbox.user">
+    <h4>{{user.sender.firstName}}</h4>
+    <p>{{usersInbox.user[0].sender.email}}</p>
+    <p>{{usersInbox.user[0].text}}</p>
+  </li>
+</ul>
