@@ -10,4 +10,10 @@ function UsersInboxCtrl(API, User, $stateParams){
 
   console.log(vm.user);
 
+  vm.accept = eventAccept;
+
+  function eventAccept(){
+    console.log(vm.user);
+  }
+
 }

@@ -11,6 +11,6 @@
     <h4><b>To:</b> Me</h4>
     <p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
     <p><b>Message:</b> {{usersInbox.user[0].text}}</p>
-    <a s-ref="">Accept</a>
+    <button class="btn btn-default" ng-click="usersInbox.accept()">Accept</button>
   </li>
 </ul>
