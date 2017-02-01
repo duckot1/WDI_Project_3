@@ -7,10 +7,11 @@
 
 
   <li ng-repeat="user in usersInbox.user">
-    <h4><b>From:</b> {{user.sender.firstName}}</h4>
-    <h4><b>To:</b> Me</h4>
-    <p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
-    <p><b>Message:</b> {{usersInbox.user[0].text}}</p>
-    <button class="btn btn-default" ng-click="usersInbox.accept()">Accept</button>
+      <h4><b>From:</b> {{user.sender.firstName}}</h4>
+      <h4><b>To:</b> Me</h4>
+      <p><b>Email:</b> {{user.sender.email}}</p>
+      <p><b>Message:</b> {{user.text}}</p>
+      <p><b>Status:</b> {{user.status}}</p>
+          <button ng-if="usersInbox.hideOnAccept" class="btn btn-default" ng-click="usersInbox.accept(user)">Accept</button>
   </li>
 </ul>
