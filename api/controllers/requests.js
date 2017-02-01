@@ -36,10 +36,13 @@ function requestsUpdate(req, res){
 
 function myRequests(req, res) {
   Request
-  .find({receiver_id: { $eq: req.params.id }})
-  .populate('sender_id')
-  .populate('receiver_id')
-  .populate('event_id')
+  .find({
+    event: { $eq: req.params.id },
+    interested: true
+  })
+  .populate('sender')
+  .populate('receiver')
+  .populate('event')
   .exec(function (err, requests) {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     return res.status(200).json(requests);

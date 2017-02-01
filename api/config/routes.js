@@ -36,7 +36,7 @@ router.route('/requests')
   .get(requests.index)
   .post(authentications.assign, requests.create);
 router.route('/requests/:id')
-  .get(requests.show)
+  .get(requests.inbox)
   .put(requests.update);
 
 module.exports = router;
