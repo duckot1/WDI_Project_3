@@ -5,7 +5,7 @@ angular
 EventsEditCtrl.$inject = ['API', '$stateParams', 'Event', '$state'];
 function EventsEditCtrl(API, $stateParams, Event, $state){
   const vm = this;
-  console.log($stateParams);
+
   vm.event = Event.get($stateParams);
   vm.update = eventsUpdate;
 
