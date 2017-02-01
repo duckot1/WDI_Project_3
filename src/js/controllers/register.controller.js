@@ -10,9 +10,10 @@ function UserRegisterCtrl(User, CurrentUserService, $state) {
     User
     .register(vm.user)
     .$promise
-    .then((response) => {
+    .then(user => {
       CurrentUserService.getUser();
-      // $state.go('userShow', response.user._id);
+      console.log(user);
+      $state.go('usersShow', { id: user.user._id });
     }, err => {
       console.log(err);
     });
