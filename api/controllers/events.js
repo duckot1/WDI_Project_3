@@ -24,8 +24,11 @@ function eventsIndex(req, res){
 }
 
 function eventsCreate(req, res){
+  console.log('we got back here');
   const event = new Event(req.body.event);
+  console.log(event);
   event.host  = req.user._id;
+  console.log(event);
   event
   .save((err, event) => {
     if (err) return res.status(500).json(err);
