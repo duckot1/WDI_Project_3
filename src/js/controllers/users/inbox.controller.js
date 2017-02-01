@@ -6,7 +6,7 @@ UsersInboxCtrl.$inject = ['API', 'User', '$stateParams'];
 function UsersInboxCtrl(API, User, $stateParams){
   const vm = this;
 
-  vm.user = User.get($stateParams);
+  vm.user = User.inbox($stateParams);
 
   console.log(vm.user);
 
