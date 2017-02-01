@@ -1,7 +1,7 @@
 <h1>Outbox</h1>
 
 <ul>
-  <li ng-repeat="user in usersOutbox.user">
+  <li ng-repeat="user in outbox.user">
     <h4><b>From:</b> Me</h4>
     <h4><b>To:</b> {{user.receiver.firstName}}</h4>
     <p><b>Email:</b> {{user.receiver.email}}</p>
