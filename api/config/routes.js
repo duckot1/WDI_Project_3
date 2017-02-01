@@ -33,10 +33,13 @@ router.route('/events/:id')
   .put(authentications.assign, events.update)
   .delete(authentications.assign, events.delete);
 router.route('/requests')
-  .get(authentications.assign, requests.index)
+  // .get(authentications.assign, requests.index)
   .post(authentications.assign, requests.create);
 router.route('/requests/:id')
-  .get(authentications.assign, requests.inbox)
   .put(authentications.assign, requests.update);
+router.route('/users/:id/inbox')
+  .get(authentications.assign, requests.inbox);
+router.route('/users/:id/outbox')
+  .get(authentications.assign, requests.outbox);
 
 module.exports = router;
