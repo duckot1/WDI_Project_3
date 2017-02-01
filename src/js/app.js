@@ -4,5 +4,5 @@ angular
     'ngResource',
     'ui.bootstrap',
     'angular-jwt',
-    'swipe'
+    'ngTouch'
   ]);

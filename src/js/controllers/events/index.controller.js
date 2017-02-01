@@ -2,22 +2,27 @@ angular
 .module('clubMate')
 .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['$http', 'API', 'Event'];
-function EventsIndexCtrl($http, API, Event){
-  const vm = this;
-  vm.swipeRight = function($event) {
-    console.log('Right', $event);
-  };
-  vm.swipeLeft = function($event) {
-    console.log('Left', $event);
-  };
-
+EventsIndexCtrl.$inject = ['Event', '$stateParams', 'CurrentUserService'];
+function EventsIndexCtrl(Event, $stateParams, CurrentUserService) {
+  const vm            = this;
+  vm.user             = CurrentUserService.getUser();
+  vm.swipedLeft       = swipedLeft;
+  vm.swipedRight      = swipedRight;
 
   Event
-  .query()
+  .query($stateParams)
   .$promise
   .then(response => {
     vm.events = response;
-    console.log('hi', vm.events);
   });
+
+  function swipedLeft(event) {
+    event.animation  = 'slideOutLeft';
+    console.log(event);
+  }
+
+  function swipedRight(event) {
+    event.animation  = 'slideOutRight';
+    console.log(event);
+  }
 }
