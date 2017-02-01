@@ -139,6 +139,7 @@ function createFirstRequest(event, done) {
       event: event._id,
       interested: true
     });
+    console.log(request)
     return request.save();
   })
   .then(request => {
