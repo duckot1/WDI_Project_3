@@ -66,3 +66,23 @@ Luca and Tom on front-end.
 Sarah working on user show pages on front end while Luca works on event show front end.
 
 Tom and Charlie to work through seeds and starting matching engine.
+
+### Tuesday, 31st January 2017
+
+##### **10am Stand-up**
+
+Conclusions
+
+Tom
+
+### Wednesday, 1st February 2017
+
+Aims
+
+By lunch:
+
+Remyce - image upload research and implementation
+Luca - continued carousel implementation
+Tom - Completing the matching service
+Sarah - ironing out event add and drop down menu
+Charlie - Requests show on event page, and events show on user page.

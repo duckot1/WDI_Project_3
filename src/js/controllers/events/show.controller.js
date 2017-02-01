@@ -2,11 +2,14 @@ angular
   .module('clubMate')
   .controller('EventsShowCtrl', EventsShowCtrl);
 
-EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state'];
-function EventsShowCtrl(API, $stateParams, User, Event, $state) {
+EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state', 'TokenService'];
+function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService) {
   const vm = this;
   vm.event = Event.get($stateParams);
   vm.delete = eventsDelete;
+  vm.interested = sendInterested;
+  vm.notInterested = sendNotInterested;
+  vm.requestBody = {};
 
   function eventsDelete(event){
     console.log(event, 'eventDelete');
@@ -17,7 +20,53 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state) {
         $state.go('eventsIndex');
       });
   }
+
+
+  function sendInterested(event) {
+    vm.requestBody.receiver = event.host._id;
+    vm.requestBody.event = event._id;
+    vm.requestBody.interested = true;
+    vm.requestBody.text = 'Hi there I would like to join you';
+    console.log(vm.requestBody);
+    User
+      .request(vm.requestBody)
+      .$promise
+      .then(response => {
+        console.log(response);
+        // event.requests.push(response._id);
+        // console.log(event);
+      });
+  }
+
+  const decoded = TokenService.decodeToken();
+  console.log(decoded);
+
+  function sendNotInterested(event) {
+    User
+      .get({ id: decoded.id })
+      .$promise
+      .then((user) => {
+        user.notInterestedIn.push(event._id);
+        User
+          .update({ id: decoded.id }, user)
+          .$promise
+          .then((data) => {
+            console.log(data, 'added to not interested');
+          });
+      });
+  }
+
+  Event
+    .inbox({ id: $stateParams.id })
+    .$promise
+    .then(data => {
+      console.log(data);
+    });
+
+
 }
+
+
 
 //   function EventsShow() {
 //     return $http

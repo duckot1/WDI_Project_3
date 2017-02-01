@@ -18,6 +18,6 @@ function EventsIndexCtrl($http, API, Event){
   .$promise
   .then(response => {
     vm.events = response;
-    console.log(vm.events);
+    console.log('hi', vm.events);
   });
 }

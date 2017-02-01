@@ -13,16 +13,32 @@ const requestSchema = new mongoose.Schema({
 });
 
 /*
- * Set the receiver of this request to be the host of the event
- * AND add the request to the event's array of requests & save it
- */
+* Set the receiver of this request to be the host of the event
+* AND add the request to the event's array of requests & save it
+*/
 requestSchema.pre('validate', function(done) {
   const self = this;
-  return self.model('Event').findById(self.event).then(event => {
-    self.receiver = event.host;
-    // .addToSet works like .push but it won't create duplicates
-    event.requests.addToSet(self._id);
-    return event.save();
+  return self.model('Event').findById(self.event).exec((err, event) => {
+    if (event.usersInterested.indexOf(self.sender) === -1) {
+      self.receiver = event.host;
+      event.usersInterested.addToSet(self.sender);
+      event.requests.addToSet(self._id);
+      return event.save();
+    }
+  }).then(() => {
+    return done(null);
+  })
+  .catch(done);
+});
+
+requestSchema.pre('validate', function(done) {
+  const self = this;
+  return self.model('User').findById(self.sender).exec((err, user) => {
+    if (user.interestedIn.indexOf(self.event) === -1) {
+      user.interestedIn.addToSet(self.event);
+      user.requests.addToSet(self._id);
+      return user.save();
+    }
   }).then(() => {
     return done(null);
   })
@@ -30,21 +46,19 @@ requestSchema.pre('validate', function(done) {
 });
 
 /*
- * Update the user's interestedIn or notInterestedIn arrays depending on the
- * request's interest Boolean value
- */
+* Update the user's interestedIn or notInterestedIn arrays depending on the
+* request's interest Boolean value
+*/
 requestSchema.pre('save', function(done) {
   const self = this;
-  if (self.interested) {
-    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { interestedIn: self.event }}, done);
-  } else {
+  if (!self.interested) {
     return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
   }
 });
 
 /*
- * When a request's status has been changed to 'accepted', we need to update all of the other requests to be 'rejected'
- */
+* When a request's status has been changed to 'accepted', we need to update all of the other requests to be 'rejected'
+*/
 requestSchema.pre('save', function(done) {
   const self = this;
   if (self.isNew) return done();
@@ -63,8 +77,8 @@ requestSchema.pre('save', function(done) {
 });
 
 /*
- * When a request's status has been changed to 'accepted', we need to update the event's `active` property to be false
- */
+* When a request's status has been changed to 'accepted', we need to update the event's `active` property to be false
+*/
 requestSchema.pre('save', function(done) {
   const self = this;
   if (self.isNew) return done();
