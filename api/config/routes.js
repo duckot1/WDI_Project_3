@@ -20,23 +20,23 @@ router.route('/login')
  */
 
 router.route('/users')
-  .get(users.index);
+  .get(authentications.assign, users.index);
 router.route('/users/:id')
-  .get(users.show)
-  .put(users.update)
-  .delete(users.delete);
+  .get(authentications.assign, users.show)
+  .put(authentications.assign, users.update)
+  .delete(authentications.assign, users.delete);
 router.route('/events')
-  .get(events.index)
+  .get(authentications.assign, events.index)
   .post(authentications.assign, events.create);
 router.route('/events/:id')
-  .get(events.show)
-  .put(events.update)
-  .delete(events.delete);
+  .get(authentications.assign, events.show)
+  .put(authentications.assign, events.update)
+  .delete(authentications.assign, events.delete);
 router.route('/requests')
-  .get(requests.index)
+  .get(authentications.assign, requests.index)
   .post(authentications.assign, requests.create);
 router.route('/requests/:id')
-  .get(requests.inbox)
-  .put(requests.update);
+  .get(authentications.assign, requests.inbox)
+  .put(authentications.assign, requests.update);
 
 module.exports = router;
