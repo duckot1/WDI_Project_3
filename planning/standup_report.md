@@ -56,6 +56,8 @@ People matching service bringing people together using an activity to help peopl
 
 Further discussion about the core functionality of the app. Various options there, to be explored when the MVP aspects of events and users have been developed.
 
+Sarah displayed the work on the wire frames. Charlie with some site structure.
+
 Remyce and Sarah working on back end controllers.
 Charlie working on seed data and the models, how they work with each other.
 
@@ -86,3 +88,23 @@ Luca - continued carousel implementation
 Tom - Completing the matching service
 Sarah - ironing out event add and drop down menu
 Charlie - Requests show on event page, and events show on user page.
+=======
+Main blocker is the matching engine and respective seed data. Spent the morning working through the issues with alex to build up a solid core.
+
+##### **2pm Stand-up**
+
+Tom working on matching logic whilst the rest split up jobs on the front-end for Angular.
+
+### Wednesday, 1st February 2017
+
+##### **10am Stand-up**
+
+The matching system almost up and running. Front end needs to be wired up.
+
+Remyce working on image upload
+Luca working on swipe mechanism
+Tom working on getting requests to show on profile page
+Sarah working on
+Charlie getting event add and register working once more
+
+##### **2pm Stand-up**
