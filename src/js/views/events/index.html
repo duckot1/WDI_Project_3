@@ -1,22 +1,13 @@
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<h1>Index</h1>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
-      <img ng-src="{{event.img}}" alt="{{event.name}}" width="450" height="345">
+<slick>
+</slick>
+
+<ul>
+  <li ng-repeat="event in events.events track by $index">
+    <div class="tile">
+      <img src="{{ event.img }}">
+      <h5>{{ event.name }}</h5>
     </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
+  </li>
+</ul>
