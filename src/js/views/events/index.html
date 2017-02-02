@@ -1,13 +1,16 @@
 <h1>Index</h1>
 
-<slick>
+<slick init-onload="true" data="events.events">
+  <div class="tile" ng-repeat="event in events.events track by $index">
+    <img src="{{ event.img }}">
+  </div>
 </slick>
 
-<ul>
+<!-- <ul>
   <li ng-repeat="event in events.events track by $index">
     <div class="tile">
       <img src="{{ event.img }}">
       <h5>{{ event.name }}</h5>
     </div>
   </li>
-</ul>
+</ul> -->
