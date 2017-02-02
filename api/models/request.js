@@ -13,14 +13,22 @@ const requestSchema = new mongoose.Schema({
 });
 
 /*
- * Set the receiver of this request to be the host of the event
- * AND add the request to the event's array of requests & save it
- */
+* Set the receiver of this request to be the host of the event
+* AND add the request to the event's array of requests & save it
+*/
 requestSchema.pre('validate', function(done) {
   const self = this;
-  return self.model('Event').findById(self.event).then(event => {
+  if (!self.isNew) return done();
+  return self.model('Event').findOne({
+    _id: self.event,
+    usersInterested: { $ne: self.sender }
+  }).then(event => {
+    if (!event) {
+      return done(new Error('You have already said you are interested in this event.'));
+    }
+
     self.receiver = event.host;
-    // .addToSet works like .push but it won't create duplicates
+    event.usersInterested.addToSet(self.sender);
     event.requests.addToSet(self._id);
     return event.save();
   }).then(() => {
@@ -29,22 +37,38 @@ requestSchema.pre('validate', function(done) {
   .catch(done);
 });
 
-/*
- * Update the user's interestedIn or notInterestedIn arrays depending on the
- * request's interest Boolean value
- */
-requestSchema.pre('save', function(done) {
+requestSchema.pre('validate', function(done) {
   const self = this;
-  if (self.interested) {
-    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { interestedIn: self.event }}, done);
-  } else {
-    return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
-  }
+  if (!self.isNew) return done();
+  return self.model('User').findById({
+    _id: self.sender,
+    interestedIn: { $ne: self.event }
+  }).then(user => {
+    if (!user) {
+      return done(new Error('You have already said you are interested in this event'));
+    }
+
+    user.interestedIn.addToSet(self.event);
+    user.requests.addToSet(self._id);
+    return user.save();
+  }).then(() => {
+    return done(null);
+  })
+  .catch(done);
 });
 
 /*
- * When a request's status has been changed to 'accepted', we need to update all of the other requests to be 'rejected'
- */
+* Update the user's interestedIn or notInterestedIn arrays depending on the
+* request's interest Boolean value
+*/
+requestSchema.pre('save', function(done) {
+  const self = this;
+  return self.model('User').findByIdAndUpdate(self.sender, { $addToSet: { notInterestedIn: self.event }}, done);
+});
+
+/*
+* When a request's status has been changed to 'accepted', we need to update all of the other requests to be 'rejected'
+*/
 requestSchema.pre('save', function(done) {
   const self = this;
   if (self.isNew) return done();
@@ -63,8 +87,8 @@ requestSchema.pre('save', function(done) {
 });
 
 /*
- * When a request's status has been changed to 'accepted', we need to update the event's `active` property to be false
- */
+* When a request's status has been changed to 'accepted', we need to update the event's `active` property to be false
+*/
 requestSchema.pre('save', function(done) {
   const self = this;
   if (self.isNew) return done();

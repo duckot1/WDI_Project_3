@@ -1,21 +1,22 @@
-<h1>Events List</h1>
-<!-- <div class="container" ng-repeat ="event in events.events">
-<a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.event_name }}</h3></a>
-<img ng-src="{{ event.event_img }}" alt="{{ event.event_name }}" />
-</div> -->
-
 <div class="container">
-  <ul class="list-inline">
-    <li class="eventItem" ng-swipe-left="events.swipeLeft($event)" ng-swipe-right="events.swipeRight($event)" ng-repeat ="event in events.events">
-      <a ui-sref="eventsShow({ id: event._id})"><h3>{{ event.name }}</h3></a>
-      <img src="{{ event.img }}" alt="{{ event.name }}" />
-      <ul class="yes-no-list">
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeLeft($event)">Yes</button></li>
-        <li class="btn btn-default yes-no-buttons"><button type="button" ng-click="events.swipeRight($event)">No</button></li>
-      </ul>
-    </li>
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-  </ul>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
+      <img ng-src="{{event.img}}" alt="{{event.name}}" width="600" height="345">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-
-<!-- usersEdit({ id: usersShow.user._id }) -->
+</div>

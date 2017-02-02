@@ -2,22 +2,17 @@ angular
 .module('clubMate')
 .controller('EventsIndexCtrl', EventsIndexCtrl);
 
-EventsIndexCtrl.$inject = ['$http', 'API', 'Event'];
-function EventsIndexCtrl($http, API, Event){
-  const vm = this;
-  vm.swipeRight = function($event) {
-    console.log('Right', $event);
-  };
-  vm.swipeLeft = function($event) {
-    console.log('Left', $event);
-  };
+EventsIndexCtrl.$inject = ['Event'];
+function EventsIndexCtrl(Event) {
+  const vm  = this;
+  vm.slides = vm.events = Event.query();
+  vm.giveClass = giveClass;
 
+  function giveClass(index) {
+    if (index === 0) return 'active';
+  }
 
-  Event
-  .query()
-  .$promise
-  .then(response => {
-    vm.events = response;
-    console.log(vm.events);
+  $('a.carousel-control').click((e) => {
+    e.preventDefault();
   });
 }

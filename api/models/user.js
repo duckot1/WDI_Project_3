@@ -7,14 +7,15 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, trim: true, required: true },
   email: { type: String, unique: true, required: true },
   passwordHash: { type: String},
-  profile_picture: { type: String, trim: true },
+  profilePicture: { type: String, trim: true },
   dob: { type: String, trim: true },
   lat: { type: String, trim: true },
   lng: { type: String, trim: true },
   bio: { type: String, trim: true },
   events: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
   interestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
-  notInterestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }]
+  notInterestedIn: [{ type: mongoose.Schema.ObjectId, ref: 'Event' }],
+  requests: [{ type: mongoose.Schema.ObjectId, ref: 'Request' }]
 });
 
 userSchema
