@@ -1,7 +1,7 @@
 .event {
   margin: 0 auto;
   width: 600px;
-  height: 800px;
+  height: 700px;
   background: #eee;
   border-radius: 2px;
 
@@ -29,5 +29,24 @@
       border-radius: 100%;
       border: 4px solid $primary-color
     }
+  }
+  .event-details {
+
+  margin-top: -80px;
+
+    h2 {
+      font-size: 65px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 15px 0 10px;
+    }
+
+    h3 {
+      font-size: 45px;
+    }
+
+
   }
 }
