@@ -13,7 +13,7 @@
 <ul>
   <p>I can see this</p>
   <li ng-repeat="messages in usersInbox.messages">
-    <h4><b>From:</b><a ui-sref="usersShow({ id: mesages.sender._id })"> {{messages.sender.firstName}} {{messages.sender.lastName}}</a></h4>
+    <h4><b>From:</b><a ui-sref="usersShow({ id: messages.sender._id })"> {{messages.sender.firstName}} {{messages.sender.lastName}}</a></h4>
     <h4><b>To: </b><a ui-sref="usersShow({ id: messages.receiver._id })">Me</a></h4>
     <p><b>Email:</b> {{messages.sender.email}}</p>
     <p><b>Message:</b> {{messages.text}}</p>
