@@ -3,6 +3,8 @@ section.usersShow {
   width: 300px;
   margin: 0 auto;
   background-color: white;
+  padding: 10px 10px;
+  border: 1px solid rgb(212, 212, 212);
 }
 .profilePictureImg{
   object-fit: contain;
@@ -10,4 +12,9 @@ section.usersShow {
   height: 100px;
   margin: 0 auto;
   display: block;
+}
+.cogDiv{
+  text-align: right;
+  position: relative;
+  top: 10px;
 }
