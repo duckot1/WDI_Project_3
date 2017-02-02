@@ -16,7 +16,7 @@ function requestsCreate(req, res) {
   request.save((err, request) => {
     if (err) {
       console.log(err);
-      return res.status(500).json({ message: 'Something went wrong.' });
+      return res.status(500).json({ message: 'Something went wrong.' + err });
     }
     if (!request) return res.status(402).json({ message: 'No such request'});
     return res.status(201).json(request);
