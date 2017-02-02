@@ -14,8 +14,8 @@
 <p>location &bull; {{usersShow.user.dob}}</p>
       <h4>Bio</h4>
       <p>{{usersShow.user.bio}}</p>
-      <button ng-if="" class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
-      <a ng-if="" ui-sref="usersDeleteCheck">delete</a>
+      <button ng-if="usersShow.editDeleteHide" class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
+      <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck">delete</a>
       <ul>
         <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
       </ul>
