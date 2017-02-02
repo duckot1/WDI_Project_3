@@ -5,6 +5,9 @@
   overflow-y:hidden;
   padding: 0 15px;
 }
+body{
+  background-color: rgb(249, 249, 249);
+}
 
 .yes-no-list{
   padding: 0;
@@ -27,6 +30,11 @@
   padding:0;
   // height:200px;
   text-align: center;
+}
+.eventImage{
+  width: 150px;
+  height:150px;
+
 }
 
 .list-inline {

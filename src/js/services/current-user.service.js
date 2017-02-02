@@ -18,7 +18,6 @@ function CurrentUserService(TokenService, User, $rootScope) {
         $rootScope.$broadcast('loggedIn');
       }, err => {
         console.log(err);
-        // console.log('decoded', decoded.id);
       });
       self.removeUser = () => {
         console.log('remove user');

@@ -45,13 +45,13 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('usersEvents', {
     url: '/users/:id/events',
-    templateUrl: '/js/views/events/index.html',
+    templateUrl: '/js/views/events/eventsList.html',
     controller: 'UsersEventsCtrl',
     controllerAs: 'events'
   })
   .state('usersInterested', {
     url: '/users/:id/interested',
-    templateUrl: '/js/views/events/index.html',
+    templateUrl: '/js/views/events/eventsList.html',
     controller: 'UsersInterestedCtrl',
     controllerAs: 'events'
   })
@@ -60,6 +60,18 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     templateUrl: '/js/views/users/edit.html',
     controller: 'UsersEditCtrl',
     controllerAs: 'usersEdit'
+  })
+  .state('usersDeleteCheck', {
+    url: '/users/:id/delete',
+    templateUrl: '/js/views/users/deleteCheck.html',
+    controller: 'UsersDeleteCheckCtrl',
+    controllerAs: 'usersDeleteCheck'
+  })
+  .state('usersRequests', {
+    url: '/users/:id/requests',
+    templateUrl: '/js/views/users/requests.html',
+    controller: 'UsersRequestsCtrl',
+    controllerAs: 'usersRequests'
   });
 
   $urlRouterProvider.otherwise('/');

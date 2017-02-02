@@ -1,0 +1,15 @@
+<h1>Requests</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <section ng-if="usersRequests.usersInbox">
+      <div ng-controller="UsersInboxCtrl as usersInbox" ng-include src="'/js/views/users/inbox.html'"></div>
+      <a ng-click="usersRequests.showOutbox()">Or Outbox</a>
+    </section>
+
+    <section ng-if="usersRequests.usersOutbox">
+      <div ng-controller="UsersOutboxCtrl as usersOutbox" ng-include src="'/js/views/users/outbox.html'"></div>
+      <a ng-click="usersRequests.showInbox()">Or Inbox</a>
+    </section>
+  </div>
+</div>

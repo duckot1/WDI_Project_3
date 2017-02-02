@@ -1,0 +1,27 @@
+<h2 class="titles">{{events.title}}</h2>
+  <div class="container">
+    <div class="row">
+      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+        <ul class="event-list">
+          <li ng-repeat="event in events.events">
+            <time datetime="2014-07-20">
+							<span class="day">4</span>
+							<span class="month">Jul</span>
+							<span class="year">2017</span>
+							<span class="time">ALL DAY</span>
+						</time>
+						<img class="tile" alt="Independence Day" src="http://www.konadeepsea.com/info/photos/sunset-on-sea_strike.jpg" />
+						<div class="info">
+            <a ui-sref="eventsShow({ id: event._id })"><h2 class="title">{{ event.name }}</h2></a>
+
+<a ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a>
+
+							<p class="desc">{{event.description}}</p>
+              <p class="address">{{event.address}}</p>
+              <p class="interest">Users interested: {{event.usersInterested.length}}</p>
+						</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

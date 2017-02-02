@@ -6,4 +6,6 @@ angular
     'angular-jwt',
     'ngTouch',
     'ngFileUpload'
+    'ngAnimate',
+    'ngTouch'
   ]);
