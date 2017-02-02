@@ -43,7 +43,7 @@ console.log('eventShow', vm.event);
     interested.forEach(function(interested){
       if (interested._id === vm.event._id){
         vm.interestedToggle      = false;
-        vm.notInterestedToggle   = false;
+        vm.notInterestedToggle   = true;
       }
     });
   }

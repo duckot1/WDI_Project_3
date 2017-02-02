@@ -9,6 +9,7 @@ function userFactory(API, $resource) {
     register: { method: 'POST', url: `${API}/register`},
     login: { method: 'POST', url: `${API}/login`},
     request: { method: 'POST', url: `${API}/requests` },
+    requestUpdate: { method: 'PUT', url: `${API}/requests/:id` },
     inbox: { method: 'GET', url: `${API}/users/:id/inbox`, isArray: true },
     outbox: { method: 'GET', url: `${API}/users/:id/outbox`, isArray: true }
   });

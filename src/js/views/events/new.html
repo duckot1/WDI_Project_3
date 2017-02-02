@@ -1,44 +1,50 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>New Event</h1>
-    <form ng-submit="eventsCreate.create()">
-      <div class="form-group">
-        <label for="name">Event name</label>
-        <input type="text" class="form-control" id="name" name="name" ng-model="eventsCreate.event.name">
-      </div>
-      <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" name="address" ng-model="eventsCreate.event.address">
-      </div>
-      <div class="form-group">
-        <label for="description">Event info</label>
-        <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.description">
-      </div>
-      <div class="form-group">
-        <label for="description">Cost</label>
-        <input type="text" class="form-control" id="description1" name="description" ng-model="eventsCreate.event.cost">
-      </div>
-      <div class="form-group">
-        <label for="description">Website</label>
-        <input type="text" class="form-control" id="description2" name="description" ng-model="eventsCreate.event.url">
-      </div>
-      <div class="form-group">
-        <label for="description">Image</label>
-        <input type="text" class="form-control" id="description3" name="description" ng-model="eventsCreate.event.img">
-      </div>
-      <div class="form-group">
-        <label for="description">Emoji</label>
-        <input type="text" class="form-control" id="description4" name="description" ng-model="eventsCreate.event.emoji">
-      </div>
-      <div class="form-group">
-        <label for="description">Start time</label>
-        <input type="text" class="form-control" id="description5" name="description" ng-model="eventsCreate.event.startTime">
-      </div>
-      <div class="form-group">
-        <label for="description">Finish time</label>
-        <input type="text" class="form-control" id="description6" name="description" ng-model="eventsCreate.event.finishTime">
-      </div>
-      <input type="submit" class="btn btn-primary btn-block" value="Add">
-    </form>
+<div ng-if="eventsCreate.activeEventCheckMessage">
+  <h1>You already have an active event. Wait for some interest and accept before creating another event</h1>
+</div>
+<div ng-if="eventsCreate.activeEventCheck" class="noActive">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1>New Event</h1>
+      <form ng-submit="eventsCreate.create()">
+        <div class="form-group">
+          <label for="name">Event name</label>
+          <input type="text" class="form-control" id="name" name="name" ng-model="eventsCreate.event.name">
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" name="address" ng-model="eventsCreate.event.address">
+        </div>
+        <div class="form-group">
+          <label for="description">Event info</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.description">
+        </div>
+        <div class="form-group">
+          <label for="description">Cost</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.cost">
+        </div>
+        <div class="form-group">
+          <label for="description">Website</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.url">
+        </div>
+        <div class="form-group">
+          <label for="description">Image</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.img">
+        </div>
+        <div class="form-group">
+          <label for="description">Emoji</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.emoji">
+        </div>
+        <div class="form-group">
+          <label for="description">Start time</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.startTime">
+        </div>
+        <div class="form-group">
+          <label for="description">Finish time</label>
+          <input type="text" class="form-control" id="description" name="description" ng-model="eventsCreate.event.finishTime">
+        </div>
+        <input type="submit" class="btn btn-primary btn-block" value="Add">
+      </form>
+    </div>
   </div>
+
 </div>
