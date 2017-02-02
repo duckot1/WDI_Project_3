@@ -17,3 +17,52 @@
     </div>
   </div>
 </div>
+
+
+<!--
+
+<div class="row">
+
+
+<div class="row eventShow">
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="eventCard">
+        <img class="eventImage" src="{{ eventsShow.event.img }}" alt="{{ event.name }}"/>
+      <div class="eventInfo">
+        <h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
+
+        <a ng-if="eventsShow.hostProfileToggle" ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
+
+        <a ng-if="eventsShow.myProfileToggle" ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="My Profile"></a>
+
+        <p>{{ eventsShow.event.startTime | date }} - {{ eventsShow.event.finishTime | date }}</p>
+        <p>{{ eventsShow.event.address }}</p>
+        <p>{{ eventsShow.event.url }}</p>
+        <p>{{ eventsShow.event.description }}</p>
+        <p>{{ eventsShow.event.cost }}</p>
+      </div>
+    </div>
+    <button ng-if="eventsShow.editToggle" class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
+    <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
+    <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.expressInterest()">I'm Interested</button>
+    <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.interested(eventsShow.event)">I'm Interested</button>
+
+
+    <div ng-if="eventsShow.showRequestModal">
+
+      <form ng-submit="eventsShow.interested(eventsShow.event)">
+        <div class="form-group">
+          <input class="form-control" type="text" name="requestMessage" ng-model="eventsShow.sendInterestedText" placeholder="Write your message here" >
+        </div>
+        <input class="btn btn-primary btn-block" type="submit" value="Submit">
+      </form>
+</div>
+
+
+    <button ng-if="eventsShow.notInterestedToggle" class="btn btn-warning" ng-click="eventsShow.notInterested(eventsShow.event)">I'm Not Interested</button>
+    <ul>
+      <li ng-repeat="request in eventsShow.requests">{{ request.text }}</li>
+    </ul>
+  </div> -->
+<!-- </div> -->
