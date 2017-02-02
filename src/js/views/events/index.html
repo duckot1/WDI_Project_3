@@ -1,15 +1,11 @@
 <div class="container">
   <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <!-- <ol class="carousel-indicators">
-    <li ng-repeat="event in events.events track by $index" data-target="#myCarousel" data-slide-to="$index" ng-class="events.giveClass($index)"></li>
-  </ol> -->
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
-      <img ng-src="{{event.img}}" alt="{{event.name}}" width="460" height="345">
+      <img ng-src="{{event.img}}" alt="{{event.name}}" width="600" height="345">
     </div>
   </div>
 

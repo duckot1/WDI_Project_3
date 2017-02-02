@@ -10,7 +10,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, Cu
   vm.delete = eventsDelete;
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
-console.log('eventShow', vm.event)
+console.log('eventShow', vm.event);
 
 
   vm.interestedToggle      = true;
@@ -43,12 +43,13 @@ console.log('eventShow', vm.event)
     interested.forEach(function(interested){
       if (interested._id === vm.event._id){
         vm.interestedToggle      = false;
-        vm.notInterestedToggle   = false;
+        vm.notInterestedToggle   = true;
       }
     });
   }
 
   function eventsDelete(event){
+    console.log(event._id);
     Event
       .delete({ id: event._id })
       .$promise
@@ -58,6 +59,7 @@ console.log('eventShow', vm.event)
   }
 
   function sendInterested(event) {
+    console.log('sent');
     User
       .request({
         receiver: event.host._id,
@@ -87,13 +89,6 @@ console.log('eventShow', vm.event)
           });
       });
   }
-
-  Event
-    .inbox({ id: $stateParams.id })
-    .$promise
-    .then(data => {
-      // console.log(data);
-    });
 }
 
 

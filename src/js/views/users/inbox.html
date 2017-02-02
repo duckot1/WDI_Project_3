@@ -1,14 +1,30 @@
 <h1>Inbox</h1>
 
 
-<ul>
-  <li ng-repeat="user in inbox.user">
+
+
+<!-- <ul>
+<li ng-repeat="user in inbox.user">
 <h3><b>Active Event:</b> {{usersInbox.user[0].event.name}}</h3>
-    <h4><b></b> {{usersInbox.user[0].event.address}}</h4>
-    <h4><b>From:</b> {{user.sender.firstName}}</h4>
-    <h4><b>To:</b> Me</h4>
-    <p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
-    <p><b>Message:</b> {{usersInbox.user[0].text}}</p>
-    <a s-ref="">Accept</a>
+<h4><b></b> {{usersInbox.user[0].event.address}}</h4>
+<h4><b>From:</b> {{user.sender.firstName}}</h4>
+<h4><b>To:</b> Me</h4>
+<p><b>Email:</b> {{usersInbox.user[0].sender.email}}</p>
+<p><b>Message:</b> {{usersInbox.user[0].text}}</p>
+<a s-ref="">Accept</a> -->
+
+
+
+
+<h5><b>Active Event <br><br></b><a ui-sref="eventsShow({ id: usersInbox.user[0].event._id })">{{usersInbox.user[0].event.name}}</a></h5>
+<h5><b></b> {{usersInbox.user[0].event.address}}</h5>
+<ul>
+  <li ng-repeat="user in usersInbox.user">
+    <h4><b>From:</b><a ui-sref="usersShow({ id: user.sender._id })"> {{user.sender.firstName}} {{user.sender.lastName}}</a></h4>
+    <h4><b>To: </b><a ui-sref="usersShow({ id: user.receiver._id })">Me</a></h4>
+    <p><b>Email:</b> {{user.sender.email}}</p>
+    <p><b>Message:</b> {{user.text}}</p>
+    <p><b>Status:</b> {{user.status}}</p>
+    <button ng-if="usersInbox.hideOnAccept(user.status)" class="btn btn-default" ng-click="usersInbox.accept(user)">Accept</button>
   </li>
 </ul>

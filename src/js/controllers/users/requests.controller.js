@@ -4,21 +4,19 @@ angular
 
 UsersRequestsCtrl.$inject = ['$stateParams'];
 function UsersRequestsCtrl($stateParams) {
-console.log($stateParams)
   const vm = this;
 
   vm.user = $stateParams;
-  vm.inbox  = true;
-  vm.outbox = false;
+  vm.usersInbox  = true;
+  vm.usersOutbox = false;
 
   vm.showInbox = () => {
-    vm.inbox   = true;
-    vm.outbox  = false;
+    vm.usersInbox   = true;
+    vm.usersOutbox  = false;
   };
 
   vm.showOutbox = () => {
-    console.log('showing outbox')
-    vm.inbox    = false;
-    vm.outbox   = true;
+    vm.usersInbox    = false;
+    vm.usersOutbox   = true;
   };
 }

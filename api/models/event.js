@@ -36,16 +36,16 @@ const eventSchema = new mongoose.Schema({
  * active.
  */
 
-// eventSchema.pre('validate', function(done) {
-//   const self = this;
-//   return self.model('Event').findOne({
-//     host: self.host,
-//     active: true
-//   }).then(event => {
-//     if (event) return self.invalidate('active', 'You aren\'t allowed to create two active events.');
-//     return done();
-//   }).catch(done);
-// });
+eventSchema.pre('validate', function(done) {
+  const self = this;
+  return self.model('Event').findOne({
+    host: self.host,
+    active: true
+  }).then(event => {
+    if (event) return self.invalidate('active', 'You aren\'t allowed to create two active events.');
+    return done();
+  }).catch(done);
+});
 
 /*
  * Add the event to the user who created the event

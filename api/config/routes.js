@@ -33,7 +33,7 @@ router.route('/events/:id')
   .put(authentications.assign, events.update)
   .delete(authentications.assign, events.delete);
 router.route('/requests')
-  // .get(authentications.assign, requests.index)
+  .get(authentications.assign, requests.index)
   .post(authentications.assign, requests.create);
 router.route('/requests/:id')
   .put(authentications.assign, requests.update);
