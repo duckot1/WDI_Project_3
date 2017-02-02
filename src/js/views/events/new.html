@@ -1,55 +1,56 @@
 <div class="col-md-6 col-md-offset-3">
-<div class="woahThere" ng-if="eventsCreate.activeEventCheckMessage">
-  <h3>Whoa there!<br><br>
-    You already have an active <a ui-sref="eventsShow({ id: eventsCreate.event._id })">event</a>. Wait for some interest and accept before creating another event</h3>
-
-<div ng-if="eventsCreate.activeEventCheck" class="noActive">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <h1>New Event</h1>
-      <form ng-submit="eventsCreate.create()">
-        <p>required fields *</p>
-        <div class="form-group required">
-          <label class="control-label" for="name">Event name</label>
-          <input type="text" required="true" class="form-control" id="name" name="name" ng-model="eventsCreate.event.name">
-        </div>
-        <div class="form-group required">
-          <label class="control-label" for="address">Address</label>
-          <input type="text" required="true" class="form-control" id="address" name="address" ng-model="eventsCreate.event.address">
-        </div>
-        <div class="form-group required">
-          <label class="control-label" for="description">Event info</label>
-          <input type="text" required="true" class="form-control" id="description" name="description" ng-model="eventsCreate.event.description">
-        </div>
-        <div class="form-group">
-          <label for="cost">Cost</label>
-          <input type="text" class="form-control" id="cost" name="cost" ng-model="eventsCreate.event.cost">
-        </div>
-        <div class="form-group">
-          <label for="url">Website</label>
-          <input type="text" class="form-control" id="url" name="url" ng-model="eventsCreate.event.url">
-        </div>
-        <!-- <div class="form-group required">
-          <label class="control-label" for="image">Image</label>
-          <input type="text" required="true" class="form-control" id="img" name="description" ng-model="eventsCreate.event.img">
-        </div> -->
-
-            <image-selector></image-selector>
-
-        <div class="form-group">
-          <label for="description">Emoji</label>
-          <input type="text" class="form-control" id="emoji" name="description" ng-model="eventsCreate.event.emoji">
-        </div>
-        <div class="form-group">
-          <label for="startTime">Start time</label>
-          <input type="text" class="form-control" id="startTime" name="startTime" ng-model="eventsCreate.event.startTime">
-        </div>
-        <div class="form-group">
-          <label for="description">Finish time</label>
-          <input type="text" class="form-control" id="finishTime" name="description" ng-model="eventsCreate.event.finishTime">
-        </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Add">
-      </form>
+  <div class="woahThere" ng-if="eventsCreate.activeEventCheckMessage">
+    <h3>Whoa there!<br><br>
+      You already have an active <a ui-sref="eventsShow({ id: eventsCreate.event._id })">event</a>. Wait for some interest and accept before creating another event</h3>
     </div>
   </div>
-</div>
+    <div ng-if="eventsCreate.activeEventCheck" class="noActive">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>New Event</h1>
+          <form ng-submit="eventsCreate.create()">
+            <p>required fields *</p>
+            <div class="form-group required">
+              <label class="control-label" for="name">Event name</label>
+              <input type="text" required="true" class="form-control" id="name" name="name" ng-model="eventsCreate.event.name">
+            </div>
+            <div class="form-group required">
+              <label class="control-label" for="address">Address</label>
+              <input type="text" required="true" class="form-control" id="address" name="address" ng-model="eventsCreate.event.address">
+            </div>
+            <div class="form-group required">
+              <label class="control-label" for="description">Event info</label>
+              <input type="text" required="true" class="form-control" id="description" name="description" ng-model="eventsCreate.event.description">
+            </div>
+            <div class="form-group">
+              <label for="cost">Cost</label>
+              <input type="text" class="form-control" id="cost" name="cost" ng-model="eventsCreate.event.cost">
+            </div>
+            <div class="form-group">
+              <label for="url">Website</label>
+              <input type="text" class="form-control" id="url" name="url" ng-model="eventsCreate.event.url">
+            </div>
+            <!-- <div class="form-group required">
+            <label class="control-label" for="image">Image</label>
+            <input type="text" required="true" class="form-control" id="img" name="description" ng-model="eventsCreate.event.img">
+          </div> -->
+
+          <image-selector></image-selector>
+
+          <div class="form-group">
+            <label for="description">Emoji</label>
+            <input type="text" class="form-control" id="emoji" name="description" ng-model="eventsCreate.event.emoji">
+          </div>
+          <div class="form-group">
+            <label for="startTime">Start time</label>
+            <input type="text" class="form-control" id="startTime" name="startTime" ng-model="eventsCreate.event.startTime">
+          </div>
+          <div class="form-group">
+            <label for="description">Finish time</label>
+            <input type="text" class="form-control" id="finishTime" name="description" ng-model="eventsCreate.event.finishTime">
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" value="Add">
+        </form>
+      </div>
+    </div>
+  </div>

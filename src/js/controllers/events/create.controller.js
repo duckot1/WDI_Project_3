@@ -8,9 +8,13 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
 
   vm.event = {};
 
-  CurrentUserService.getUser();
+  vm.user = CurrentUserService.getUser();
   const eventsArray = CurrentUserService.currentUser.events;
 
+  if(!eventsArray.length){
+    vm.activeEventCheckMessage = false;
+    vm.activeEventCheckTrue = true;
+  }
   if (eventsArray.length > 0){
     eventsArray.forEach(function(event){
       vm.activeEventCheck = true;
@@ -23,7 +27,7 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
         vm.event = event;
       }
     });
-  }else{
+  } else{
     vm.activeEventCheck = true;
     vm.activeEventCheckMessage = false;
   }
