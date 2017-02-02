@@ -2,11 +2,8 @@ angular
   .module('clubMate')
   .controller('LandingCtrl', LandingCtrl);
 
-LandingCtrl.$inject = ['CurrentUserService', '$state'];
-function LandingCtrl(CurrentUserService, $state) {
-  if (CurrentUserService.currentUser) {
-    return $state.go('eventsIndex');
-  }
+LandingCtrl.$inject = ['User', '$state'];
+function LandingCtrl(User, $state) {
 
   const vm = this;
 
