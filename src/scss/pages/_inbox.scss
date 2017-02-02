@@ -1,0 +1,23 @@
+.message-content {
+  background-color: pink;
+  float: left;
+  display: inline;
+  width: 550px;
+}
+
+.firstName {
+  float: left;
+}
+
+.secondName {
+  float: left;
+}
+
+.email-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  float: left;
+  display: inline-block;
+  border-bottom: 4px solid $primary-color;
+}
