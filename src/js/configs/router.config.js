@@ -63,7 +63,9 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
   })
   .state('usersDeleteCheck', {
     url: '/users/:id/delete',
-    templateUrl: '/js/views/users/deleteCheck.html'
+    templateUrl: '/js/views/users/deleteCheck.html',
+    controller: 'UsersDeleteCheckCtrl',
+    controllerAs: 'usersDeleteCheck'
   })
   .state('usersRequests', {
     url: '/users/:id/requests',
