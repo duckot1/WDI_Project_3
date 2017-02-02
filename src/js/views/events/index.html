@@ -5,7 +5,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
-      <img ng-src="{{event.img}}" alt="{{event.name}}" width="600" height="345">
+      <img ng-src="{{event.img}}" alt="{{event.name}}" width="0" height="0">
     </div>
   </div>
 

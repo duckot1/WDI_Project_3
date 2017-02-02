@@ -19,6 +19,7 @@ function UsersShowCtrl(API, $stateParams, User, $state, CurrentUserService){
     console.log(vm.user._id);
     if(vm.user._id === CurrentUserService.currentUser._id){
       vm.editDeleteHide = true;
+      console.log(vm.editDeleteHide);
     }
   });
 
