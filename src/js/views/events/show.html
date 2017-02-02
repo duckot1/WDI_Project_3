@@ -1,12 +1,44 @@
+
+
+<div class="container">
+  <div class="event">
+    <div class="event-background">
+      <img src="{{ eventsShow.event.img }}">
+    </div>
+    <div class="host-details">
+      <img src="{{ eventsShow.event.host.profilePicture }}">
+      <h3>{{ eventsShow.event.host.firstName }} {{ eventsShow.event.host.lastName }}</h3>
+    </div>
+    <div class="event-details">
+      <h2>{{ eventsShow.event.name }}</h2>
+      <p>{{ eventsShow.event.date }}</p>
+      <p>{{ eventsShow.event.address }}</p>
+      <p>{{ eventsShow.event.website }}</p>
+      <p>{{ eventsShow.event.location }}</p>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
 <div class="row">
+
+
+<div class="row eventShow">
+
   <div class="col-md-6 col-md-offset-3">
     <div class="eventCard">
         <img class="eventImage" src="{{ eventsShow.event.img }}" alt="{{ event.name }}"/>
       <div class="eventInfo">
         <h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
-        <a ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
+
+        <a ng-if="eventsShow.hostProfileToggle" ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
+
+        <a ng-if="eventsShow.myProfileToggle" ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="My Profile"></a>
+
         <p>{{ eventsShow.event.startTime | date }} - {{ eventsShow.event.finishTime | date }}</p>
-        <p>{{ eventsShow.event.address }}</p>
         <p>{{ eventsShow.event.address }}</p>
         <p>{{ eventsShow.event.url }}</p>
         <p>{{ eventsShow.event.description }}</p>
@@ -16,7 +48,7 @@
     <button ng-if="eventsShow.editToggle" class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
     <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
     <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.expressInterest()">I'm Interested</button>
-    <!-- <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.interested(eventsShow.event)">I'm Interested</button> -->
+    <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.interested(eventsShow.event)">I'm Interested</button>
 
 
     <div ng-if="eventsShow.showRequestModal">
@@ -27,14 +59,12 @@
         </div>
         <input class="btn btn-primary btn-block" type="submit" value="Submit">
       </form>
-
-    </div>
-
+</div>
 
 
     <button ng-if="eventsShow.notInterestedToggle" class="btn btn-warning" ng-click="eventsShow.notInterested(eventsShow.event)">I'm Not Interested</button>
     <ul>
       <li ng-repeat="request in eventsShow.requests">{{ request.text }}</li>
     </ul>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->

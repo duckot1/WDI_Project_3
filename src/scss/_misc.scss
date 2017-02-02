@@ -5,6 +5,16 @@
   overflow-y:hidden;
   padding: 0 15px;
 }
+body{
+  background-color: rgb(249, 249, 249);
+}
+
+.woahThere{
+  background-color: white;
+  padding: 30px;
+  margin-top: 50px;
+  border: solid 1px rgb(226, 226, 226);
+}
 
 .yes-no-list{
   padding: 0;
@@ -31,7 +41,7 @@
 .eventImage{
   width: 150px;
   height:150px;
-  
+
 }
 
 .list-inline {

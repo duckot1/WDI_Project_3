@@ -1,22 +1,48 @@
-<div class="container">
-  <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
-    <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
-      <img ng-src="{{event.img}}" alt="{{event.name}}" width="0" height="0">
-    </div>
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+<!-- <slick dots="false" prev-arrow="false" next-arrow="false" init-onload="true" data="events.events">
+<div class="tile" ng-repeat="event in events.events track by $index">
+<img src="{{ event.img }}">
+<div class="info">
+<h3>{{ event.name }}</h3>
+<img src="{{ event.host.profilePicture }}">
+<h4>{{ event.host.firstName }}</h4>
 </div>
+</div>
+</slick> -->
+
+<!-- Show -->
+<!-- <div class="tile" ng-repeat="event in events.events track by $index">
+<div class="header">
+<img src="{{ event.img }}">
+</div>
+<div class="user-img">
+<img src="{{ event.host.profilePicture }}" alt="">
+</div>
+<h5>{{ event.host.firstName}} {{ event.host.lastName }}</h5>
+<div class="event-info">
+<h2>{{ event.name }}</h2>
+</div>
+</div> -->
+
+<!-- Index -->
+
+<!-- <div class="row">
+<div class="tile col-md-6" ng-repeat="event in events.events track by $index">
+<img src="{{ event.img }}">
+<div class="info">
+<img class="user-img" src="{{ event.host.profilePicture }}">
+<h3>{{ event.name }}</h3>
+</div>
+</div>
+</div> -->
+
+<div class="container">
+  <ul class="row">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="event in events.events track by $index">
+      <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
+      <div class="info">
+        <img class="user-img" src="{{ event.host.profilePicture }}">
+        <h3>{{ event.name }}</h3>
+      </div>
+    </li>
+  </ul>
 </div>
