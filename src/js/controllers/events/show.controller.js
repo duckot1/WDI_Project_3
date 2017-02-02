@@ -50,7 +50,6 @@ console.log('eventShow', vm.event);
   }
 
   function eventsDelete(event){
-    console.log(event._id);
     Event
       .delete({ id: event._id })
       .$promise
