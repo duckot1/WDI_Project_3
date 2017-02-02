@@ -13,6 +13,12 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     controller: 'HomeCtrl',
     controllerAs: 'home'
   })
+  .state('landing', {
+    url: '/landing',
+    templateUrl: '/js/views/landing.html',
+    controller: 'LandingCtrl',
+    controllerAs: 'landing'
+  })
   .state('eventsIndex', {
     url: '/events',
     templateUrl: '/js/views/events/index.html',

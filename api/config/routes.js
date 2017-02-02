@@ -9,7 +9,8 @@ const requests        = require('../controllers/requests');
 /*
  * UNPROTECTED
  */
-
+router.route('landing')
+  .post(authentications.register, authentications.login);
 router.route('/register')
   .post(authentications.register);
 router.route('/login')

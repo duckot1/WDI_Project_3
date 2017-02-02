@@ -5,7 +5,7 @@ angular
     'ui.bootstrap',
     'angular-jwt',
     'ngTouch',
-    'ngFileUpload'
+    'ngFileUpload',
     'ngAnimate',
     'ngTouch'
   ]);
