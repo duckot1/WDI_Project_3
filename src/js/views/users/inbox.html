@@ -10,5 +10,5 @@
       <p><b>Email:</b> {{user.sender.email}}</p>
       <p><b>Message:</b> {{user.text}}</p>
       <p><b>Status:</b> {{user.status}}</p>
-          <button ng-if="usersInbox.hideOnAccept" class="btn btn-default" ng-click="usersInbox.accept(user)">Accept</button>
+          <button ng-if="usersInbox.hideOnAccept(user.status)" class="btn btn-default" ng-click="usersInbox.accept(user)">Accept</button>
   </li>
