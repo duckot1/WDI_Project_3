@@ -65,7 +65,6 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, Cu
   //add an express interest button that happens here, and then attach the send interest function below to the submit button of the modal.
   function expressInterest(){
     vm.showRequestModal = true;
-    console.log('clicked');
   }
 
   function sendInterested(event) {
