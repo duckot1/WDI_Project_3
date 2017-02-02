@@ -1,16 +1,16 @@
-<h1>Outbox</h1>
+<h1 class="messageHeader">Outbox</h1>
 
 <div ng-if="usersOutbox.noMessages">
   <h1>You haven't sent any requests</h1>
 </div>
 
-<div ng-if="usersOutbox.messages">
+<div class="messages" ng-if="usersOutbox.messages">
 <ul>
   <li ng-repeat="messages in usersOutbox.messages">
-    <h4><b>From:</b><a ui-sref="usersShow({ id: messages.sender._id })">Me</a></h4>
-    <h4><b>To: </b><a ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a></h4>
-    <h4><b>From:</b> Me</h4>
-    <h4><b>To:</b> {{messages.receiver.firstName}}</h4>
+        <a ui-sref="usersShow({ id: messages.sender._id })"><img class="email-picture" src="{{messages.sender.profile_picture}}"></a>
+        <div class="message-content">
+
+    <h4><b>To: </b><a class="firstName" ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a></h4>
     <p><b>Email:</b> {{messages.receiver.email}}</p>
     <p><b>Message:</b> {{messages.text}}</p>
   </li>

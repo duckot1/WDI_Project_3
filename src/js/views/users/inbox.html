@@ -1,4 +1,4 @@
-<h1>Inbox</h1>
+<h1 class="messageHeader">Inbox</h1>
 
 <div ng-if="usersInbox.noMessages">
   <h1>You have no requests</h1>
@@ -6,19 +6,18 @@
 
 <div class="messages" ng-if="usersInbox.showMessages">
 
-<h5><b>Active Event <br><br></b><a ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a></h5>
-<h5><b></b> {{usersInbox.messages[0].event.address}}</h5>
+<h5><b>Active Event:</b><a class="active-event" ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a></h5>
 
 <ul>
   <li ng-repeat="messages in usersInbox.messages">
-    <img class="email-picture" src="{{messages.sender.profile_picture}}">
+    <img ui-sref="usersShow({ id: messages.sender._id })" class="email-picture" src="{{messages.sender.profile_picture}}">
     <div class="message-content">
-    <p class="firstName"><b>From:</b><a ui-sref="usersShow({ id: messages.sender._id })"> {{messages.sender.firstName}} {{messages.sender.lastName}}</a></p>
-    <p class="secondName"><b>To: </b><a ui-sref="usersShow({ id: messages.receiver._id })">Me</a></p>
-    <p>Subject: {{messages.event.name}}</p>
-    <p><b>Message:</b> {{messages.text}}</p>
-    <p><b>Status:</b> {{messages.status}}</p>
-    <button ng-if="usersInbox.hideOnAccept(messages.status)" class="btn btn-default" ng-click="usersInbox.accept(messages)">Accept</button>
+    <a class="firstName" ui-sref="usersShow({ id: messages.sender._id })"> {{messages.sender.firstName}} {{messages.sender.lastName}}</a>
+    <p class="pending"><b>Status:</b> {{messages.status}}</p>
+    <br>
+    <a class="eventName" ui-sref="#">{{messages.event.name}}</a>
+    <p>{{messages.text}}</p>
+    <button ng-if="usersInbox.hideOnAccept(messages.status)" class="btn btn-default emailAccept" ng-click="usersInbox.accept(messages)">Accept</button>
   </div>
   </li>
 </ul>
