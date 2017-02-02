@@ -7,5 +7,6 @@ angular
     'ngTouch',
     'ngFileUpload',
     'ngAnimate',
-    'ngTouch'
+    'ngTouch',
+    'slick'
   ]);

@@ -26,6 +26,7 @@ function eventsIndex(req, res){
 }
 
 function eventsCreate(req, res){
+  console.log(req.body.event);
   const event = new Event(req.body.event);
   event.host  = req.user._id;
   event
