@@ -1,10 +1,16 @@
 <h1>Outbox</h1>
 
+<div ng-if="usersOutbox.noMessages">
+  <h1>You haven't sent any requests</h1>
+</div>
+
+<div ng-if="usersOutbox.messages">
 <ul>
-  <li ng-repeat="user in usersOutbox.user">
+  <li ng-repeat="messages in usersOutbox.messages">
     <h4><b>From:</b> Me</h4>
-    <h4><b>To:</b> {{user.receiver.firstName}}</h4>
-    <p><b>Email:</b> {{user.receiver.email}}</p>
-    <p><b>Message:</b> {{user.text}}</p>
+    <h4><b>To:</b> {{messages.receiver.firstName}}</h4>
+    <p><b>Email:</b> {{messages.receiver.email}}</p>
+    <p><b>Message:</b> {{messages.text}}</p>
   </li>
 </ul>
+</div>
