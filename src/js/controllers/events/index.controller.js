@@ -12,7 +12,7 @@ function EventsIndexCtrl(Event) {
     if (index === 0) return 'active';
   }
 
-  $('a').click((e) => {
+  $('a.carousel-control').click((e) => {
     e.preventDefault();
   });
 }
