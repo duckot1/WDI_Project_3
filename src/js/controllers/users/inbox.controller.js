@@ -11,17 +11,19 @@ function UsersInboxCtrl(API, User, $stateParams, $state){
   console.log(vm.user);
 
   vm.accept = eventAccept;
-  vm.hideOnAccept = true;
-  hideOnAccept();
-  function hideOnAccept(){
-    if(vm.user.status !== 'accepted'){
-      vm.hideOnAccept = false;
+  vm.hideOnAccept = hideOnAccept;
+
+  function hideOnAccept(y){
+    console.log(y);
+    if(y === 'pending'){
+      return true;
+    } else {
+      return false;
     }
   }
 
   function eventAccept(x){
     x.status = 'accepted';
-    console.log(x);
     User
       .requestUpdate({ id: x._id }, x)
       .$promise
