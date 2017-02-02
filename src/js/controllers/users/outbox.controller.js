@@ -10,5 +10,7 @@ function UsersOutboxCtrl(API, User, $stateParams){
 
   console.log('outbox', vm.user);
 
+  console.log('outbox', vm.user);
+
 
 }

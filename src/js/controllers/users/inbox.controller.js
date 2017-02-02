@@ -7,8 +7,10 @@ function UsersInboxCtrl(API, User, $stateParams, $state){
   const vm = this;
 
   vm.user = User.inbox($stateParams);
+  const number =  vm.user.length;
 
   console.log(vm.user);
+  console.log('inbox number of messages', number);
 
   vm.accept = eventAccept;
   vm.hideOnAccept = hideOnAccept;
