@@ -1,8 +1,12 @@
 <h1 class="messageHeader">Outbox</h1>
 
 <div ng-if="usersOutbox.noMessages">
-  <h1>You haven't sent any requests</h1>
-</div>
+    <!-- <div class="col-md-6 col-md-offset-3"> -->
+    <div class="woahThere">
+    <h2>Relax you wonderful person. No messages at the moment. Start an <a ui-sref="eventsCreate">event</a> or dive into some <a ui-sref="eventsIndex">others</a> to start feeling the love.</h2>
+    </div>
+    <!-- </div> -->
+  </div>
 
 <div class="messages" ng-if="usersOutbox.messages">
 <ul>
