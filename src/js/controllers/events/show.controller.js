@@ -10,6 +10,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, Cu
   vm.delete = eventsDelete;
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
+  vm.expressInterest = expressInterest;
 console.log('eventShow', vm.event);
 
 
@@ -49,13 +50,18 @@ console.log('eventShow', vm.event);
   }
 
   function eventsDelete(event){
-    console.log(event._id);
     Event
       .delete({ id: event._id })
       .$promise
       .then(() => {
         $state.go('eventsIndex');
       });
+  }
+
+  //add an express interest button that happens here, and then attach the send interest function below to the submit button of the modal.
+  function expressInterest(){
+    vm.showRequestModal = true;
+    console.log('clicked');
   }
 
   function sendInterested(event) {
@@ -65,7 +71,7 @@ console.log('eventShow', vm.event);
         receiver: event.host._id,
         event: event._id,
         interested: true,
-        text: 'Hi there I would like to join you'
+        text: vm.sendInterestedText
       })
       .$promise
       .then(response => {
