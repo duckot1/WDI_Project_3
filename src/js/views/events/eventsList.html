@@ -1,9 +1,9 @@
-<h2 ng-show="events.noEvents">No events!</h2>
+<h2 class="eventTitles" ng-show="events.noEvents">No events!</h2>
 
-<h2 ng-hide="events.checkHosting">Hosting</h2>
+<h2 class="eventTitles" ng-hide="events.checkHosting">Hosting</h2>
 <div class="container">
   <ul class="row">
-    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="event in events.events track by $index">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.events track by $index">
       <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
       <div class="info">
         <img class="user-img" src="{{ event.host.profilePicture }}">
@@ -12,14 +12,14 @@
     </li>
   </ul>
 </div>
-<h2 ng-hide="events.checkAttending">Attending</h2>
+<h2 class="eventTitles" ng-hide="events.checkAttending">Attending</h2>
 <div class="container">
   <ul class="row">
-    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="event in events.eventsAttending track by $index">
-      <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.requestsAccepted track by $index">
+      <img ui-sref="eventsShow({ id: event.event._id })" src="{{ event.event.img }}">
       <div class="info">
-        <img class="user-img" src="{{ event.host.profilePicture }}">
-        <h3>{{ event.name }}</h3>
+        <img class="user-img" src="{{ event.event.host.profilePicture }}">
+        <h3>{{ event.event.name }}</h3>
       </div>
     </li>
   </ul>

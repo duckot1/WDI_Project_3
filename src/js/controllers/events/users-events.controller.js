@@ -6,7 +6,8 @@ UsersEventsCtrl.$inject = ['User', '$stateParams'];
 function UsersEventsCtrl(User, $stateParams) {
   const vm  = this;
   vm.title = 'My Events';
-  vm.eventsAttending = [];
+  vm.requestsAccepted = [];
+  vm.eventAttending;
   vm.events;
   vm.noEvents = true;
   vm.checkAttending = false;
@@ -22,20 +23,21 @@ function UsersEventsCtrl(User, $stateParams) {
     }
   });
 
-  User.inbox($stateParams).$promise
+  User.outbox($stateParams).$promise
   .then(data => {
-    vm.messages = data;
-    if (vm.eventsAttending.length === 0) {
-      vm.checkAttending = true;
+    console.log(data);
+    vm.requests = data;
+    if (vm.requests.length === 0) {
+      vm.checkAttending = false;
     } else {
       vm.noEvents = false;
     }
-    for (var i = 0; i < vm.messages.length; i++) {
-      if (vm.messages[i].status === 'accepted') {
-        console.log(vm.eventsAttending, vm.messages[i]);
-        vm.eventsAttending.push(vm.messages[i]);
+    for (var i = 0; i < vm.requests.length; i++) {
+      if (vm.requests[i].status === 'accepted') {
+        vm.requestsAccepted.push(vm.requests[i]);
       }
     }
+    console.log(vm.requestsAccepted);
   });
 
 
