@@ -1,54 +1,26 @@
-<h2 ng-controller="UsersEventsCtrl as events" class="titles">{{events.title}}</h2>
-  <div class="container">
-    <div class="row">
-      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-        <ul class="event-list">
-          <li ng-repeat="event in events.events">
-            <time datetime="2014-07-20">
-							<span class="day">4</span>
-							<span class="month">Jul</span>
-							<span class="year">2017</span>
-							<span class="time">ALL DAY</span>
-						</time>
-						<img class="tile" alt="Independence Day" src="http://www.konadeepsea.com/info/photos/sunset-on-sea_strike.jpg" />
-						<div class="info">
-            <a ui-sref="eventsShow({ id: event._id })"><h2 class="title">{{ event.name }}</h2></a>
+<h2 ng-show="events.noEvents">No events!</h2>
 
-<a ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a>
-
-							<p class="desc">{{event.description}}</p>
-              <p class="address">{{event.address}}</p>
-              <p class="interest">Users interested: {{event.usersInterested.length}}</p>
-						</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-<h2 ng-controller="UsersAttendingCtrl as eventAttending" class="titles">Attending</h2>
+<h2 ng-hide="events.checkHosting">Hosting</h2>
 <div class="container">
-  <div class="row">
-    <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-      <ul class="event-list">
-        <li ng-repeat="event in eventsAttending.events">
-          <time datetime="2014-07-20">
-            <span class="day">4</span>
-            <span class="month">Jul</span>
-            <span class="year">2017</span>
-            <span class="time">ALL DAY</span>
-          </time>
-          <img class="tile" alt="Independence Day" src="http://www.konadeepsea.com/info/photos/sunset-on-sea_strike.jpg" />
-          <div class="info">
-          <a ui-sref="eventsShow({ id: event._id })"><h2 class="title">{{ event.name }}</h2></a>
-
-<a ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a>
-
-            <p class="desc">{{event.description}}</p>
-            <p class="address">{{event.address}}</p>
-            <p class="interest">Users interested: {{event.usersInterested.length}}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ul class="row">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="event in events.events track by $index">
+      <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
+      <div class="info">
+        <img class="user-img" src="{{ event.host.profilePicture }}">
+        <h3>{{ event.name }}</h3>
+      </div>
+    </li>
+  </ul>
+</div>
+<h2 ng-hide="events.checkAttending">Attending</h2>
+<div class="container">
+  <ul class="row">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" ng-repeat="event in events.eventsAttending track by $index">
+      <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
+      <div class="info">
+        <img class="user-img" src="{{ event.host.profilePicture }}">
+        <h3>{{ event.name }}</h3>
+      </div>
+    </li>
+  </ul>
 </div>
