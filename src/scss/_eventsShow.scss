@@ -36,6 +36,7 @@
 
     h2 {
       font-size: 65px;
+      margin-top: 0px;
     }
 
     p {
@@ -49,4 +50,13 @@
 
 
   }
+}
+
+.messageForm {
+    margin: 10px auto;
+    width: 410px;
+}
+
+.requestMessage {
+  height: 57px;
 }
