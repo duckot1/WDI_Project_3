@@ -6,6 +6,8 @@ EventsCreateCtrl.$inject = ['API', '$state', 'Event'];
 function EventsCreateCtrl(API, $state, Event) {
   const vm = this;
 
+  vm.event = {};
+
   vm.create = eventsCreate;
 
   function eventsCreate(){
