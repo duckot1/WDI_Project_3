@@ -11,6 +11,23 @@
     <div class="item" ng-repeat="event in events.events track by $index" ng-class="events.giveClass($index)">
       <img ng-src="{{event.img}}" alt="{{event.name}}" width="460" height="345">
     </div>
+<!-- =======
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    {{ events.events.length }} Events
+    <ul class="list-unstyled">
+      <li ng-repeat="event in events.events track by $index" >
+        <ul class="list-unstyled">
+          <li class="single-event" style="background-image: url('{{ event.img }}');" ui-sref="eventsShow({ id: event._id })">
+            <div class="single-event-name">
+              <h4>{{ event.name }}</h4>
+              <p>by {{ event.host.firstName }}</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+>>>>>>> limit -->
   </div>
 
   <!-- Left and right controls -->
