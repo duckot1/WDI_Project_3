@@ -1,66 +1,6 @@
-<!--
-<div ng-if="usersShow.user.email">
-  <h1>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h1>
-
-  <img src="{{usersShow.user.profile_picture}}" alt="Profile Picture">
-  <p>location &bull; {{usersShow.user.dob}}</p>
-
-  <h4>Bio</h4>
-  <p>{{usersShow.user.bio}}</p>
-
-  <h2 class="titles">Current Events</h2>
-  <div class="container">
-    <div class="row">
-      <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-        <ul class="event-list">
-          <li ng-repeat="event in usersShow.user.events">
-            <time datetime="2014-07-20">
-							<span class="day">4</span>
-							<span class="month">Jul</span>
-							<span class="year">2017</span>
-							<span class="time">ALL DAY</span>
-						</time>
-						<img class="tile" alt="Independence Day" src="http://www.konadeepsea.com/info/photos/sunset-on-sea_strike.jpg" />
-						<div class="info">
-							<h2 class="title">{{ event.name }}</h2>
-							<p class="desc">{{event.description}}</p>
-              <p class="address">{{event.address}}</p>
-              <p class="interest">Users interested: 10</p>
-						</div>
-						<!- <div class="social">
-							<ul>
-								<li class="facebook" style="width:33%;"><a href="#facebook"><span class="fa fa-facebook"></span></a></li>
-								<li class="twitter" style="width:34%;"><a href="#twitter"><span class="fa fa-twitter"></span></a></li>
-								<li class="google-plus" style="width:33%;"><a href="#google-plus"><span class="fa fa-google-plus"></span></a></li>
-							</ul>
-						</div> -->
-          <!-- </li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- <h2 class="titles">Interested in Events</h2>
-  <ul>
-    <li ng-repeat="interestedIn in usersShow.user.interestedIn">{{interestedIn.name}}</li>
-  </ul>
-
-  <h2 class="titles">Not Interested in Events</h2>
-  <ul>
-    <li ng-repeat="interestedIn in usersShow.user.notInterestedIn">
-
-    </li>
-  </ul>
-
-  <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
-
-  <button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
-</div> -->
 
 <ul>
   <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
-  <!-- <button ng-click="users.accept(users.user)">Accept</button>
-  <button ng-click="users.decline(users.user)">Decline</button> -->
 </ul>
 
 <div ng-if="!usersShow.user.email">
