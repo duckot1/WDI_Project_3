@@ -1,3 +1,4 @@
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="eventCard">
@@ -6,7 +7,6 @@
         <h3>{{ eventsShow.event.name }}</h3><p>{{ eventsShow.event.emoji }}</p>
         <a ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ usersShow.user.profile_picture }}" alt="Host Profile"></a>
         <p>{{ eventsShow.event.startTime | date }} - {{ eventsShow.event.finishTime | date }}</p>
-        <p>{{ eventsShow.event.address }}</p>
         <p>{{ eventsShow.event.address }}</p>
         <p>{{ eventsShow.event.url }}</p>
         <p>{{ eventsShow.event.description }}</p>
@@ -27,9 +27,7 @@
         </div>
         <input class="btn btn-primary btn-block" type="submit" value="Submit">
       </form>
-
-    </div>
-
+</div>
 
 
     <button ng-if="eventsShow.notInterestedToggle" class="btn btn-warning" ng-click="eventsShow.notInterested(eventsShow.event)">I'm Not Interested</button>
