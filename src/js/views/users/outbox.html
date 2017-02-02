@@ -12,7 +12,7 @@
 
     <a class="firstName" ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a>
     <br>
-    <a class="eventName" ui-sref="#">{{messages.event.name}}</a>
+    <a class="eventName" ui-sref="eventsShow({id: messages.event._id})">{{messages.event.name}}</a>
     <p>{{messages.text}}</p>
   </div>
   </li>
