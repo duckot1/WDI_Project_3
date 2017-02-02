@@ -11,9 +11,8 @@ function UsersDeleteCheckCtrl(API, $stateParams, User, $state, CurrentUserServic
   vm.delete = usersDelete;
 
   function usersDelete(user){
-    console.log('you got here');
     User
-      .delete({ id: user._id })
+      .delete({ id: vm.user._id })
       .$promise
       .then(() => {
         CurrentUserService.removeUser();

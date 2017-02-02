@@ -4,6 +4,9 @@ angular
     'ngResource',
     'ui.bootstrap',
     'angular-jwt',
+    'ngTouch',
+    'ngFileUpload',
     'ngAnimate',
-    'ngTouch'
+    'ngTouch',
+    'slick'
   ]);

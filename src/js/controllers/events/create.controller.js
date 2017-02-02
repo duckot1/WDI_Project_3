@@ -6,6 +6,8 @@ EventsCreateCtrl.$inject = ['API', '$state', 'Event', 'User', '$stateParams', 'C
 function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserService) {
   const vm = this;
 
+  vm.event = {};
+
   CurrentUserService.getUser();
   const eventsArray = CurrentUserService.currentUser.events;
 
@@ -17,6 +19,8 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
       if (event.active === true){
         vm.activeEventCheck = false;
         vm.activeEventCheckMessage = true;
+        console.log(event);
+        vm.event = event;
       }
     });
   }else{
@@ -25,10 +29,12 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
   }
 
 
-  vm.create           = eventsCreate;
+  vm.create = eventsCreate;
 
 
   function eventsCreate(){
+    console.log(vm.event);
+    // vm.event.img = "http://fillmurray.com/200/200";
     return Event
     .save({event: vm.event})
     .$promise
