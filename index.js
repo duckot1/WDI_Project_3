@@ -4,6 +4,16 @@ const bodyParser = require('body-parser');
 const expressJWT = require('express-jwt');
 const morgan     = require('morgan');
 
+//Installing multer and testing if the image-upload will work
+const multer  = require('multer');
+const upload = multer({ dest: 'uploads/' });
+
+
+
+
+
+
+
 const routes     = require('./api/config/routes');
 const app        = express();
 const dest       = `${__dirname}/public`;

@@ -6,6 +6,8 @@ EventsCreateCtrl.$inject = ['API', '$state', 'Event', 'User', '$stateParams', 'C
 function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserService) {
   const vm = this;
 
+  vm.event = {};
+
   CurrentUserService.getUser();
   const eventsArray = CurrentUserService.currentUser.events;
 
@@ -31,6 +33,8 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
 
 
   function eventsCreate(){
+    console.log(vm.event);
+    // vm.event.img = "http://fillmurray.com/200/200";
     return Event
     .save({event: vm.event})
     .$promise
