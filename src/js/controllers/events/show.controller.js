@@ -18,6 +18,8 @@ console.log('eventShow', vm.event);
   vm.notInterestedToggle   = true;
   vm.deleteToggle          = false;
   vm.editToggle            = false;
+  vm.hostProfileToggle     = true;
+  vm.myProfileToggle       = false;
 
   CurrentUserService.getUser();
 
@@ -30,6 +32,8 @@ console.log('eventShow', vm.event);
       vm.editToggle            = true;
       vm.interestedToggle      = false;
       vm.notInterestedToggle   = false;
+      vm.hostProfileToggle     = false;
+      vm.myProfileToggle       = true;
     } else {
       vm.deleteToggle          = false;
       vm.editToggle            = false;
