@@ -1,20 +1,28 @@
-section.usersShow {
-  text-align: center;
-  margin: 0 auto;
-  width: 400px;
-  background-color: white;
-  padding: 10px 10px;
-  border: 1px solid rgb(212, 212, 212);
-}
-.profilePictureImg{
-  object-fit: contain;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  display: block;
-}
-.cogDiv{
-  text-align: right;
-  position: relative;
-  top: 10px;
+.user {
+  margin: 10px auto;
+  width: 350px;
+  height: 500px;
+  background: #eee;
+  border-radius: 2px;
+
+  .user-details.user-details-2 {
+    top: 111px;
+  }
+
+  .user-details {
+    top: 65px;
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    text-align: center !important;
+
+    img {
+      text-align: center !important;
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      border: 4px solid $primary-color
+    }
+  }
 }
