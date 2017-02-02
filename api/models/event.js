@@ -18,7 +18,7 @@ const eventSchema = new mongoose.Schema({
   lng: { type: String, trim: true },
   cost: { type: String },
   url: { type: String, trim: true },
-  img: { type: String, trim: true },
+  img: { type: String, trim: true, required: true },
   emoji: { type: String, trim: true} ,
   startTime: { type: Date },
   finishTime: { type: Date },
