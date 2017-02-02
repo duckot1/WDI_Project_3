@@ -31,6 +31,8 @@ function EventsCreateCtrl(API, $state, Event, User, $stateParams, CurrentUserSer
 
 
   function eventsCreate(){
+    console.log(vm.event);
+    // vm.event.img = "http://fillmurray.com/200/200";
     return Event
     .save({event: vm.event})
     .$promise
