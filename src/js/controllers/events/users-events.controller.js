@@ -22,8 +22,6 @@ function UsersEventsCtrl(User, $stateParams) {
       vm.checkAttending = true;
     } else {
       vm.noEvents = false;
-      vm.checkAttending = false;
-      vm.checkHosting = false;
     }
   });
 
