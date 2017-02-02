@@ -12,7 +12,7 @@ function EventsIndexCtrl(Event) {
     if (index === 0) return 'active';
   }
 
-  $('a').click((e) => {
-    e.preventDefault();
-  });
+  // $('a').click((e) => {
+  //   e.preventDefault();
+  // });
 }
