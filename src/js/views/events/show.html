@@ -14,7 +14,7 @@
       </div>
     </div>
     <button ng-if="eventsShow.editToggle" class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
-    <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.events)">Delete</button>
+    <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
     <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.expressInterest()">I'm Interested</button>
     <!-- <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.interested(eventsShow.event)">I'm Interested</button> -->
 

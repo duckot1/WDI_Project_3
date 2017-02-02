@@ -1,9 +1,9 @@
 angular
 .module('clubMate')
-.controller('UsersInterestedCtrl', UsersInterestedCtrl);
+.controller('UsersAttendingCtrl', UsersAttendingCtrl);
 
-UsersInterestedCtrl.$inject = ['User', '$stateParams'];
-function UsersInterestedCtrl(User, $stateParams) {
+UsersAttendingCtrl.$inject = ['User', '$stateParams'];
+function UsersAttendingCtrl(User, $stateParams) {
   const vm  = this;
   vm.title = 'Interested In';
   User
@@ -12,4 +12,5 @@ function UsersInterestedCtrl(User, $stateParams) {
       vm.events = response.interestedIn;
       console.log(vm.events);
     });
+
 }

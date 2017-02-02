@@ -40,12 +40,10 @@ async.waterfall([
   createThirteenthRequest,
   createFourteenthRequest,
   createFifteenthRequest,
-  pickFifthAttendee,
   createSixthEvent,
   createSixteenthRequest,
   createSeventeenthRequest,
-  createEighteenthRequest,
-  pickSixthAttendee
+  createEighteenthRequest
   // createSeventhEvent,
   // createNinteenthRequest,
   // createTwentiethRequest,
