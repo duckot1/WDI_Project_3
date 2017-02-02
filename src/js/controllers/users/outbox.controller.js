@@ -10,6 +10,7 @@ function UsersOutboxCtrl(API, User, $stateParams){
   User.outbox($stateParams).$promise
   .then(data => {
     vm.messages = data;
+    console.log(vm.messages);
     if (vm.messages.length === 0) {
       vm.noMessages = true;
       vm.showMessages   = false;

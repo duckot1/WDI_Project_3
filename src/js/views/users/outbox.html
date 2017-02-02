@@ -7,8 +7,8 @@
 <div ng-if="usersOutbox.messages">
 <ul>
   <li ng-repeat="messages in usersOutbox.messages">
-    <h4><b>From:</b><a ui-sref="usersShow({ id: messages.receiver._id })">Me</a></h4>
-    <h4><b>To: </b><a ui-sref="usersShow({ id: messages.sender._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a></h4>
+    <h4><b>From:</b><a ui-sref="usersShow({ id: messages.sender._id })">Me</a></h4>
+    <h4><b>To: </b><a ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a></h4>
     <h4><b>From:</b> Me</h4>
     <h4><b>To:</b> {{messages.receiver.firstName}}</h4>
     <p><b>Email:</b> {{messages.receiver.email}}</p>
