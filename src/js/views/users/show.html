@@ -8,8 +8,10 @@
       <h3>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h3><br><br><br>
     </div>
     <div class="user-details user-details-2">
-      <p>Bio {{usersShow.user.bio}}</p>
-      <p>Birthday {{usersShow.user.dob}}</p>
+          <br>
+      <p>{{usersShow.user.bio}}</p>
+
+      <p>{{usersShow.user.dob}}</p>
       <div class="interactions">
         <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })">edit</a>  ||  <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
       </div>
