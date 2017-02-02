@@ -6,9 +6,18 @@ UsersOutboxCtrl.$inject = ['API', 'User', '$stateParams'];
 function UsersOutboxCtrl(API, User, $stateParams){
   const vm = this;
 
-  vm.user = User.outbox($stateParams);
 
-  console.log('outbox', vm.user);
+  User.outbox($stateParams).$promise
+  .then(data => {
+    vm.messages = data;
+    if (vm.messages.length === 0) {
+      vm.noMessages = true;
+      vm.showMessages   = false;
+    } else {
+      vm.noMessages = false;
+      vm.showMessages   = true;
+    }
+  });
 
 
 }

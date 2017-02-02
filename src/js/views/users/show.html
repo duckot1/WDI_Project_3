@@ -10,24 +10,15 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h1>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h1>
-
 <img src="{{usersShow.user.profilePicture}}" alt="Profile Picture">
 <p>D.O.B. {{usersShow.user.dob}}</p>
-
-
       <h4>Bio</h4>
       <p>{{usersShow.user.bio}}</p>
-
-      <button class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
-
-      <button class="btn btn-default" ng-click="usersShow.delete(usersShow.user)">Delete</button>
-
+      <button ng-if="usersShow.editDeleteHide" class="btn btn-default" ui-sref="usersEdit({ id: usersShow.user._id })">Edit</button>
+      <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck">delete</a>
       <ul>
         <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
-        <!-- <button ng-click="users.accept(users.user)">Accept</button>
-        <button ng-click="users.decline(users.user)">Decline</button> -->
       </ul>
-
     </div>
   </div>
 </section>

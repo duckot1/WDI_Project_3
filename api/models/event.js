@@ -38,6 +38,7 @@ const eventSchema = new mongoose.Schema({
 
 eventSchema.pre('validate', function(done) {
   const self = this;
+  if (!self.isNew) return done();
   return self.model('Event').findOne({
     host: self.host,
     active: true

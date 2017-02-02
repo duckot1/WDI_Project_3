@@ -18,6 +18,7 @@ function requestsCreate(req, res) {
       console.log(err);
       return res.status(500).json({ message: 'Something went wrong.' });
     }
+    if (!request) return res.status(402).json({ message: 'No such request'});
     return res.status(201).json(request);
   });
 }

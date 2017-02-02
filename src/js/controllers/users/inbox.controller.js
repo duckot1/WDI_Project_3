@@ -6,9 +6,20 @@ UsersInboxCtrl.$inject = ['API', 'User', '$stateParams', '$state'];
 function UsersInboxCtrl(API, User, $stateParams, $state){
   const vm = this;
 
-  vm.user = User.inbox($stateParams);
+  User.inbox($stateParams).$promise
+  .then(data => {
+    vm.messages = data;
+    console.log(vm.messages);
+    if (vm.messages.length === 0) {
+      vm.noMessages = true;
+      vm.showMessages   = false;
+    } else {
+      console.log('messages')
+      vm.noMessages = false;
+      vm.showMessages    = true;
+    }
+  });
 
-  console.log(vm.user);
 
   vm.accept = eventAccept;
   vm.hideOnAccept = hideOnAccept;
