@@ -1,6 +1,6 @@
 angular
-  .module('clubMate')
-  .controller('EventsShowCtrl', EventsShowCtrl);
+.module('clubMate')
+.controller('EventsShowCtrl', EventsShowCtrl);
 
 EventsShowCtrl.$inject = ['API', '$stateParams', 'User', 'Event', '$state', 'TokenService', 'CurrentUserService'];
 function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, CurrentUserService) {
@@ -11,7 +11,7 @@ function EventsShowCtrl(API, $stateParams, User, Event, $state, TokenService, Cu
   vm.interested = sendInterested;
   vm.notInterested = sendNotInterested;
   vm.expressInterest = expressInterest;
-console.log('eventShow', vm.event);
+  console.log('eventShow', vm.event);
 
 
   vm.interestedToggle      = true;
@@ -55,11 +55,11 @@ console.log('eventShow', vm.event);
 
   function eventsDelete(event){
     Event
-      .delete({ id: event._id })
-      .$promise
-      .then(() => {
-        $state.go('eventsIndex');
-      });
+    .delete({ id: event._id })
+    .$promise
+    .then(() => {
+      $state.go('eventsIndex');
+    });
   }
 
   //add an express interest button that happens here, and then attach the send interest function below to the submit button of the modal.
@@ -71,33 +71,33 @@ console.log('eventShow', vm.event);
   function sendInterested(event) {
     console.log('sent');
     User
-      .request({
-        receiver: event.host._id,
-        event: event._id,
-        interested: true,
-        text: vm.sendInterestedText
-      })
-      .$promise
-      .then(response => {
-        $state.go('eventsIndex');
-      });
+    .request({
+      receiver: event.host._id,
+      event: event._id,
+      interested: true,
+      text: vm.sendInterestedText
+    })
+    .$promise
+    .then(response => {
+      $state.go('eventsIndex');
+    });
   }
 
   const decoded = TokenService.decodeToken();
 
   function sendNotInterested(event) {
     User
-      .get({ id: decoded.id })
+    .get({ id: decoded.id })
+    .$promise
+    .then((user) => {
+      user.notInterestedIn.push(event._id);
+      User
+      .update({ id: decoded.id }, user)
       .$promise
-      .then((user) => {
-        user.notInterestedIn.push(event._id);
-        User
-          .update({ id: decoded.id }, user)
-          .$promise
-          .then(data => {
-            $state.go('eventsIndex');
-          });
+      .then(data => {
+        $state.go('eventsIndex');
       });
+    });
   }
 }
 

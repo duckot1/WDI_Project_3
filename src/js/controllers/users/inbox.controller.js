@@ -15,8 +15,8 @@ function UsersInboxCtrl(API, User, $stateParams, $state){
       vm.showMessages   = false;
     } else {
       console.log('messages');
-      vm.noMessages = false;
-      vm.showMessages    = true;
+      vm.noMessages   = false;
+      vm.showMessages = true;
     }
   });
 

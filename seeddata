@@ -1,0 +1,117 @@
+firstName: 'Beyonce',
+lastName: 'Knowles',
+email: 'beyonce@knowles.com',
+profilePicture: 'http://www.hdwallpapers3d.com/wp-content/uploads/2013/06/beyonce-knowles-wallpaper3.jpg',
+dob: '01/09/83',
+bio: 'Triple Threat',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Preston',
+lastName: 'Oshita',
+email: 'towkio@towkio.com',
+profilePicture: 'http://www.traktivist.com/wp-content/uploads/2015/08/TOWKIO.jpg',
+dob: '02/04/1991',
+bio: 'I rap',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Harley E.',
+lastName: 'Streten',
+email: 'flume@.com',
+profilePicture: 'http://crispycrustrecs.com/wp-content/uploads/2015/05/flume.png',
+dob: '05/11/1991',
+bio: 'Flume',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Matthew',
+lastName: 'Walker',
+email: 'julio@bashmore.com',
+profilePicture: 'https://www.residentadvisor.net/images/features/2015/julio-bashmore-pop-fish.jpg',
+dob: '03/04/1990',
+bio: 'DJ',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Monica',
+lastName: 'Belluci',
+email: 'monica@belluci.com',
+profilePicture: 'http://provocative-woman.com/wp-content/uploads/2016/08/29.jpg',
+dob: '30/09/1964',
+bio: 'Actress/Model',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Louis',
+lastName: 'Celestin',
+email: 'kaytranada@kaytranada.com',
+profilePicture: 'http://www.djoybeat.com/wp-content/uploads/2013/09/kaytranada-2.jpg',
+dob: '25/08/1992',
+bio: 'Music Producer',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Kelela',
+lastName: 'Mizanekristos',
+email: 'kelela@miz.com',
+profilePicture: 'https://warpnet-media.s3.amazonaws.com/1c37853afa53a0150b1d27cda3a83faf9f7f5470be8eacbe6f8b615d',
+dob: '06/06/1983',
+bio: 'Singer, Artist and Songwriter',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'David',
+lastName: 'Gilmour',
+email: 'david@gilmour.com',
+profilePicture: 'http://ace-bootlegs.com/wp-content/uploads/ARTISTES%20PRESENTATION/gilmour0.jpg',
+dob: '06/03/1946',
+bio: 'Pink Floyd',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Emma',
+lastName: 'Stone',
+email: 'emma@stone.com',
+profilePicture: 'http://hbz.h-cdn.co/assets/cm/15/03/54b48d181df50_-_hbz-gg-2015-beauty-emma-stone-promo.jpg',
+dob: '06/11/1988',
+bio: 'Actress',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Kerry',
+lastName: 'Washington',
+email: 'kerry@washington.com',
+profilePicture: 'https://s-media-cache-ak0.pinimg.com/originals/79/ac/86/79ac865dc1ab576d2b114baad37e6b8c.jpg',
+dob: '31/01/1977',
+bio: 'Actress',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Yayoi',
+lastName: 'Kusama',
+email: 'yayoi@kusama.com',
+profilePicture: 'http://jojoscope.com/wp-content/uploads/zz-fs-maristela-5-yayoi.jpg',
+dob: '22/03/1929',
+bio: 'Artist',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Barack',
+lastName: 'Obama',
+email: 'barack@obama.com',
+profilePicture: 'http://www.billboard.com/files/styles/promo_650/public/media/President-Barack-Obama-2014-billboard-650.jpg',
+dob: '04/08/1961',
+bio: 'unemployed atm - lots of free time',
+password: 'password',
+passwordConfirmation: 'password'
+},{
+firstName: 'Gautama',
+lastName: 'Buddha',
+email: 'gautama@buddha.com',
+profilePicture: 'http://www.isow-wageningen.org/wp-content/uploads/2016/04/buddha.jpg',
+dob: '567bc',
+bio: 'A spiritual leader, offering guidance',
+password: 'password',
+passwordConfirmation: 'password'
+},
