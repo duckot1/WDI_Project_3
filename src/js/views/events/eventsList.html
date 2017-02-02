@@ -12,7 +12,10 @@
 						</time>
 						<img class="tile" alt="Independence Day" src="http://www.konadeepsea.com/info/photos/sunset-on-sea_strike.jpg" />
 						<div class="info">
-							<h2 class="title">{{ event.name }}</h2>
+            <a ui-sref="eventsShow({ id: event._id })"><h2 class="title">{{ event.name }}</h2></a>
+
+<a ui-sref="eventsShow({ id: usersInbox.messages[0].event._id })">{{usersInbox.messages[0].event.name}}</a>
+
 							<p class="desc">{{event.description}}</p>
               <p class="address">{{event.address}}</p>
               <p class="interest">Users interested: {{event.usersInterested.length}}</p>

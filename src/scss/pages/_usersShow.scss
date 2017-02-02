@@ -1,9 +1,10 @@
 section.usersShow {
   text-align: center;
-  
-  img {
-    max-width: 100px;
-    margin: 0 auto;
-    display: block;
-  }
+}
+.profilePictureImg{
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
 }
