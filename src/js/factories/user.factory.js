@@ -11,6 +11,7 @@ function userFactory(API, $resource) {
     request: { method: 'POST', url: `${API}/requests` },
     requestUpdate: { method: 'PUT', url: `${API}/requests/:id` },
     inbox: { method: 'GET', url: `${API}/users/:id/inbox`, isArray: true },
-    outbox: { method: 'GET', url: `${API}/users/:id/outbox`, isArray: true }
+    outbox: { method: 'GET', url: `${API}/users/:id/outbox`, isArray: true },
+    getHost: { method: 'GET', url: `${API}/users/:id`, isArray: true }
   });
 }

@@ -1,12 +1,13 @@
 .messageHeader {
   padding: 10px;
+  text-decoration: underline;
 }
 
 .switchMessage {
     float: right;
-    margin-right: 380px;
-    margin-top: 12px;
-    font-size: 30px;
+    margin-right: 408px;
+    margin-top: 24px;
+    font-size: 19px;
 }
 
 .active-event {
@@ -22,7 +23,7 @@
   width: 501px;
   border: 2px solid #ccc;
   border-radius: 2px;
-  margin: 30px 0px;
+  margin: 48px 0px;
   padding: 5px 15px 0 15px;
 }
 
@@ -42,11 +43,6 @@
   display: inline-block;
   border: 4px solid $primary-color;
 }
-
-// top: -12px;
-// left: -20px;
-// height: 100px;
-// width: 100px;
 
 .pending {
   float: right;
