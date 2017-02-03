@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8">
   <title>Club Mate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/" />
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
-</head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="/images/x-icon">
+  </head>
 <body ng-controller="MainCtrl as main">
   <header>
     <nav class="navbar navbar-default">
@@ -40,10 +43,7 @@
                       <a ui-sref="usersEvents({ id: main.user._id })">My Events</a>
                     </li>
                     <li>
-                      <a ui-sref="usersInterested({ id: main.user._id })">Interested In</a>
-                    </li>
-                    <li>
-                      <a ui-sref="usersRequests({ id: main.user._id })">Requests</a>
+                      <a ui-sref="usersRequests({ id: main.user._id })">Pending Requests</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li>

@@ -1,21 +1,39 @@
-
-
 <div class="container">
   <div class="event">
     <div class="event-background">
       <img src="{{ eventsShow.event.img }}">
     </div>
+
     <div class="host-details">
-      <img src="{{ eventsShow.event.host.profilePicture }}">
-      <h3>{{ eventsShow.event.host.firstName }} {{ eventsShow.event.host.lastName }}</h3>
+    <a ui-sref="usersShow({ id: eventsShow.event.host._id })"><img src="{{ eventsShow.event.host.profilePicture }}"></a>
     </div>
     <div class="event-details">
       <h2>{{ eventsShow.event.name }}</h2>
-      <p>{{ eventsShow.event.date }}</p>
       <p>{{ eventsShow.event.address }}</p>
-      <p>{{ eventsShow.event.website }}</p>
-      <p>{{ eventsShow.event.location }}</p>
-      <p></p>
+      <p>{{ eventsShow.event.description }}</p>
+      <p>{{ eventsShow.event.url }}</p>
+
+      <button ng-if="eventsShow.editToggle" class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
+      <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
+      <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.expressInterest()">I'm Interested</button>
+
+
+      <div ng-if="eventsShow.showRequestModal">
+
+        <form class="messageForm" ng-submit="eventsShow.interested(eventsShow.event)">
+          <div class="form-group">
+            <input class="form-control requestMessage" type="text" name="requestMessage" ng-model="eventsShow.sendInterestedText" placeholder="Write your message here" >
+          </div>
+          <input class="btn btn-primary btn-block" type="submit" value="Submit">
+        </form>
+    </div>
+
+      <button ng-if="eventsShow.notInterestedToggle" class="btn btn-warning" ng-click="eventsShow.notInterested(eventsShow.event)">I'm Not Interested</button>
+      <ul>
+        <li ng-repeat="request in eventsShow.requests">{{ request.text }}</li>
+      </ul>
+
+
     </div>
   </div>
 </div>
@@ -46,7 +64,7 @@
       </div>
     </div>
     <button ng-if="eventsShow.editToggle" class="btn btn-primary" ui-sref="eventsEdit({ id: eventsShow.event._id })">Edit</button>
-    <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.events)">Delete</button>
+    <button ng-if="eventsShow.deleteToggle" class="btn btn-warning" ng-click="eventsShow.delete(eventsShow.event)">Delete</button>
     <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.expressInterest()">I'm Interested</button>
     <button ng-if="eventsShow.interestedToggle" class="btn btn-warning" ng-click="eventsShow.interested(eventsShow.event)">I'm Interested</button>
 

@@ -11,12 +11,12 @@ function UsersInboxCtrl(API, User, $stateParams, $state){
     vm.messages = data;
     console.log(vm.messages);
     if (vm.messages.length === 0) {
-      vm.noMessages = true;
-      vm.showMessages   = false;
+      vm.noMessages   = true;
+      vm.showMessages = false;
     } else {
       console.log('messages');
-      vm.noMessages = false;
-      vm.showMessages    = true;
+      vm.noMessages     = false;
+      vm.showMessages   = true;
     }
   });
 

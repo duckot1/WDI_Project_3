@@ -1,3 +1,26 @@
+<div class="container">
+  <div class="user">
+    <div class="user-background">
+      <img src="{{ eventsShow.event.img }}">
+    </div>
+    <div class="user-details">
+      <img class="profilePictureImg" src="{{usersShow.user.profilePicture}}" alt="Click edit and insert your own profile picture">
+      <h3>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h3><br><br><br>
+    </div>
+    <div class="user-details user-details-2">
+          <br>
+      <p>{{usersShow.user.bio}}</p>
+
+      <p>{{usersShow.user.dob}}</p>
+      <div class="interactions">
+        <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })">edit</a>  ||  <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <ul>
   <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
 </ul>
@@ -5,27 +28,3 @@
 <div ng-if="!usersShow.user.email">
   <h1>No User Exists</h1>
 </div>
-
-<section class="usersShow">
-      <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-
-      <div class="cogDiv">
-        <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })"><img src="/images/outline_gearwheel-512.png" height="25px" alt="Profile Picture"></a>
-      </div>
-
-      <div class="profilePicture">
-        <img class="profilePictureImg" src="{{usersShow.user.profilePicture}}" alt="Profile Picture">
-      </div>
-      <h1>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h1>
-      <p>D.O.B. {{usersShow.user.dob}}</p>
-      <h4>Bio</h4>
-      <p>{{usersShow.user.bio}}</p>
-
-      <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
-      <ul>
-        <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
-      </ul>
-    </div>
-  </div>
-</section>
