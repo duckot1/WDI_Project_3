@@ -16,10 +16,14 @@ function UsersEventsCtrl(User, $stateParams) {
   .get($stateParams).$promise
   .then(response => {
     vm.events = response.events;
+    console.log(vm.events.length);
     if (vm.events.length === 0) {
       vm.checkHosting = true;
+      vm.checkAttending = true;
     } else {
       vm.noEvents = false;
+      vm.checkAttending = false;
+      vm.checkHosting = false;
     }
   });
 

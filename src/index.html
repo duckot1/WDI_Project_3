@@ -10,6 +10,7 @@
   <!-- inject:css -->
   <!-- endinject -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
+  <link rel="shortcut icon" href="/images/favicon.ico" type="/images/x-icon">
   </head>
 <body ng-controller="MainCtrl as main">
   <header>
@@ -42,7 +43,7 @@
                       <a ui-sref="usersEvents({ id: main.user._id })">My Events</a>
                     </li>
                     <li>
-                      <a ui-sref="usersRequests({ id: main.user._id })">Requests</a>
+                      <a ui-sref="usersRequests({ id: main.user._id })">Pending Requests</a>
                     </li>
                     <li role="separator" class="divider"></li>
                     <li>
