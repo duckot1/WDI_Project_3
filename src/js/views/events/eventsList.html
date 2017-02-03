@@ -12,7 +12,7 @@
       <img ui-sref="eventsShow({ id: event._id })" ng-src="{{ event.img }}">
       <div class="info">
         <img class="user-img" ng-src=" {{event.host.profilePicture}}">
-        <h3>{{ event.name }}</h3>
+        <h3 ui-sref="eventsShow({ id: event._id })">{{ event.name }}</h3>
       </div>
     </li>
   </ul>
