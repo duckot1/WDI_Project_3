@@ -15,8 +15,8 @@ function UsersEventsCtrl(User, $stateParams) {
   User
   .get($stateParams).$promise
   .then(response => {
+    vm.profilePicture = response.profilePicture;
     vm.events = response.events;
-    console.log(vm.events.length);
     if (vm.events.length === 0) {
       vm.checkHosting = true;
       vm.checkAttending = true;
