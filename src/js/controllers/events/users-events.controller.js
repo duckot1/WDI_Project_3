@@ -27,7 +27,7 @@ function UsersEventsCtrl(User, $stateParams) {
 
   User.outbox($stateParams).$promise
   .then(data => {
-    console.log(data);
+    console.log(data, 'yooooo');
     vm.requests = data;
     if (vm.requests.length === 0) {
       vm.checkAttending = false;
@@ -39,7 +39,7 @@ function UsersEventsCtrl(User, $stateParams) {
         vm.requestsAccepted.push(vm.requests[i]);
       }
     }
-    console.log(vm.requestsAccepted);
+    console.log(vm.requestsAccepted, 'looooool');
   });
 
 

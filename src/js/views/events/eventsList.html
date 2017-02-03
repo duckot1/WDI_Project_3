@@ -22,7 +22,7 @@
     <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.requestsAccepted track by $index">
       <img ui-sref="eventsShow({ id: event.event._id })" src="{{ event.event.img }}">
       <div class="info">
-        <img class="user-img" src="{{ event.event.host.profilePicture }}">
+        <img class="user-img" src="{{ event.receiver.profilePicture }}">
         <h3>{{ event.event.name }}</h3>
       </div>
     </li>
