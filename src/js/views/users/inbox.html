@@ -14,7 +14,7 @@
 
 <ul>
   <li ng-repeat="messages in usersInbox.messages">
-    <img ui-sref="usersShow({ id: messages.sender._id })" class="email-picture" src="{{messages.sender.profile_picture}}">
+    <img ui-sref="usersShow({ id: messages.sender._id })" class="email-picture" src="{{messages.sender.profilePicture}}">
     <div class="message-content">
     <a class="firstName" ui-sref="usersShow({ id: messages.sender._id })"> {{messages.sender.firstName}} {{messages.sender.lastName}}</a>
     <p class="pending"><b>Status:</b> {{messages.status}}</p>

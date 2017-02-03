@@ -11,7 +11,7 @@
 <div class="messages" ng-if="usersOutbox.messages">
 <ul>
   <li ng-repeat="messages in usersOutbox.messages">
-        <a ui-sref="usersShow({ id: messages.sender._id })"><img class="email-picture" src="{{messages.sender.profile_picture}}"></a>
+        <a ui-sref="usersShow({ id: messages.sender._id })"><img class="email-picture" src="{{messages.receiver.profilePicture}}"></a>
         <div class="message-content">
 
     <a class="firstName" ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a>
