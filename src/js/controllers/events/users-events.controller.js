@@ -17,6 +17,7 @@ function UsersEventsCtrl(User, $stateParams) {
   .then(response => {
     vm.profilePicture = response.profilePicture;
     vm.events = response.events;
+
     if (vm.events.length === 0) {
       vm.checkHosting = true;
       vm.checkAttending = true;
@@ -27,7 +28,6 @@ function UsersEventsCtrl(User, $stateParams) {
 
   User.outbox($stateParams).$promise
   .then(data => {
-    console.log(data, 'yooooo');
     vm.requests = data;
     if (vm.requests.length === 0) {
       vm.checkAttending = false;
@@ -39,7 +39,6 @@ function UsersEventsCtrl(User, $stateParams) {
         vm.requestsAccepted.push(vm.requests[i]);
       }
     }
-    console.log(vm.requestsAccepted, 'looooool');
   });
 
 

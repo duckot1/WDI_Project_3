@@ -8,8 +8,10 @@
   <ul class="row">
     <h2 class="eventTitles" ng-hide="events.checkHosting">Hosting</h2>
     <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.events track by $index">
-      <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
+      <img ui-sref="eventsShow({ id: event._id })" ng-src="{{ event.img }}">
       <div class="info">
+        <img class="user-img" ng-src=" {{event.host.profilePicture}}">
+        <h3 ui-sref="eventsShow({ id: event._id })">{{ event.name }}</h3>
         <img class="user-img" src="{{ events.profilePicture }}">
         <h3>{{ event.name }}</h3>
       </div>

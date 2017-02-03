@@ -10,10 +10,11 @@
     <div class="user-details user-details-2">
           <br>
       <p>{{usersShow.user.bio}}</p>
-
+      <p>{{usersShow.user.email}}</p>
       <p>{{usersShow.user.dob}}</p>
       <div class="interactions">
-        <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })">edit</a>  ||  <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
+        <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })">edit</a> ||
+        <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
       </div>
     </div>
   </div>
