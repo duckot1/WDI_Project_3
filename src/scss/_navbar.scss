@@ -32,3 +32,12 @@
 ul.nav>navbar-nav>navbar-right {
 
 }
+
+.dropdown-menu .divider {
+  background-color: $primary-color;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #f8f8f8;
+  color: #1a181a;
+}
