@@ -16,7 +16,7 @@ function UsersEventsCtrl(User, $stateParams) {
   .get($stateParams).$promise
   .then(response => {
     vm.events = response.events;
-    console.log(vm.events.length);
+    // console.log(vm.events.length);
     if (vm.events.length === 0) {
       vm.checkHosting = true;
       vm.checkAttending = true;
@@ -29,7 +29,7 @@ function UsersEventsCtrl(User, $stateParams) {
 
   User.outbox($stateParams).$promise
   .then(data => {
-    console.log(data);
+    // console.log(data);
     vm.requests = data;
     if (vm.requests.length === 0) {
       vm.checkAttending = false;
@@ -41,7 +41,7 @@ function UsersEventsCtrl(User, $stateParams) {
         vm.requestsAccepted.push(vm.requests[i]);
       }
     }
-    console.log(vm.requestsAccepted);
+    // console.log(vm.requestsAccepted);
   });
 
 
