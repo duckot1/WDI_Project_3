@@ -16,13 +16,23 @@ After several rounds of brainstorms in the classroom, pub and elsewhere we came 
 
 ### Idea skeleton:
 
-A user can display an event they intend on attending, looking for another user that might be interesed in joining them.
+A user can post an event they intend on attending, which becomes public and allows for other users that might be interesed in joining to browse the selection of events.
 
 The working example we used was Luca, who was heading to a Trentemoller concert at the weekend. Trentemoller is a favourite for a few in the group:
 
 [Trentemoller] (https://open.spotify.com/artist/4O71i7ke5iIBX6RNSFoZbS)
 
 The below outlines a more detailed standup report, that was filled in less rigorously as time went on, signifying both a growing intensity of time pressure, but also a more iterative communication technique which involved the team communicating frequently with each other, working across the same table.
+
+### Technology Spotlight
+
+    "bcrypt": "^1.0.2",
+    "express-jwt": "^5.1.0",
+    "jsonwebtoken": "^7.2.1",
+We used bcrupt, Express-JWT and jsonwebtoken in our user authentication system
+
+Alongside these we used a NODE/EXPRESS back end with angular front end, and a General Assembly gulpfile which helped to streamline our production efforts.
+
 
 ### Selection mechanism lesson
 
