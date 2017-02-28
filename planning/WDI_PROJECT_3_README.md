@@ -1,4 +1,49 @@
-### Saturday, 28th January 2017
+# README
+
+### TEAM:
+
+REMYCE
+LUCA
+SARAH
+TOM
+CHARLIE
+
+### Introduction
+
+For this project we were set a task to encapsulate everything we had done into a MEAN stack using restful routes and any other cool bits that we could think of.
+
+After several rounds of brainstorms in the classroom, pub and elsewhere we came together and decided that focusing our energy on an app that brings people together around a common theme would be nice. 
+
+### Idea skeleton:
+
+A user can display an event they intend on attending, looking for another user that might be interesed in joining them.
+
+The working example we used was Luca, who was heading to a Trentemoller concert at the weekend. Trentemoller is a favourite for a few in the group:
+
+[Trentemoller] (https://open.spotify.com/artist/4O71i7ke5iIBX6RNSFoZbS)
+
+The below outlines a more detailed standup report, that was filled in less rigorously as time went on, signifying both a growing intensity of time pressure, but also a more iterative communication technique which involved the team communicating frequently with each other, working across the same table.
+
+### Selection mechanism lesson
+
+The main challenge in this project was generating a compelling UI - Luca in particular suffered from a lack of planning on the groups' behalf after working hard on various promising event selection features (mimicking the tinder swipe amongst others) but none were fluid enough to justify their use unfortunately. In future working together more clearly on a solution that might work with more open communication might have enabled us to be more successful in this area.
+
+### Notifications and messaging shout-out
+
+The request and messaging system was a big win for the group and application, back end masterminded by Tom, and implemented into the UI by Sarah. 
+
+### Branding shout-out
+
+The logo and branding was owned by Remyce who used the M as a pair holding hands - touch of genius.
+
+### Conclusion
+
+Whilst this app may never reach the hights of the meetup/tinder inspiration it is drawn from, the functionality held within is formidable given our experience before the sprint (never built an app in angular, as a group or with github), and showcases many of the technologies that we had covered. A satisfying result to a hard weeks work. 
+
+
+### Standup Report
+
+#### Saturday, 28th January 2017
 
 ##### **12pm Stand-up**
 
@@ -88,7 +133,9 @@ Luca - continued carousel implementation
 Tom - Completing the matching service
 Sarah - ironing out event add and drop down menu
 Charlie - Requests show on event page, and events show on user page.
+
 =======
+
 Main blocker is the matching engine and respective seed data. Spent the morning working through the issues with alex to build up a solid core.
 
 ##### **2pm Stand-up**
@@ -107,4 +154,6 @@ Tom working on getting requests to show on profile page
 Sarah working on
 Charlie getting event add and register working once more
 
-##### **2pm Stand-up**
+- - - - - - - - - - - - 
+
+Beyond here we were all hands on deck working on the details of getting the app complete.

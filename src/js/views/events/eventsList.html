@@ -11,11 +11,13 @@
     <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.events track by $index">
       <img ui-sref="eventsShow({ id: event._id })" src="{{ event.img }}">
       <div class="info">
-        <img class="user-img" src="{{ event.host.profilePicture }}">
+        <img class="user-img" src="{{ event.host._id }}">
         <h3>{{ event.name }}</h3>
+        <h3>{{ event.host._id }}</h3>
       </div>
     </li>
   </ul>
+
 </div>
 <h2 class="eventTitles" ng-if="events.checkAttending">Attending</h2>
 <div class="container">
