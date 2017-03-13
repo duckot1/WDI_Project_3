@@ -1,0 +1,24 @@
+<h1 class="messageHeader">Outbox</h1>
+
+<div ng-if="usersOutbox.noMessages">
+    <!-- <div class="col-md-6 col-md-offset-3"> -->
+    <div class="woahThere">
+    <h2>Relax you wonderful person. No messages at the moment. Start an <a ui-sref="eventsCreate">event</a> or dive into some <a ui-sref="eventsIndex">others</a> to start feeling the love.</h2>
+    </div>
+    <!-- </div> -->
+  </div>
+
+<div class="messages" ng-if="usersOutbox.messages">
+<ul>
+  <li ng-repeat="messages in usersOutbox.messages">
+        <a ui-sref="usersShow({ id: messages.receiver._id })"><img class="email-picture" src="{{messages.receiver.profilePicture}}"></a>
+        <div class="message-content">
+
+    <a class="firstName" ui-sref="usersShow({ id: messages.receiver._id })">{{messages.receiver.firstName}} {{messages.receiver.lastName}}</a>
+    <br>
+    <a class="eventName" ui-sref="eventsShow({id: messages.event._id})">{{messages.event.name}}</a>
+    <p>{{messages.text}}</p>
+  </div>
+  </li>
+</ul>
+</div>

@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <section ng-if="usersRequests.usersInbox">
+      <a class="switchMessage" ng-click="usersRequests.showOutbox()">Outbox</a>
+      <div ng-controller="UsersInboxCtrl as usersInbox" ng-include src="'/js/views/users/inbox.html'"></div>
+    </section>
+
+    <section ng-if="usersRequests.usersOutbox">
+      <a class="switchMessage" ng-click="usersRequests.showInbox()">Inbox</a>
+      <div ng-controller="UsersOutboxCtrl as usersOutbox" ng-include src="'/js/views/users/outbox.html'"></div>
+    </section>
+  </div>
+</div>

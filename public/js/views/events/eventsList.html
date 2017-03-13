@@ -1,0 +1,31 @@
+<div class="col-md-6 col-md-offset-3">
+<div ng-show="events.noEvents" class="woahThere">
+<h2>You've no events organised yet - head over to <a ui-sref="eventsCreate">add event</a> to start your adventure or browse some <a ui-sref="eventsIndex">others...</a></h2>
+</div>
+</div>
+
+<div class="container">
+  <ul class="row">
+    <h2 class="eventTitles" ng-hide="events.checkHosting">Hosting</h2>
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.events track by $index">
+      <img ui-sref="eventsShow({ id: event._id })" ng-src="{{ event.img }}">
+      <div class="info">
+        <img class="user-img" src="{{ events.profilePicture }}">
+        <h3>{{ event.name }}</h3>
+        <p>Users interested: {{ event.usersInterested.length }}</p>
+      </div>
+    </li>
+  </ul>
+</div>
+<h2 class="eventTitles" ng-hide="events.checkAttending">Attending</h2>
+<div class="container">
+  <ul class="row">
+    <li class="tile col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 eventBox" ng-repeat="event in events.requestsAccepted track by $index">
+      <img ui-sref="eventsShow({ id: event.event._id })" src="{{ event.event.img }}">
+      <div class="info">
+        <img class="user-img" ng-src="{{ event.receiver.profilePicture }}">
+        <h3>{{ event.event.name }}</h3>
+      </div>
+    </li>
+  </ul>
+</div>
