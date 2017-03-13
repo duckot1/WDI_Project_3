@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="user">
+    <div class="user-background">
+      <img src="{{ eventsShow.event.img }}">
+    </div>
+    <div class="user-details">
+      <img class="profilePictureImg" src="{{usersShow.user.profilePicture}}" alt="Click edit and insert your own profile picture">
+      <h3>{{usersShow.user.firstName}} {{usersShow.user.lastName}}</h3><br><br><br>
+    </div>
+    <div class="user-details user-details-2">
+          <br>
+      <p>{{usersShow.user.bio}}</p>
+
+      <p>{{usersShow.user.dob}}</p>
+      <div class="interactions">
+        <a class="cog" ng-if="usersShow.editDeleteHide" ui-sref="usersEdit({ id: usersShow.user._id })">edit</a>  ||  <a ng-if="usersShow.editDeleteHide" ui-sref="usersDeleteCheck({ id: usersShow.user._id })">delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ul>
+  <li ng-repeat="request in usersShow.requests">{{ request.text }}</li>
+</ul>
+
+<div ng-if="!usersShow.user.email">
+  <h1>No User Exists</h1>
+</div>
