@@ -12,10 +12,32 @@
 .navbar {
     margin-bottom: 0;
     ul>li>a {
-      font-family: 'Dosis', sans-serif;
+    font-family: 'Dosis', sans-serif;
+      .navbar {
+    border-bottom: 1px solid $primary-color;
+}
     }
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #1a181a;
+  font-weight: bold;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid $primary-color;
 }
 
 ul.nav>navbar-nav>navbar-right {
 
+}
+
+.dropdown-menu .divider {
+  background-color: $primary-color;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #f8f8f8;
+  color: #1a181a;
 }

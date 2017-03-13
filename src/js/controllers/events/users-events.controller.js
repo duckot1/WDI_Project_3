@@ -15,21 +15,19 @@ function UsersEventsCtrl(User, $stateParams) {
   User
   .get($stateParams).$promise
   .then(response => {
+    vm.profilePicture = response.profilePicture;
     vm.events = response.events;
-    console.log(vm.events.length);
+
     if (vm.events.length === 0) {
       vm.checkHosting = true;
       vm.checkAttending = true;
     } else {
       vm.noEvents = false;
-      vm.checkAttending = false;
-      vm.checkHosting = false;
     }
   });
 
   User.outbox($stateParams).$promise
   .then(data => {
-    console.log(data);
     vm.requests = data;
     if (vm.requests.length === 0) {
       vm.checkAttending = false;
@@ -41,7 +39,6 @@ function UsersEventsCtrl(User, $stateParams) {
         vm.requestsAccepted.push(vm.requests[i]);
       }
     }
-    console.log(vm.requestsAccepted);
   });
 
 

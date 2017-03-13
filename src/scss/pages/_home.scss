@@ -1,0 +1,51 @@
+section.home {
+  text-align: center;
+  img {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+  }
+  li {
+    padding: 0;
+    margin: 0;
+  }
+
+  .row2{
+    color: orange;
+
+    width: 100%;
+    margin-top: 160px;
+    text-align: center;
+    font-weight: 1px;
+    float: inline-block;
+  }
+
+  #arrow{
+    max-width: 20px;
+    margin-top: 25px;
+}
+
+
+  .col-md-4{
+    margin-top: 100px;
+    margin-left: 6%;
+    margin: 0 10 10px;
+    float: left;
+    width: 25%;
+    font-size: 30px;
+    text-align: center;
+
+    .circle{
+      border-radius: 40%;
+      width: 60px;
+      height: 50px;
+      color: white;
+      background: rgb(249, 147, 39);
+      clear: both;
+      margin-left: 120px;
+      margin-top: 20px;
+    }
+  }
+
+
+}
